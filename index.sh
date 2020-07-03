@@ -32,10 +32,11 @@ sudo flatpak install flathub com.valvesoftware.Steam
 ./installScripts/install-lsd.sh
 ./installScripts/install-fonts.sh
 ./installScripts/install-node.sh
+./installScripts/install-hostess.sh
 
 # User configuration
 ./configScripts/link-configs.sh
-./configScripts/append-hosts.sh
+./configScripts/update-hosts.sh
 ./configScripts/setup-git.sh
 
 # Still working on themeing
