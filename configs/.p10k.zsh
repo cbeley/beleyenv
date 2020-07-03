@@ -12,6 +12,9 @@
 #
 #   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 
+# Note that this file contains some modifications from what the wizard generated.
+# TODO: Explore options to separate custom config from wizard config.
+
 # Temporarily change options.
 'builtin' 'local' '-a' 'p10k_config_opts'
 [[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
