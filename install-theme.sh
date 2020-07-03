@@ -25,3 +25,8 @@ gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto"
 # this may get set by something else and likely is not necesary to set manually.  Verify
 # this after a clean install.
 export QT_QPA_PLATFORMTHEME=gtk2
+
+
+# possibly tweak more.
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_SCALE_FACTOR=1.2
