@@ -26,6 +26,12 @@ gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto"
 # this after a clean install.
 export QT_QPA_PLATFORMTHEME=gtk2
 
+# this stuff is probally not needed.  Saving for reference.
+# export QT_STYLE_OVERRIDE=gtk
+
+# Will probally not use this.  Will play with it more under a clean install.
+#sudo apt-get install qt5ct
+
 
 # possibly tweak more.
 export QT_AUTO_SCREEN_SCALE_FACTOR=0

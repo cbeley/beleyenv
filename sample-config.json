@@ -1,4 +1,5 @@
 {
 	"email": "email@gmail.com",
-	"name": "Your Name"
+	"name": "Your Name",
+	"sublimeLicense": "A properly escaped sublime license file"
 }
