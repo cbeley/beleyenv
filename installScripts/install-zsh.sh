@@ -15,3 +15,5 @@ sudo ln -sf "$HOME/.p10k.zsh" /root/.p10k.zsh
 
 sudo chsh -s "$(which zsh)"
 sudo chsh -s "$(which zsh)" "${USER}"
+
+echo "zsh tooling installed!"

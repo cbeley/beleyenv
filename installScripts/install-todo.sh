@@ -17,3 +17,5 @@ curl -s https://api.github.com/repos/todotxt/todo.txt-cli/releases/latest \
 
 cd ./*
 sudo cp todo.sh /usr/local/bin/
+
+echo "todo.sh installed to /usr/local/bin"

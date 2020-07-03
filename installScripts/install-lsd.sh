@@ -12,3 +12,5 @@ curl -s https://api.github.com/repos/Peltoche/lsd/releases/latest \
 	| xargs wget
 
 sudo dpkg -i ./*.deb
+
+echo "lsd installed!"
