@@ -7,7 +7,7 @@ sudo apt update
 # prompting the user to do something.
 sudo apt-get -y install jq
 
-./setup-ssh-keys.sh 
+./configScripts/setup-ssh-keys.sh 
 
 ### Everything below this line should require zero prompting from the user ###
 
@@ -25,19 +25,18 @@ sudo flatpak install flathub com.valvesoftware.Steam
 
 # Package installs that require more effort -- mostly because debian LTS tends to have
 # very old packages.
-./install-kitty.sh
-./install-zsh.sh
-./install-sublime.sh
-./install-todo.sh
-./install-lsd.sh
-./install-fonts.sh
-./install-node.sh
+./installScripts/installKitty/index.sh
+./installScripts/install-zsh.sh
+./installScripts/install-sublime.sh
+./installScripts/install-todo.sh
+./installScripts/install-lsd.sh
+./installScripts/install-fonts.sh
+./installScripts/install-node.sh
 
 # User configuration
-./install-configs.sh
-./appennd-hosts.sh
-./setup-git.sh
+./configScripts/link-configs.sh
+./configScripts/append-hosts.sh
+./configScripts/setup-git.sh
 
 # Still working on themeing
 # ./install-theme.sh
-
