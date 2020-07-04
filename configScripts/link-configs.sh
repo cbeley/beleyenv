@@ -20,4 +20,9 @@ echo "Todo.sh config installed!"
 ln -sf "$(pwd)/configs/systemd" ~/.config/systemd
 echo "systemd local overrides installed!"
 
+# Overriden Deluge Config
+mkdir -p ~/.config/deluge
+ln -sf "$(pwd)/configs/deluge/gtk3ui.conf" ~/.config/deluge/gtk3ui.conf
+echo "Deluge configs installed!"
+
 echo "All configs installed!"
