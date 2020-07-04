@@ -1,6 +1,15 @@
 #!/bin/bash 
 set -e
 
+if [[ $TERM -eq "xterm-kitty" ]]; then
+	echo "[WARN] You are currently running kitty, so instalation of it was skipped."
+	echo "[WARN] Run ./installScrips/installKitty/index.sh in a differnt terminal if you would like to upgrade kitty."
+	echo "Skipping kitty install..."
+
+	notify-send -a "beleyenv" "[WARN] Skipping install/upgrade of kitty"
+	exit 0
+fi
+
 rm -rf temp
 mkdir -p temp
 

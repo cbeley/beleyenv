@@ -18,7 +18,10 @@ set -e
 if [[ $keygenExitCode != 0 ]]; then
 	echo "Assuming you entered 'No' when asked to ovewrite keys"
 	echo "Skipping SSH key-gen generation..."
-	exit 1
+	notify-send -a 'beleyenv' '[WARN] SSH key-gen canceled' \
+		'If you did not answer no to overwrite keys, something may have gone wrong.'
+
+	exit 0
 fi
 
 # This works in both kitty & the ChromeOS terminal app.  Your milleage may

@@ -61,5 +61,6 @@ source ~/.p10k.zsh
 ######################## Aliases ############################
 #############################################################
 alias ls="lsd"
+alias icat="kitty +kitten icat"
 
 eval $(thefuck --alias)
