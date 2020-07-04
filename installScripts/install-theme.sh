@@ -12,8 +12,10 @@ sudo apt-get install dconf-editor lxapperance
 
 # These are needed for apps like sublime to work.  gsettings provides this.
 gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto"
-gsettings set org.gnome.desktop.interface icon-theme "Adapta-Nokto"
-gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto"
+
+# I dont' think the two below should be set.
+#gsettings set org.gnome.desktop.interface icon-theme "Adapta-Nokto"
+#gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto"
 
 # We also may not need gsettings and could instead just save /.config/dconf
 
