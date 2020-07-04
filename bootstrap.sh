@@ -16,7 +16,11 @@ if [[ "$(pwd)" != "$HOME/.beleyenv/beleyenv" ]]; then
 fi
 
 
+read -sp 'git-crypt secret key:' secretKey
 
-# TODO: Prompt to enter key.
+# Inspired by
+# https://unix.stackexchange.com/questions/352569/converting-from-binary-to-hex-and-back
+echo $secretKey | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' \
+	| xargs -I {} printf {} > ~/.beleyenv/secretKey 
 
 git-crypt unlock ~/.beleyenv/secretKey
