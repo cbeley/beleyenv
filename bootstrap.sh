@@ -6,8 +6,7 @@ sudo apt-get install git-crypt
 
 # Install the commit hook that should probally be a part of git-crypt
 # that prevents commiting unencrypted files.
-wget https://gist.githubusercontent.com/Falkor/848c82daa63710b6c132bb42029b30ef/raw/610bac85ca512171d04b19d668098bd2678559a7/pre-commit.git-crypt.sh -O .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
+cp pre-commit-hook .git/hooks/pre-commit
 
 if [[ "$(pwd)" != "$HOME/.beleyenv/beleyenv" ]]; then
 	mkdir -p ~/.beleyenv
