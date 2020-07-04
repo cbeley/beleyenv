@@ -16,4 +16,8 @@ mkdir -p ~/.todo/
 ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
 echo "Todo.sh config installed!"
 
+# Overriden Sommelier Config
+ln -sf "$(pwd)/configs/systemd" ~/.config/systemd
+echo "systemd local overrides installed!"
+
 echo "All configs installed!"
