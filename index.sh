@@ -60,6 +60,9 @@ sudo flatpak install -y flathub com.valvesoftware.Steam
 ./installScripts/install-node.sh
 ./installScripts/install-hostess.sh
 
+# Install yarn dependencies
+sudo yarn global add eslint
+
 # User configuration
 ./configScripts/link-configs.sh
 ./configScripts/update-hosts.sh
