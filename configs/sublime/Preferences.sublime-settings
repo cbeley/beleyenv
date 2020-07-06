@@ -1,0 +1,71 @@
+{
+	"added_words":
+	[
+		"middleware",
+		"auth",
+		"config",
+		"Redis"
+	],
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.sublime-workspace"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"dist",
+		".build",
+		".babel-cache",
+		"node_modules",
+		"node_offline",
+		".npm",
+		"node_shrinkwrap"
+	],
+	"font_face": "Fantasque Sans Mono",
+	"font_size": 15,
+	"ignored_packages":
+	[
+		"JavaScript",
+		"Markdown",
+		"Vintage"
+	],
+	"ignored_words":
+	[
+		"api",
+		"app",
+		"confit",
+		"frontend",
+		"github",
+		"google",
+		"https",
+		"js",
+		"json",
+		"krakenjs",
+		"req"
+	],
+	"spell_check": true,
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true
+}

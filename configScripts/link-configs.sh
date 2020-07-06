@@ -21,10 +21,14 @@ rm -rf ~/.config/systemd
 ln -sf "$(pwd)/configs/systemd" ~/.config/systemd
 echo "systemd local overrides installed!"
 
-# Overriden Deluge Config
+# Deluge Configs
 mkdir -p ~/.config/deluge
 ln -sf "$(pwd)/configs/deluge/gtk3ui.conf" ~/.config/deluge/gtk3ui.conf
 ln -sf "$(pwd)/configs/deluge/hostlist.conf" ~/.config/deluge/hostlist.conf
 echo "Deluge configs installed!"
+
+# Sublime Configs
+mkdir -p ~/.config/sublime-text-3/Packages/User
+ls ./configs/sublime | xargs -I {} ln -sf "$(pwd)/configs/sublime/{}" ~/.config/sublime-text-3/Packages/User/{}
 
 echo "All configs installed!"

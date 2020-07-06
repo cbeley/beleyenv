@@ -1,0 +1,28 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"install_prereleases":
+	[
+		"babel"
+	],
+	"installed_packages":
+	[
+		"Babel",
+		"Color Highlighter",
+		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
+		"DustBuster",
+		"EditorConfig",
+		"GraphQL",
+		"JsPrettier",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"Package Control",
+		"Pretty JSON",
+		"Sass",
+		"SublimeLinter",
+		"SublimeLinter-eslint"
+	]
+}
