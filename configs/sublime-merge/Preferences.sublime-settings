@@ -1,0 +1,9 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+    "ui_scale": 2.5,
+    "font_face": "Fantasque Sans Mono",
+    "font_size": 15,
+	"side_bar_layout": "tabs",
+	"translate_tabs_to_spaces": true,
+}

@@ -31,4 +31,8 @@ echo "Deluge configs installed!"
 mkdir -p ~/.config/sublime-text-3/Packages/User
 ls ./configs/sublime | xargs -I {} ln -sf "$(pwd)/configs/sublime/{}" ~/.config/sublime-text-3/Packages/User/{}
 
+# Sublime Merge Configs
+mkdir -p ~/.config/sublime-merge/Packages/User
+ls ./configs/sublime-merge | xargs -I {} ln -sf "$(pwd)/configs/sublime-merge/{}" ~/.config/sublime-merge/Packages/User/{}
+
 echo "All configs installed!"
