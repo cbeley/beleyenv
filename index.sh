@@ -61,7 +61,7 @@ sudo flatpak install -y flathub com.valvesoftware.Steam
 ./installScripts/install-hostess.sh
 
 # Install yarn dependencies
-sudo yarn global add eslint
+sudo yarn global add eslint prettier
 
 # User configuration
 ./configScripts/link-configs.sh
