@@ -1,5 +1,6 @@
 {
-	"email": "email@gmail.com",
-	"name": "Your Name",
-	"sublimeLicense": "A properly escaped sublime license file"
+    "email": "email@gmail.com",
+    "name": "Your Name",
+    "sublimeLicense": "A properly escaped sublime license file",
+    "borgRepo": "/mnt/chromeos/GoogleDrive/MyDrive/path/to/your/borgRepo"
 }

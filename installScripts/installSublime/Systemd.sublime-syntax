@@ -1,0 +1,21 @@
+%YAML 1.2
+---
+# Inspired by https://medium.com/@danbowling/sublime-syntax-highlighting-for-systemd-unit-files-c89760bb7493
+# Surprisingly, nothing exists in package control for systemd file highlighting.
+
+name: Systemd
+file_extensions: [service, timer]
+scope: source.c
+
+contexts:
+  main:
+    - match: '^([A-Za-z]+(?=([\=][\-]?)))'
+      scope: keyword.other
+    - match: '^\[[A-Za-z]+\]'
+      scope: entity.name.section
+    - match: '(\\\w)?'
+      scope: entity.name
+    - match: '\\'
+      scope: constant.character.escape
+    - match: '\#.*'
+      scope: comment.number-sign

@@ -1,0 +1,7 @@
+[Unit]
+Description="Backs up your home directory via borg."
+
+[Service]
+Type=oneshot
+EnvironmentFile=%h/.beleyenv/borg-env
+ExecStart="/usr/local/bin/borg-home-backup.sh"

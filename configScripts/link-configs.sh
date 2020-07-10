@@ -21,6 +21,12 @@ rm -rf ~/.config/systemd
 ln -sf "$(pwd)/configs/systemd" ~/.config/systemd
 echo "systemd local overrides installed!"
 
+# System-wide systemd Config
+sudo rm -f /etc/systemd/journald.conf 
+sudo ln -sf "$(pwd)/configs/etc/systemd/journald.conf" /etc/systemd/journald.conf 
+sudo systemctl restart systemd-journald
+echo "system-wide systemd configs installed!"
+
 # Deluge Configs
 mkdir -p ~/.config/deluge
 ln -sf "$(pwd)/configs/deluge/gtk3ui.conf" ~/.config/deluge/gtk3ui.conf

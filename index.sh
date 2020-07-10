@@ -32,6 +32,7 @@ sudo apt update
 sudo apt-get -y install jq libnotify-bin
 
 ./configScripts/setup-ssh-keys.sh 
+./installScripts/installBorgTools/create-borg-env.sh
 
 sudo apt-get -y dist-upgrade
 
@@ -39,7 +40,7 @@ sudo apt-get -y dist-upgrade
 
 sudo apt-get -y install xz-utils nano apt-transport-https flatpak python3-pip \
 	python3-libtorrent python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-appindicator3 \
-	python3-dev python3-setuptools git zsh jq shellcheck git-cola imagemagick
+	python3-dev python3-setuptools git zsh jq shellcheck git-cola imagemagick borgbackup
 
 # Install Pip dependencies
 # pygments is required by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colorize
@@ -53,12 +54,13 @@ sudo flatpak install -y flathub com.valvesoftware.Steam
 # very old packages.
 ./installScripts/installKitty/index.sh
 ./installScripts/install-zsh.sh
-./installScripts/install-sublime.sh
+./installScripts/installSublime/index.sh
 ./installScripts/install-todo.sh
 ./installScripts/install-lsd.sh
 ./installScripts/install-fonts.sh
 ./installScripts/install-node.sh
 ./installScripts/install-hostess.sh
+./installScripts/installBorgTools/
 
 # Install yarn dependencies
 sudo yarn global add eslint prettier
