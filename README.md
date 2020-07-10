@@ -9,6 +9,7 @@ First and foremost, Beleyenv was created to bootstrap and maintain my personal s
 This is not a complete list, but includes the interesting things. Start reading from `index.js` to get the full story.
 
  * Automatic daily home backups via [Borg](https://borgbackup.readthedocs.io/)
+      - Complete with status notifications that will show up along-side all your other chromeOS notifications!
       - [Read more about how to set this up here](#home-backups-via-borg)
  * Latest [Kitty Terminal](https://sw.kovidgoyal.net/kitty/)
      - There are no up to date debian packages for kitty, so beleyenv has custom scripts to retrieve the latest kitty, install it globally, and ensure the icon is properly configured.
