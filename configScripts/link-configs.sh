@@ -35,10 +35,14 @@ echo "Deluge configs installed!"
 
 # Sublime Configs
 mkdir -p ~/.config/sublime-text-3/Packages/User
-ls ./configs/sublime | xargs -I {} ln -sf "$(pwd)/configs/sublime/{}" ~/.config/sublime-text-3/Packages/User/{}
+# shellcheck disable=SC2016
+find "$(pwd)/configs/sublime" -maxdepth 1 -mindepth 1 -print0 | xargs -n1 -0 -I {} bash -c 'ln -sf "{}" "$HOME/.config/sublime-text-3/Packages/User/$(basename "{}")"'
+echo "Sublime configs installed!"
 
 # Sublime Merge Configs
 mkdir -p ~/.config/sublime-merge/Packages/User
-ls ./configs/sublime-merge | xargs -I {} ln -sf "$(pwd)/configs/sublime-merge/{}" ~/.config/sublime-merge/Packages/User/{}
+# shellcheck disable=SC2016
+find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -n1 -0 -I {} bash -c 'ln -sf "{}" "$HOME/.config/sublime-merge/Packages/User/$(basename "{}")"'
+echo "Sublime merge configs installed!"
 
 echo "All configs installed!"

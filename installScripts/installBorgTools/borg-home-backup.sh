@@ -22,7 +22,7 @@ borg create                         \
     --exclude 'sh:**/node_modules'  \
                                     \
     ::'{now}'                       \
-    $(pwd)                          
+    "$(pwd)"                          
 
 backup_exit=$?
 

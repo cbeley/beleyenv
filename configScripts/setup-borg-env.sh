@@ -11,7 +11,7 @@ touch ~/.beleyenv/borg-env
 
 BORG_REPO=$(jq -r '.borgRepo' config.json)
 
-read -sp 'Borg Passphrase:' BORG_PASSPHRASE
+read -rsp 'Borg Passphrase:' BORG_PASSPHRASE
 
 echo "BORG_REPO=\"${BORG_REPO}\"" >> ~/.beleyenv/borg-env
 echo "BORG_PASSPHRASE=\"${BORG_PASSPHRASE}\"" >> ~/.beleyenv/borg-env

@@ -30,7 +30,7 @@ fi
 # [0] https://github.com/tmux/tmux/issues/1477
 # [1] https://github.com/tmux/tmux/issues/1477
 
-printf "\033]52;c;$(cat ~/.ssh/id_rsa.pub | base64)\a"
+printf "\033]52;c;%s\a" "$(cat ~/.ssh/id_rsa.pub | base64)"
 
 xdg-open https://github.com/settings/ssh/new
 
