@@ -6,8 +6,8 @@ set -e
 # of the main install script.
 
 mkdir -p ~/.beleyenv
-rm -f ~/.beleyenv/borg-env
-touch ~/.beleyenv/borg-env
+rm -f ~/.beleyenv/borg-env ~/.beleyenv/borg-env.export
+touch ~/.beleyenv/borg-env ~/.beleyenv/borg-env.export
 
 BORG_REPO=$(jq -r '.borgRepo' config.json)
 
@@ -15,3 +15,6 @@ read -rsp 'Borg Passphrase:' BORG_PASSPHRASE
 
 echo "BORG_REPO=\"${BORG_REPO}\"" >> ~/.beleyenv/borg-env
 echo "BORG_PASSPHRASE=\"${BORG_PASSPHRASE}\"" >> ~/.beleyenv/borg-env
+
+echo "export BORG_REPO=\"${BORG_REPO}\"" >> ~/.beleyenv/borg-env.export
+echo "export BORG_PASSPHRASE=\"${BORG_PASSPHRASE}\"" >> ~/.beleyenv/borg-env.export

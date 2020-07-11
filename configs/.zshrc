@@ -28,6 +28,8 @@ else
   export EDITOR='subl'
 fi
 
+source ~/.beleyenv/borg-env.export
+
 #############################################################
 ############### oh-my-zsh & p10k configuration ##############
 #############################################################
@@ -60,7 +62,14 @@ source ~/.p10k.zsh
 #############################################################
 ######################## Aliases ############################
 #############################################################
+alias sm="smerge ."
 alias ls="lsd"
 alias icat="kitty +kitten icat"
+alias mountBackups="sudo mkdir -p /mnt/borgBackups && \
+    sudo chmod o+rw /mnt/borgBackups && \
+    borg mount :: /mnt/borgBackups && \
+    cd /mnt/borgBackups"
+
+alias umountBackups="cd && borg umount /mnt/borgBackups && sudo rm -rf /mnt/borgBackups"
 
 eval $(thefuck --alias)
