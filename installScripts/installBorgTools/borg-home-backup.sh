@@ -17,7 +17,9 @@ info "Starting backup"
 borg create                         \
     --verbose                       \
     --stats                         \
-    --exclude '/home/*/.cache/*'    \
+    --exclude-caches                \
+    --exclude 'sh:**/.cache'        \
+    --exclude 'sh:**/node_modules'  \
                                     \
     ::'{now}'                       \
     $(pwd)                          
