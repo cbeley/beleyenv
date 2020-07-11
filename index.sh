@@ -32,7 +32,7 @@ sudo apt update
 sudo apt-get -y install jq libnotify-bin
 
 ./configScripts/setup-ssh-keys.sh 
-./installScripts/installBorgTools/create-borg-env.sh
+./configScripts/setup-borg-env.sh
 
 sudo apt-get -y dist-upgrade
 

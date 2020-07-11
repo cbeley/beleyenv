@@ -3,7 +3,7 @@ set -e
 
 # This script has some dependencies before it can be run that must be run at least
 # once:
-#  * ./create-borg-env.sh -- Runs early on in /index.js to collect the password.
+#  * /configScripts/setup-borg-env.sh -- Runs early on in /index.js to collect the password.
 #  * In /index.js, this must run *after* borg is installed.
 #  * configScripts/link-configs.sh must run before this to set up the systemd units.
 

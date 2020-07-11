@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e 
 
-# This script is separated, since we want to keep all prompting to the beginning
-# of the main script.  You may also wish to upgrade borg and the scripts without
-# wiping your env file.
+# This is required by installScripts/installBorgTools.  Separated as a matter of
+# convention and also because we want to keep all user prompting to the beginning
+# of the main install script.
 
 mkdir -p ~/.beleyenv
 rm -f ~/.beleyenv/borg-env
