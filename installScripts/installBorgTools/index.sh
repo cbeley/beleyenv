@@ -1,9 +1,13 @@
 #!/bin/bash
 set -e 
 
+# This script has some dependencies before it can be run that must be run at least
+# once:
+#  * ./create-borg-env.sh -- Runs early on in /index.js to collect the password.
+#  * In /index.js, this must run *after* borg is installed.
+#  * configScripts/link-configs.sh must run before this to set up the systemd units.
+
 sudo cp installScripts/installBorgTools/borg-home-backup.sh /usr/local/bin
-cp installScripts/installBorgTools/borg-home-backup.service ~/.config/systemd/user/
-cp installScripts/installBorgTools/borg-home-backup.timer ~/.config/systemd/user/
 
 systemctl --user enable borg-home-backup.timer
 systemctl --user start borg-home-backup.timer

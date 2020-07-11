@@ -60,7 +60,6 @@ sudo flatpak install -y flathub com.valvesoftware.Steam
 ./installScripts/install-fonts.sh
 ./installScripts/install-node.sh
 ./installScripts/install-hostess.sh
-./installScripts/installBorgTools/
 
 # Install yarn dependencies
 sudo yarn global add eslint prettier
@@ -69,6 +68,9 @@ sudo yarn global add eslint prettier
 ./configScripts/link-configs.sh
 ./configScripts/update-hosts.sh
 ./configScripts/setup-git.sh
+
+# Install packages dependent on user configuration being present first.
+./installScripts/installBorgTools/index.sh
 
 # Still working on themeing
 # ./install-theme.sh

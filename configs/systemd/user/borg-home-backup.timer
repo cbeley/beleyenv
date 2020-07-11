@@ -2,7 +2,6 @@
 Description="Automatically run borg home backups."
 
 [Timer]
-OnStartupSec=3min
 OnCalendar=daily
 # Ensures that backups will at least run when you log in if you had not 
 # been logged in the entire previous day.

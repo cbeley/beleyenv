@@ -16,10 +16,10 @@ mkdir -p ~/.todo/
 ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
 echo "Todo.sh config installed!"
 
-# Overriden Sommelier Config
+# Systemd Local Units & Overrides
 rm -rf ~/.config/systemd
 ln -sf "$(pwd)/configs/systemd" ~/.config/systemd
-echo "systemd local overrides installed!"
+echo "systemd local units & overrides installed!"
 
 # System-wide systemd Config
 sudo rm -f /etc/systemd/journald.conf 
