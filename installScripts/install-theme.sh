@@ -8,7 +8,7 @@ set -e
 sudo apt-get -y install adapta-gtk-theme qt5-style-plugins 
 
 # optiona packages
-sudo apt-get install dconf-editor lxapperance
+sudo apt-get -y install dconf-editor lxapperance
 
 # These are needed for apps like sublime to work.  gsettings provides this.
 gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto"
