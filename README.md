@@ -51,5 +51,59 @@ WARNING: If you do not run this on a clean-setup, this script will overwrite any
 Feel free to cherry-pick any of the scripts under `installScripts/`. They are all idempotent and none of them should overwrite configuration (those scripts are under `configScripts/`).
 
 ## Home Backups via Borg
-TODO documentation
+Beleyenv uses [Borg](https://borgbackup.readthedocs.io/) to automatically back up your home directory to Google drive by taking advantage of ChromeOS's ability to mount google drive folders within Linux. You should read about how Borg works yourself, but you can otherwise quickly get backups working with Beleyenv by doing the following:
 
+### 1. Create & Mount a backup folder on Google Drive
+Use the ChromeOS file manager to choose a folder that will be the parent folder of your Borg backup repo's folder.  You can then mount it by right clicking the folder and clicking `Share with Linux`.
+
+### 2. Create the Borg repo in your home directory
+Borg is unable to determine the available storage on mounted google drive directories (Interestingly, `df -H` is accurate, but python's `shutil`, which Borg uses, reports 0). So, we first create the repo locally, then apply a [hack to work around the free space issue](https://borgbackup.readthedocs.io/en/stable/faq.html?highlight=additional_free_space#can-i-disable-checking-for-free-disk-space).
+
+```bash
+borg init --encryption=repokey-blake2 ./borgBackupRepo
+mv ./borgBackupRepo /mnt/chromeos/GoogleDrive/MyDrive/path/to/parentFolder/
+
+# Pick a conservative number in line with what available storage
+# you have in Google Drive.  You can always increase this.
+# You may run into hard to fix problems if you actually don't have 
+# enough space available when you do the backup.
+borg config -- /mnt/chromeos/GoogleDrive/MyDrive/path/to/parentFolder/borgBackupRepo additional_free_space -50G
+```
+
+### 3. Configure Beleyenv
+Update `borgRepo` to point to your Borg repo's mount point from the previous section. If you ran Beleyenv to bootstrap your system already and did not set `borgRepo`, borg setup will have been skipped automatically.  Re-run the following scripts to configure automatic backups.
+
+```bash
+# This script will prompt you for your borg password.
+~/.beleyenv/beleyenv/configScripts/setup-borg-env.sh
+```
+
+After this *close* your terminal and restart it.  Powerlevel10k doesn't always react well to be re-sourced.
+
+### 4. Perform a test backup
+Your environment will now automatically be set up for easy Borg usage.  Perform a test backup.
+
+```bash
+# You will be prompted to say "yes" when warned about the
+# repo being in a new location. You will never be asked again, but
+# it is important you run this script manually first to answer
+# that prompt.
+~/.beleyenv/beleyenv/installScripts/installBorgTools/borg-home-backup.sh
+
+# This uses a special alias beleyenv creates for you.
+# You'll automatically be dropped into the backup directory.
+mountBackups
+
+# If things look good, unmount the backups (You can do this while
+# still being in the backups folder.)
+umountBackups
+```
+
+### 5. Install the systemd services for automatic backups
+```bash
+~/.beleyenv/beleyenv/installScripts/installBorgTools/index.sh
+```
+
+If all goes well, you will see a notification where all your other ChromeOS notifications are in a little bit saying your Linux backup was successful.  You'll always receive notifications when backups occur.
+
+Things are set up so that backups occur daily. If your Linux container was shut down when backups should have otherwise occurred, they will occur the next time you log into your Linux container.
