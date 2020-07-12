@@ -66,10 +66,10 @@ sudo flatpak install -y flathub com.valvesoftware.Steam
 ./installScripts/install-todo.sh
 ./installScripts/install-lsd.sh
 ./installScripts/install-fonts.sh
-./installScripts/install-node.sh
 ./installScripts/install-hostess.sh
 ./installScripts/install-docker.sh
 ./installScripts/install-theme.sh
+./installScripts/install-node.sh
 
 # Install yarn dependencies
 sudo yarn global add eslint prettier
