@@ -1,5 +1,7 @@
 # Beleyenv
 
+![Beleyenv Desktop](beleyenv-desktop.png)
+
 **WARNING: This is a work in progress. Feel free to follow-along. If you no longer see this message, consider it more or less "stable".**
 
 Beleyenv is a series of scripts to quickly bootstrap a very opinionated developer-centric environment for ChromeOS's officially supported Debian-based Linux container ([Crostini](https://chromium.googlesource.com/chromiumos/docs/+/master/containers_and_vms.md)). However, while it is primarily to bootstrap a newly created container, it is 100% idempotent. You can re-run the script (or any of the individual ones) as many times as you want, with the only side-effect being that packages will be updated if a newer one is available. Beleyenv was also designed to make minimal changes to the container to ensure that ChromeOS is still able to manage the container automatically. It is possible to run alternate distributions or switch to Debian's testing or unstable channels, but it is not supported by ChromeOS and you'll likely run into problems down the road.
