@@ -10,9 +10,8 @@ sudo add-apt-repository \
 
 sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
-
 sudo usermod -aG docker "$USER"
-newgrp docker 
 
 # It seems this is done by default, but adding just for safe-measure.
 sudo systemctl enable docker 
+echo "Docker installed!"
