@@ -1,6 +1,8 @@
 {
     "email": "email@gmail.com",
     "name": "Your Name",
-    "sublimeLicense": "A properly escaped sublime license file",
-    "borgRepo": null
+    "hosts": [],
+    "sublimeLicense": null,
+    "borgRepo": null,
+    "installThingsWithEncryptedDeps": false
 }
