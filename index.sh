@@ -78,4 +78,8 @@ sudo yarn global add eslint prettier
 # ./install-theme.sh
 
 echo 'SUCCESS!  BELEYENV HAS BEEN FULLY INSTALLED!'
+echo 'Hints of what to do next: '
+echo 'Run ./devScripts/switch-to-ssh-remote.sh to switch from https to ssh if you are Chris'
+echo 'Some changes only will take effect after a reboot of the container. Run sudo poweroff then start kitty via the app launcher.'
+
 notify-send -a 'beleyenv' 'beleyenv install finished!' 'Have fun!'
