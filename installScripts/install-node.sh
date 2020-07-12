@@ -8,4 +8,4 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 sudo apt-get install -y nodejs yarn
 
-echo "Node installed!"
+./print.sh "Node installed!"

@@ -2,9 +2,9 @@
 set -e
 
 if [[ ${TERM:?} = "xterm-kitty" ]]; then
-	echo "[WARN] You are currently running kitty, so instalation of it was skipped."
-	echo "[WARN] Run ./installScrips/installKitty/index.sh in a differnt terminal if you would like to upgrade kitty."
-	echo "Skipping kitty install..."
+	./print.sh "[WARN] You are currently running kitty, so instalation of it was skipped.\n\
+[WARN] Run ./installScrips/installKitty/index.sh in a differnt terminal if you would like to upgrade kitty.\n\
+Skipping kitty install..."
 
 	notify-send -a "beleyenv" "[WARN] Skipping install/upgrade of kitty"
 	exit 0
@@ -24,4 +24,4 @@ sudo cp -R temp/kitty.app /usr/local/opt
 sudo ln -fs /usr/local/opt/kitty.app/bin/kitty /usr/local/bin/kitty
 sudo ln -fs /usr/local/opt/kitty.app/share/applications/kitty.desktop /usr/local/share/applications/kitty.desktop
 
-echo "Kitty installed!"
+./print.sh "Kitty installed!"

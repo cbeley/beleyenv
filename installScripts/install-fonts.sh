@@ -28,4 +28,4 @@ mkdir -p ~/.fonts
 cp -R OTF/*.otf ~/.fonts/
 cp -R patchedFantasqueSansMono/*.ttf ~/.fonts/
 
-echo "Fonts installed!"
+../print.sh "Fonts installed!"

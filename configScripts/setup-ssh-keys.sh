@@ -16,8 +16,8 @@ keygenExitCode=$?
 set -e
 
 if [[ $keygenExitCode != 0 ]]; then
-	echo "Assuming you entered 'No' when asked to ovewrite keys"
-	echo "Skipping SSH key-gen generation..."
+	./print.sh "Assuming you entered 'No' when asked to ovewrite keys\n\
+Skipping SSH key-gen generation..."
 	notify-send -a 'beleyenv' '[WARN] SSH key-gen canceled' \
 		'If you did not answer no to overwrite keys, something may have gone wrong.'
 
@@ -33,9 +33,9 @@ fi
 printf "\033]52;c;%s\a" "$(cat ~/.ssh/id_rsa.pub | base64)"
 
 # The above does not tend to work, so also print it to the terminal to copy.
-echo "If it was not auto-copied, copy your key here and paste it into github."
+./print.sh "If it was not auto-copied, copy your key here and paste it into github."
 cat ~/.ssh/id_rsa.pub
 
 xdg-open https://github.com/settings/ssh/new
 
-echo "Public key copied to clipboard.  Continue to add it on github."
+./print.sh "Public key copied to clipboard.  Continue to add it on github."

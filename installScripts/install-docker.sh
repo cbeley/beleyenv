@@ -14,4 +14,4 @@ sudo usermod -aG docker "$USER"
 
 # It seems this is done by default, but adding just for safe-measure.
 sudo systemctl enable docker 
-echo "Docker installed!"
+./print.sh "Docker installed!"

@@ -18,3 +18,5 @@ echo "BORG_PASSPHRASE=\"${BORG_PASSPHRASE}\"" >> ~/.beleyenv/borg-env
 
 echo "export BORG_REPO=\"${BORG_REPO}\"" >> ~/.beleyenv/borg-env.export
 echo "export BORG_PASSPHRASE=\"${BORG_PASSPHRASE}\"" >> ~/.beleyenv/borg-env.export
+
+./print.sh "Borg Environment Setup!"

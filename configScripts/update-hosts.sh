@@ -11,4 +11,4 @@ while [ "x${HOSTS[index]}" != "x" ]; do
 done
 
 
-echo "Hosts file updated!"
+./print.sh "Hosts file updated!"

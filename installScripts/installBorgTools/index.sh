@@ -4,8 +4,7 @@ set -e
 BORG_REPO=$(jq -r '.borgRepo' config.json)
 
 if [[ $BORG_REPO = '' ]] || [[ $BORG_REPO = 'null' ]]; then
-    echo "No borg repo set in config.json"
-    echo "Skipping install of borg tools and systemd borg services"
+    ./print.sh "No borg repo set in config.json\nSkipping install of borg tools and systemd borg services"
     exit 0
 fi
 

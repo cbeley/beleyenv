@@ -6,16 +6,21 @@ set -e
 
 rm -rf temp
 mkdir temp
-cd temp
 
-curl -s https://api.github.com/repos/todotxt/todo.txt-cli/releases/latest \
-	| jq -r '[.assets[].browser_download_url]
-		| map(select(endswith("gz")))
-		| .[0]' \
-	| xargs curl -L \
-	| tar -zxv
+(
+    cd temp
 
-cd ./*
-sudo cp todo.sh /usr/local/bin/
+    curl -s https://api.github.com/repos/todotxt/todo.txt-cli/releases/latest \
+	   | jq -r '[.assets[].browser_download_url]
+		  | map(select(endswith("gz")))
+		  | .[0]' \
+	   | xargs curl -L \
+	   | tar -zxv
 
-echo "todo.sh installed to /usr/local/bin"
+    (
+        cd ./*
+        sudo cp todo.sh /usr/local/bin/
+    )
+)
+
+./print.sh "todo.sh installed to /usr/local/bin"

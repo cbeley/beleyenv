@@ -15,4 +15,4 @@ chmod +x hostess
 
 sudo cp hostess /usr/local/bin/
 
-echo "Hostess installed to /usr/local/bin"
+../print.sh "Hostess installed to /usr/local/bin"
