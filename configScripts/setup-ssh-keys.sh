@@ -32,6 +32,10 @@ fi
 
 printf "\033]52;c;%s\a" "$(cat ~/.ssh/id_rsa.pub | base64)"
 
+# The above does not tend to work, so also print it to the terminal to copy.
+echo "If it was not auto-copied, copy your key here and paste it into github."
+cat ~/.ssh/id_rsa.pub
+
 xdg-open https://github.com/settings/ssh/new
 
 echo "Public key copied to clipboard.  Continue to add it on github."
