@@ -57,6 +57,22 @@ Apart from acting as an inspiration for setting up your own Linux environment on
 
 You should still have realistic expectations about how well Linux will run for you on ChromeOS based on the hardware you have. You can't expect a cheap, low-powered chromebook to have stellar performance. I personally have the Galaxy Chromebook, which everything in this repo runs extremely well on. If performance is important to you, you should consider some of the newer higher-end chromebooks with the latest generation CPU's. Also, while the Pixelbook (my previous chromebook) is still excellent, the newer generation CPU in the Galaxy Chromebook and other newer laptops completely blows it out of the water performance-wise.
 
+## Security Implications
+
+Beleyenv does a few things that can be considered fundamentally insecure:
+
+-   Installs apt repos from other sources
+-   Installs non-Debian package managers (ie: flatpak)
+-   Pulls latest release tarballs from github
+-   Executes install scripts pulled at runtime
+-   If you run this blind, you are also trusting what I wrote
+
+You should also remember that ChromeOS's Debian container has no root password and that sudo does not prompt (I'm considering changing this behavior with beleyenv).
+
+Ultimately, there is a balance between security and convenience. You should do your own diligence and decide what level of security is required for you. Investigating beleyenv's source code as well as the scripts it pulls down is a good start.
+
+Also note that Beleyenv runs some scripts by doing `curl x | bash`. This is something I may adjust, but you should be aware that even if you download it to inspect ahead of time, that it may be possible for the remote server to detect whether you are downloading the file vs. piping it into bash. See [Detecting the use of "curl | bash" server side](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/)
+
 ## Quick Start
 
 This will give you my opinionated set-up on your chromebook. You'll likely want to read further down, fork this repo, then adjust it to your liking. However, it has been designed to be able to run by default without relying on any of the encrypted configuration in this repo.
