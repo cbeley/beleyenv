@@ -4,7 +4,18 @@
 		"middleware",
 		"auth",
 		"config",
-		"Redis"
+		"Redis",
+		"Debian",
+		"Crostini",
+		"Chromebook",
+		"Chromebooks",
+		"Pixelbook",
+		"repo",
+		"apps",
+		"distro",
+		"systemd",
+		"sudo",
+		"repos"
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 	"file_exclude_patterns":
@@ -53,17 +64,21 @@
 	],
 	"ignored_words":
 	[
+		"Beleyenv",
 		"api",
 		"app",
+		"configs",
 		"confit",
 		"frontend",
 		"github",
 		"google",
 		"https",
+		"ie",
 		"js",
 		"json",
 		"krakenjs",
-		"req"
+		"req",
+		"tarballs"
 	],
 	"spell_check": true,
 	"theme": "Adaptive.sublime-theme",
