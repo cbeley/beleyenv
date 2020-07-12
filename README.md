@@ -24,6 +24,8 @@ This is not a complete list, but includes the interesting things. Start reading 
  * [Sublime Text](https://www.sublimetext.com/)
      - Automatic license file installation if you added it to `config.json`.
      - Also includes [Sublime Merge](https://www.sublimemerge.com/), but I'm still evaluating whether I want to purchase it or not, so not automatic license installation yet.
+ * [Docker](https://www.docker.com/)
+     - Automatically configured for use without sudo.
  * [Steam](https://store.steampowered.com/)
      - To not break my rule of making major system changes, it is installed via [flatpak](https://flathub.org/apps/details/com.valvesoftware.Steam)
      - Overall I've had good luck with flatpak and steam. Your millage may vary for some games. Installing steam directly involves making some significant system changes that may cause issues down the road for you.

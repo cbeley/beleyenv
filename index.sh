@@ -40,7 +40,8 @@ sudo apt-get -y dist-upgrade
 
 sudo apt-get -y install xz-utils nano apt-transport-https flatpak python3-pip \
 	python3-libtorrent python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-appindicator3 \
-	python3-dev python3-setuptools git zsh jq shellcheck git-cola imagemagick borgbackup
+	python3-dev python3-setuptools git zsh jq shellcheck git-cola imagemagick borgbackup \
+	ca-certificates gnupg-agent software-properties-common
 
 # Install Pip dependencies
 # pygments is required by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colorize
@@ -60,6 +61,7 @@ sudo flatpak install -y flathub com.valvesoftware.Steam
 ./installScripts/install-fonts.sh
 ./installScripts/install-node.sh
 ./installScripts/install-hostess.sh
+./installScripts/install-docker.sh
 
 # Install yarn dependencies
 sudo yarn global add eslint prettier
