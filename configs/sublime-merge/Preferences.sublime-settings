@@ -6,4 +6,6 @@
     "font_size": 15,
 	"side_bar_layout": "tabs",
 	"translate_tabs_to_spaces": true,
+	"expand_merge_commits_by_default": true,
+	"hardware_acceleration": "none",
 }
