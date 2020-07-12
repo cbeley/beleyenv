@@ -57,7 +57,7 @@ This will give you my opinionated set-up on your chromebook. You'll likely want 
 **WARNING:** If you do not run this on a clean-setup, this script will **overwrite any existing configuration** that Beleyenv manages **without warning and without a backup**!
 
 1. [Set up Linux on your Chromebook](https://support.google.com/chromebook/answer/9145439) and then launch the terminal app.
-2. Run `sudo apt-get update && apt-get install git && mkdir .beleyenv && cd .beleyenv && git clone https://github.com/cbeley/beleyenv.git`
+2. Run `mkdir .beleyenv && cd .beleyenv && git clone https://github.com/cbeley/beleyenv.git`
 3. Run `mv sample-config.json config.json`. Edit `config.json` in your favorite editor (nano is one option: `sudo apt-get install nano`). You only need to update `email` and `name`. Everything else can be left alone. See [Forking & Using Beleyenv For Your Own Profit](#forking-&-using-beleyenv-for-your-own-profit) to learn how to customize Beleyenv for your own use.
 4. Run `./index.sh`. Note that the script will open Chrome for you and navigate to Github's SSH Keys page. Your SSH key should already be in your clipboard at this point. Simply paste it in and save it if you'd like to associate your newly generate ssh key with your github account. If you don't care about doing this, you can just ignore it.
 5. Kitty is faster and better than the ChromeOS terminal app. So when it's done (You'll receive a ChromeOS notification), close the ChromeOS terminal app forever and start 'kitty' -- It'll be among your other apps.
