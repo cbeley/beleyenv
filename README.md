@@ -10,52 +10,53 @@ First and foremost, Beleyenv was created to bootstrap and maintain my personal s
 
 This is not a complete list, but includes the interesting things. Start reading from `index.js` to get the full story.
 
--   Automatic daily home backups via [Borg](https://borgbackup.readthedocs.io/)
+-   Automatic incremental daily home backups via [Borg](https://borgbackup.readthedocs.io/)
     -   Complete with status notifications that will show up along-side all your other chromeOS notifications!
+    -   Automatic backup rotation
     -   [Read more about how to set this up here](#home-backups-via-borg)
 -   Latest [Kitty Terminal](https://sw.kovidgoyal.net/kitty/)
-    -   There are no up to date debian packages for kitty, so Beleyenv has custom scripts to retrieve the latest kitty, install it globally, and ensure the icon is properly configured.
+    -   There are no up to date Debian packages for kitty, so Beleyenv has custom scripts to retrieve the latest kitty, install it globally, and ensure the icon is properly configured.
     -   FYI, kitty is very fast -- much faster than the ChromeOS terminal app.
 -   A comprehensive Zsh set-up, configured in an opinionated way
     -   [Oh My Zsh](https://ohmyz.sh/)
     -   [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-    -   The best monospace font, [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans), patched with [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) for an amazing icon-rich terminal experience.
+    -   The best mono-space font, [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans), patched with [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) for an amazing icon-rich terminal experience.
     -   `ls` is aliased to [lsd](https://github.com/Peltoche/lsd), which takes advantage of nerd font's added icons.
     -   [Todo.txt-cli](https://github.com/todotxt/todo.txt-cli)
         -   Powerlevel10k plugin for it is also enabled.
 -   ChromeOS Alt-+ (The maximize/minimize keyboard shortcut)
     -   Configures [Sommolier](https://chromium.googlesource.com/chromiumos/platform2/+/413a646b5b7067a989bab2ef9fca0c3a4515cc22/vm_tools/sommelier/README.md) to allow ChromeOS to handle the Alt-+ shortcut.
-    -   Note that crostini by default now forwards the other window management shortcuts to ChromeOS.
+    -   Note that Crostini by default now forwards the other window management shortcuts to ChromeOS.
 -   Dark Theme
     -   Installs the [Adapta Nokto theme](https://github.com/adapta-project/adapta-gtk-theme)
     -   Theme set up to work to the full extent possible with _both_ qt and gtk.
-    -   Crostini's [Sommolier](https://chromium.googlesource.com/chromiumos/platform2/+/413a646b5b7067a989bab2ef9fca0c3a4515cc22/vm_tools/sommelier/README.md) is configured to make X apps use a titlebar color that matches Adapta Nokto
+    -   Crostini's [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/413a646b5b7067a989bab2ef9fca0c3a4515cc22/vm_tools/sommelier/README.md) is configured to make X apps use a title-bar color that matches Adapta Nokto
 -   [Sublime Text](https://www.sublimetext.com/)
     -   Automatic license file installation if you added it to `config.json`.
-    -   Also includes [Sublime Merge](https://www.sublimemerge.com/), but I'm still evaluating whether I want to purchase it or not, so not automatic license installation yet.
+    -   Also includes [Sublime Merge](https://www.sublimemerge.com/), but I'm still evaluating whether I want to purchase it or not, so no automatic license installation yet.
 -   [Docker](https://www.docker.com/)
     -   Automatically configured for use without sudo.
 -   [Steam](https://store.steampowered.com/)
     -   To not break my rule of making major system changes, it is installed via [flatpak](https://flathub.org/apps/details/com.valvesoftware.Steam)
     -   Overall I've had good luck with flatpak and steam. Your millage may vary for some games. Installing steam directly involves making some significant system changes that may cause issues down the road for you.
     -   You may need to do the following:
-        -   Uncomment GDK_SCALE change in index.js if you have a low dpi screen.
+        -   Uncomment the GDK_SCALE change in index.sh if you have a low DPI screen.
         -   Run Steam in "Low Density Mode" (right click the icon in your tray, select "Use Low Density"), ensure steam is completely exited, then restart.
         -   Disable hardware accelerated web frames in the steam preferences. It performed better for me with it off.
 -   Systemd journald tweaks
-    -   By default, the crostini container saves no logs to disk. This also makes it impossible for users to view logs for their user's systemd services. Beleyenv turns logging to disk back on.
-    -   This may be undesirable if your chromebook has limited storage.
+    -   By default, the Crostini container saves no logs to disk. This also makes it impossible for users to view logs for their user's systemd services. Beleyenv turns logging to disk back on.
+    -   This may be undesirable if your Chromebook has limited storage.
 -   [The Fuck](https://github.com/nvbn/thefuck): One of the most useful CLI tools ever.
 -   Latest Node 12.x.x via the [NodeSource repo](https://github.com/nodesource/distributions)
     -   Includes latest Yarn from the official [Yarn repo](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
 
 ## Why make this public?
 
-Apart from acting as an inspiration for setting up your own Linux environment on ChromeOS and overall just being an interesting project, I wanted to demonstrate how far Crostini has gotten. Crostini is built into ChromeOS and can be turned on with the click of a button. It can also be destroyed and re-created just as easily. Once it's enabled, all your Linux apps show up alongside your Android and ChromeOS apps. When opening a file, the open with dialog will show you options from your Linux environment and the application launcher shows all applications, regardless of their environment. Also, with the inclusion of new quality of life features in ChromeOS such virtual desks, it's quickly becoming my new favorite OS for overall software development (Though, it's not quite ready to replace my day-job's macbook). I'm also a huge fan of having a real, seamlessly integrated Linux distro I can set up my environment in, but still have a stable OS as the parent that runs great on laptops and lets me run Android apps for more casual things. I still use a macbook professionally, but I've always felt it's been more of a fight than I'd like to get my dev setup how I like, let alone keep it maintained and up to date.
+Apart from acting as an inspiration for setting up your own Linux environment on ChromeOS and overall just being an interesting project, I wanted to demonstrate how far Crostini has gotten. Crostini is built into ChromeOS and can be turned on with the click of a button. It can also be destroyed and re-created just as easily. Once it's enabled, all your Linux apps show up alongside your Android and ChromeOS apps. When opening a file, the open with dialog will show you options from your Linux environment and the application launcher shows all applications, regardless of their environment. Also, with the inclusion of new quality of life features in ChromeOS such virtual desks, it's quickly becoming my new favorite OS for overall software development (Though, it's not quite ready to replace my day-job's MacBook). I'm also a huge fan of having a real, seamlessly integrated Linux distro I can set up my environment in, but still have a stable OS as the parent that runs great on laptops and lets me run Android apps for more casual things. I still use a MacBook professionally, but I've always felt it's been more of a fight than I'd like to get my dev setup how I like, let alone keep it maintained and up to date.
 
 ## A note on performance
 
-You should still have realistic expectations about how well Linux will run for you on ChromeOS based on the hardware you have. You can't expect a cheap, low-powered chromebook to have stellar performance. I personally have the Galaxy Chromebook, which everything in this repo runs extremely well on. If performance is important to you, you should consider some of the newer higher-end chromebooks with the latest generation CPU's. Also, while the Pixelbook (my previous chromebook) is still excellent, the newer generation CPU in the Galaxy Chromebook and other newer laptops completely blows it out of the water performance-wise.
+You should still have realistic expectations about how well Linux will run for you on ChromeOS based on the hardware you have. You can't expect a cheap, low-powered Chromebook to have stellar performance. I personally have the Galaxy Chromebook, which everything in this repo runs extremely well on. If performance is important to you, you should consider some of the newer higher-end Chromebooks with the latest generation CPUs. Also, while the Pixelbook (my previous Chromebook) is still excellent, the newer generation CPU in the Galaxy Chromebook and other newer laptops completely blows it out of the water performance-wise.
 
 ## Security Implications
 
@@ -67,23 +68,24 @@ Beleyenv does a few things that can be considered fundamentally insecure:
 -   Executes install scripts pulled at runtime
 -   If you run this blind, you are also trusting what I wrote
 
-You should also remember that ChromeOS's Debian container has no root password and that sudo does not prompt (I'm considering changing this behavior with beleyenv).
+You should also remember that ChromeOS's Debian container has no root password and that sudo does not prompt (I'm considering changing this behavior with Beleyenv).
 
-Ultimately, there is a balance between security and convenience. You should do your own diligence and decide what level of security is required for you. Investigating beleyenv's source code as well as the scripts it pulls down is a good start.
+Ultimately, there is a balance between security and convenience. You should do your own diligence and decide what level of security is required for you. Investigating Beleyenv's source code as well as the scripts it pulls down is a good start.
 
 Also note that Beleyenv runs some scripts by doing `curl x | bash`. This is something I may adjust, but you should be aware that even if you download it to inspect ahead of time, that it may be possible for the remote server to detect whether you are downloading the file vs. piping it into bash. See [Detecting the use of "curl | bash" server side](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/)
 
 ## Quick Start
 
-This will give you my opinionated set-up on your chromebook. You'll likely want to read further down, fork this repo, then adjust it to your liking. However, it has been designed to be able to run by default without relying on any of the encrypted configuration in this repo.
+This will give you my opinionated set-up on your Chromebook. You'll likely want to read further down, fork this repo, then adjust it to your liking. However, it has been designed to be able to run by default without relying on any of the encrypted configuration in this repo.
 
 **WARNING:** If you do not run this on a clean-setup, this script will **overwrite any existing configuration** that Beleyenv manages **without warning and without a backup**!
 
 1. [Set up Linux on your Chromebook](https://support.google.com/chromebook/answer/9145439) and then launch the terminal app.
 2. Run `mkdir .beleyenv && cd .beleyenv && git clone https://github.com/cbeley/beleyenv.git`
 3. Run `mv sample-config.json config.json`. Edit `config.json` in your favorite editor (nano is one option: `sudo apt-get install nano`). You only need to update `email` and `name`. Everything else can be left alone. See [Forking & Using Beleyenv For Your Own Profit](#forking-&-using-beleyenv-for-your-own-profit) to learn how to customize Beleyenv for your own use.
-4. Run `./index.sh`. Note that the script will open Chrome for you and navigate to Github's SSH Keys page. Your SSH key should already be in your clipboard at this point. Simply paste it in and save it if you'd like to associate your newly generate ssh key with your github account. If you don't care about doing this, you can just ignore it.
-5. Kitty is faster and better than the ChromeOS terminal app. So when it's done (You'll receive a ChromeOS notification), close the ChromeOS terminal app forever and start 'kitty' -- It'll be among your other apps.
+4. Run `./index.sh`. Note that the script will open Chrome for you and navigate to Github's SSH Keys page. Your SSH key should already be in your clipboard at this point. Simply paste it in and save it if you'd like to associate your newly generated ssh key with your github account. If you don't care about doing this, you can just ignore it.
+5. You'll receive a ChromeOS notification when belyenv is done. Some changes require a reboot (well, it's the easiest way) to take effect. Type `sudo poweroff` to shut down your container.
+6. Kitty is faster and better than the ChromeOS terminal app. So after you poweroff your container, never use the terminal app again and instead use Kitty -- It'll be among your other apps. Clicking it will auto-start the container.
 
 ### Running individual scripts
 
@@ -114,7 +116,7 @@ borg config -- /mnt/chromeos/GoogleDrive/MyDrive/path/to/parentFolder/borgBackup
 
 ### 3. Configure Beleyenv
 
-Update `borgRepo` to point to your Borg repo's mount point from the previous section. If you ran Beleyenv to bootstrap your system already and did not set `borgRepo`, borg setup will have been skipped automatically. Re-run the following scripts to configure automatic backups.
+Update `borgRepo` in `config.json` to point to your Borg repo's mount point from the previous section. If you ran Beleyenv to bootstrap your system already and did not set `borgRepo`, borg setup will have been skipped automatically. Re-run the following scripts to configure automatic backups.
 
 ```bash
 # This script will prompt you for your borg password.
@@ -132,7 +134,15 @@ Your environment will now automatically be set up for easy Borg usage. Perform a
 # repo being in a new location. You will never be asked again, but
 # it is important you run this script manually first to answer
 # that prompt.
-~/.beleyenv/beleyenv/installScripts/installBorgTools/borg-home-backup.sh
+#
+# Note that this got added to your path when you
+# ran the install script in the previous section.
+#
+# You can also run this at any point to manually trigger a
+# backup if you'd like. However, note that the default rotation
+# policy only allows for one daily backup, so if a daily backup was
+# already done, it'll be overwritten by your new one.
+borg-home-backup.sh
 
 # This uses a special alias beleyenv creates for you.
 # You'll automatically be dropped into the backup directory.
@@ -155,7 +165,7 @@ Things are set up so that backups occur daily. If your Linux container was shut 
 
 ## Forking & Using Beleyenv For Your Own Profit
 
-While I've designed beleyenv to work as-is for anyone, you likely don't want the same set-up as me. Instead, you should fork Beleyenv, read the [Core Concepts](#core-concepts), then read the [Bootstrapping a Forked Repo](#bootstrapping-a-forked-repo) section.
+While I've designed Beleyenv to work as-is for anyone, you likely don't want the same set-up as me. Instead, you should fork Beleyenv, read the [Core Concepts](#core-concepts), then read the [Bootstrapping a Forked Repo](#bootstrapping-a-forked-repo) section.
 
 ### Core Concepts
 
@@ -178,32 +188,32 @@ You do not need to re-run any scripts to update configuration under `configs/` t
 
 #### Commit-Hooks to Protect Yourself
 
-After bootstraping your forked repo, a commit hook will be installed that gives you the following:
+After bootstrapping your forked repo, a commit hook will be installed that gives you the following:
 
 -   Lints all your shells scripts with [ShellCheck](https://www.shellcheck.net/).
 -   Ensures your repo has been unlocked with git-crypt to ensure you do not automatically check in sensitive information unencrypted.
 
 ### Bootstrapping a Forked Repo
 
-First, fork Beleyenv as you normally would and then clone it anywhere locally.
+First, fork Beleyenv as you normally would and then clone it anywhere locally (though, it'll automatically be moved to `~/.beleyenv/beleyenv`, so you might as well just check it out under `~/.beleyenv`)
 
 #### Set up git-crypt
 
-1.  Remove or rename `.gitattributes`. Also remove all files referenced in `.gitattributes` These files are encrypted for my use, so you'll have to replace them with your own stuff if you want to use any part of beleyenv that relied on them.
+1.  Remove or rename `.gitattributes`. Also remove all files referenced in `.gitattributes`. These files are encrypted for my use, so you'll have to replace them with your own stuff if you want to use any part of Beleyenv that relied on them.
 2.  Install `git-crypt` if not already installed: `sudo apt-get update && sudo apt-get install git-crypt`.
 3.  `git-crypt init && git-crypt export-key ~/.beleyenv/secretKey`
-4.  Add/replace any encrypted files you'd like and add them to `.gitattributes` (see git-crypt docs). At the very least, you should encrypted `config.json`.
+4.  Add/replace any encrypted files you'd like and add them to `.gitattributes` (see git-crypt docs). At the very least, you should encrypt `config.json`.
 5.  Run `git-crypt lock`.
 6.  Test unlocking your repo: `git-crypt unlock ~/.beleyenv/secretKey`
 7.  Export your key as text and store it in a safe place (like a password manager): `./devScripts/bin2hex.sh ~/.beleyenv/secretKey`
 
 #### Install the Commit Hook
 
-Run `./devScripts/install-commit-hook.sh`. If you've already bootstraped the repo for your usage and are starting on a clean container, `./bootstrap.sh` will do this for you. See the next section.
+Run `./devScripts/install-commit-hook.sh`. If you've already bootstrapped the repo for your usage and are starting on a clean container, `./bootstrap.sh` will do this for you. See the next section.
 
 ##### Restoring git-crypt from a Clean Checkout
 
-Let's say you want to run beleyenv on a new container. Before you can run `./index.sh`, you have to restore your binary git-crypt `secretKey` and unlock the repo. This is mostly automated for you.
+Let's say you want to run Beleyenv on a new container. Before you can run `./index.sh`, you have to restore your binary git-crypt `secretKey` and unlock the repo. This is mostly automated for you.
 
 Simply run `./bootstrap.sh`. This will automatically install git-crypt for you, prompt you for your text-based version of your `secretKey` to convert to binary for you automatically, unlock your repo, and install the commit hook.
 
@@ -231,7 +241,7 @@ Anything that requires a non-trivial script to install goes in here.
 
 ##### devScripts/
 
-Scripts used soley for the development of Beleyenv go here.
+Scripts used solely for the development of Beleyenv go here.
 
 #### Configuring config.json
 
@@ -257,7 +267,7 @@ Set to the properly escaped contents of a sublime license file. One example of h
 console.log(
     JSON.stringify(`Your Sublime License here
 will contain multiple lines.
-Make sure you paste it excactly as-is
+Make sure you paste it exactly as-is
 `)
 );
 ```
