@@ -42,6 +42,9 @@ This is not a complete list, but includes the interesting things. Start reading 
         -   Uncomment GDK_SCALE change in index.js if you have a low dpi screen.
         -   Run Steam in "Low Density Mode" (right click the icon in your tray, select "Use Low Density"), ensure steam is completely exited, then restart.
         -   Disable hardware accelerated web frames in the steam preferences. It performed better for me with it off.
+-   Systemd journald tweaks
+    -   By default, the crostini container saves no logs to disk. This also makes it impossible for users to view logs for their user's systemd services. Beleyenv turns logging to disk back on.
+    -   This may be undesirable if your chromebook has limited storage.
 -   [The Fuck](https://github.com/nvbn/thefuck): One of the most useful CLI tools ever.
 -   Latest Node 12.x.x via the [NodeSource repo](https://github.com/nodesource/distributions)
     -   Includes latest Yarn from the official [Yarn repo](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
