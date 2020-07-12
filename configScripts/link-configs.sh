@@ -11,6 +11,10 @@ ln -sf "$(pwd)/configs/.zshrc" ~/.zshrc
 ln -sf "$(pwd)/configs/.p10k.zsh" ~/.p10k.zsh
 echo "ZSH configs installed!"
 
+# gtkrc-2.0 config
+ln -sf "$(pwd)/configs/.gtkrc-2.0" ~/.gtkrc-2.0
+echo "GTK config installed!"
+
 # Todo Config
 mkdir -p ~/.todo/
 ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config

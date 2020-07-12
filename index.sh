@@ -62,6 +62,7 @@ sudo flatpak install -y flathub com.valvesoftware.Steam
 ./installScripts/install-node.sh
 ./installScripts/install-hostess.sh
 ./installScripts/install-docker.sh
+./installScripts/install-theme.sh
 
 # Install yarn dependencies
 sudo yarn global add eslint prettier
@@ -74,12 +75,10 @@ sudo yarn global add eslint prettier
 # Install packages dependent on user configuration being present first.
 ./installScripts/installBorgTools/index.sh
 
-# Still working on themeing
-# ./install-theme.sh
-
 echo 'SUCCESS!  BELEYENV HAS BEEN FULLY INSTALLED!'
 echo 'Hints of what to do next: '
-echo 'Run ./devScripts/switch-to-ssh-remote.sh to switch from https to ssh if you are Chris'
-echo 'Some changes only will take effect after a reboot of the container. Run sudo poweroff then start kitty via the app launcher.'
+echo ' * Run ./devScripts/switch-to-ssh-remote.sh to switch from https to ssh if you are Chris'
+echo ' * Some changes only will take effect after a reboot of the container. Run sudo poweroff then start kitty via the app launcher.'
+echo ' * You will have to manually run the "Install Package Control" command in sublime.'
 
 notify-send -a 'beleyenv' 'beleyenv install finished!' 'Have fun!'
