@@ -14,14 +14,15 @@ info "Starting backup"
 # Backup the most important directories into an archive named after
 # the machine this script is currently running on:
 
-borg create                         \
-    --verbose                       \
-    --stats                         \
-    --exclude-caches                \
-    --exclude 'sh:**/.cache'        \
-    --exclude 'sh:**/node_modules'  \
-                                    \
-    ::'{now}'                       \
+borg create                                                  \
+    --verbose                                                \
+    --stats                                                  \
+    --exclude-caches                                         \
+    --exclude 'sh:**/.cache'                                 \
+    --exclude 'sh:**/node_modules'                           \
+    --exclude 'sh:**/.var/app/com.valvesoftware.Steam/.local'\
+                                                             \
+    ::'{now}'                                                \
     "$(pwd)"                          
 
 backup_exit=$?
