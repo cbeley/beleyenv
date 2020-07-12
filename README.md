@@ -40,6 +40,10 @@ This is not a complete list, but includes the interesting things. Start reading 
 -   [Steam](https://store.steampowered.com/)
     -   To not break my rule of making major system changes, it is installed via [flatpak](https://flathub.org/apps/details/com.valvesoftware.Steam)
     -   Overall I've had good luck with flatpak and steam. Your millage may vary for some games. Installing steam directly involves making some significant system changes that may cause issues down the road for you.
+    -   You may need to do the following:
+        -   Uncomment GDK_SCALE change in index.js if you have a low dpi screen.
+        -   Run Steam in "Low Density Mode" (right click the icon in your tray, select "Use Low Density"), ensure steam is completely exited, then restart.
+        -   Disable hardware accelerated web frames in the steam preferences. It performed better for me with it off.
 -   [The Fuck](https://github.com/nvbn/thefuck): One of the most useful CLI tools ever.
 -   Latest Node 12.x.x via the [NodeSource repo](https://github.com/nodesource/distributions)
     -   Includes latest Yarn from the official [Yarn repo](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
