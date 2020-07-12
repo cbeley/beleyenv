@@ -88,5 +88,3 @@ sudo yarn global add eslint prettier
  * Run ./devScripts/switch-to-ssh-remote.sh to switch from https to ssh if you are Chris\n\
  * Some changes only will take effect after a reboot of the container. Run sudo poweroff then start kitty via the app launcher.\n\
  * You will have to manually run the "Install Package Control" command in sublime."
-
-notify-send -a 'beleyenv' 'beleyenv install finished!' 'Have fun!'
