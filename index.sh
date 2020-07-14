@@ -57,7 +57,7 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 sudo flatpak install -y flathub com.valvesoftware.Steam
 
 # This may be undesirable on 1080p screens.
-flatpak override --user --env=GDK_SCALE=1.8 com.valvesoftware.Steam
+flatpak override --user --env=GDK_SCALE=3 com.valvesoftware.Steam
 
 ./print.sh "Installed flatpak & flatpak packages!"
 
