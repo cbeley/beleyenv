@@ -1,0 +1,8 @@
+reporting: "off"
+startuppopupversion: 1
+gui:
+  sidePanelWidth: 0.2
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark  --24-bit-color=never

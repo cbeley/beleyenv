@@ -43,6 +43,10 @@ mkdir -p ~/.config/sublime-merge/Packages/User
 find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -n1 -0 -I {} bash -c 'ln -sf "{}" "$HOME/.config/sublime-merge/Packages/User/$(basename "{}")"'
 ./print.sh "Sublime merge configs installed!"
 
+# Lazygit Configs
+mkdir -p ~/.config/jesseduffield/lazygit
+ln -sf "$(pwd)/configs/lazygit.config.yml" ~/.config/jesseduffield/lazygit/config.yml
+
 INSTALL_ENCRYPTED=$(jq -r '.installThingsWithEncryptedDeps' config.json)
 
 if [[ $INSTALL_ENCRYPTED = 'true' ]]; then
