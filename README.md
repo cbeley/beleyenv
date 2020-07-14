@@ -41,7 +41,6 @@ This is not a complete list, but includes the interesting things. Start reading 
     -   Overall I've had good luck with flatpak and steam. Your millage may vary for some games. Installing steam directly involves making some significant system changes that may cause issues down the road for you.
     -   You may need to do the following:
         -   Uncomment the GDK_SCALE change in index.sh if you have a low DPI screen.
-        -   Run Steam in "Low Density Mode" (right click the icon in your tray, select "Use Low Density"), ensure steam is completely exited, then restart.
         -   Disable hardware accelerated web frames in the steam preferences. It performed better for me with it off.
 -   Systemd journald tweaks
     -   By default, the Crostini container saves no logs to disk. This also makes it impossible for users to view logs for their user's systemd services. Beleyenv turns logging to disk back on.
