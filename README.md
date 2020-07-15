@@ -185,6 +185,10 @@ You do not need to re-run any scripts to update configuration under `configs/` t
 1. If you share the configuration in multiple places, you simply need to `git pull` to update your configuration elsewhere.
 2. If you (or some other script) makes a change to any of the managed configs, it'll be apparent via `git status`. You can then either check in the changes or revert them if it was unintentional.
 
+#### Manually Installed Binaries are Always Sym-Linked when Possible
+
+Beleyenv prefers installing packages via some sort of package manager whenever possible. However, when that is not possible, binaries and their corresponding assets will copied to `/usr/local/beleyenv/`. All binaries under `/usr/local/beleyenv` are then symlinked from `/usr/local/bin`. This makes it easier to identify Beleyenv managed software.
+
 #### Commit-Hooks to Protect Yourself
 
 After bootstrapping your forked repo, a commit hook will be installed that gives you the following:
