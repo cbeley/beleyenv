@@ -19,7 +19,9 @@ mkdir temp
 
     (
         cd ./*
-        sudo cp todo.sh /usr/local/bin/
+        mkdir -p /usr/local/beleyenv/bin
+        sudo cp todo.sh /usr/local/beleyenv/bin/
+        sudo ln -sf /usr/local/beleyenv/bin/todo.sh /usr/local/bin/
     )
 )
 

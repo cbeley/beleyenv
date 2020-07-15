@@ -17,11 +17,11 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin dest=./temp
 
 cp installScripts/installKitty/kitty.desktop temp/kitty.app/share/applications/
 
-sudo mkdir -p /usr/local/opt
 sudo mkdir -p /usr/local/share/applications
+sudo mkdir -p /usr/local/beleyenv
 
-sudo cp -R temp/kitty.app /usr/local/opt
-sudo ln -fs /usr/local/opt/kitty.app/bin/kitty /usr/local/bin/kitty
-sudo ln -fs /usr/local/opt/kitty.app/share/applications/kitty.desktop /usr/local/share/applications/kitty.desktop
+sudo cp -R temp/kitty.app /usr/local/beleyenv/
+sudo ln -fs /usr/local/beleyenv/kitty.app/bin/kitty /usr/local/bin/
+sudo ln -fs /usr/local/beleyenv/kitty.app/share/applications/kitty.desktop /usr/local/share/applications/
 
 ./print.sh "Kitty installed!"
