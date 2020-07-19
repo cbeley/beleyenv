@@ -28,6 +28,13 @@ else
   export EDITOR='subl'
 fi
 
+# Crostini only mounts the home directory, so anything
+# that uses xdg-open with temp files will not work unless
+# we change the default temp directory to be within home.
+# TODO: temp directory rotation.
+mkdir -p $HOME/.tmp
+export TMPDIR=$HOME/.tmp
+
 source ~/.beleyenv/borg-env.export
 
 #############################################################
