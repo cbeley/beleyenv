@@ -61,7 +61,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git colored-man-pages colorize extract web-search docker node)
+plugins=(git colored-man-pages colorize extract web-search docker node yarn)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.p10k.zsh
