@@ -5,4 +5,4 @@ gui:
 git:
   paging:
     colorArg: always
-    pager: delta --dark  --24-bit-color=never
+    pager: delta -s --dark --paging=never --24-bit-color=never
