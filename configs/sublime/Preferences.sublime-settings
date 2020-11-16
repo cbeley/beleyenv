@@ -52,7 +52,9 @@
 		"node_modules",
 		"node_offline",
 		".npm",
-		"node_shrinkwrap"
+		"node_shrinkwrap",
+		".cache",
+		"public"
 	],
 	"font_face": "Fantasque Sans Mono",
 	"font_size": 15,
