@@ -5,12 +5,12 @@
 	],
 	"install_prereleases":
 	[
-		"babel"
+		"Babel"
 	],
 	"installed_packages":
 	[
 		"Babel",
-		"Color Highlighter",
+		"Color Highlight",
 		"DocBlockr",
 		"Dockerfile Syntax Highlighting",
 		"DustBuster",
