@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e 
 
-mkdir -p /usr/local/beleyenv/bin
+sudo mkdir -p /usr/local/beleyenv/bin
 
 curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest \
     | jq -r '[.assets[].browser_download_url] 
