@@ -2,6 +2,7 @@
     "email": "email@gmail.com",
     "name": "Your Name",
     "hosts": [],
+    "dockerContexts": [],
     "sublimeLicense": null,
     "borgRepo": null,
     "installThingsWithEncryptedDeps": false
