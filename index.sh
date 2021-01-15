@@ -43,7 +43,7 @@ sudo apt-get -y install xz-utils nano apt-transport-https flatpak python3-pip \
 	python3-libtorrent python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-appindicator3 \
 	python3-dev python3-setuptools git zsh jq shellcheck git-cola imagemagick borgbackup \
 	ca-certificates gnupg-agent software-properties-common vlc traceroute gimp rsync \
-	dnsutils
+	dnsutils dnsmasq
 
 ./print.sh "Installed general apt-get packages!"
 
