@@ -3,7 +3,8 @@
 	"extensions":
 	[
 		"mdown",
-		"md"
+		"md",
+		"mdx"
 	],
 	"mde.keymap_disable.open_page": false,
 	"wrap_width": 70
