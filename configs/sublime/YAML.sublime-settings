@@ -1,6 +1,7 @@
 {
 	"extensions":
 	[
-		"otl"
+		"otl",
+		"yml"
 	]
 }
