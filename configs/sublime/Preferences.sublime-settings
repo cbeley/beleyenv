@@ -15,7 +15,13 @@
 		"distro",
 		"systemd",
 		"sudo",
-		"repos"
+		"repos",
+		"blog",
+		"Dockerizing",
+		"Dockerized",
+		"Linode",
+		"dockerize",
+		"dockerized"
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 	"file_exclude_patterns":
