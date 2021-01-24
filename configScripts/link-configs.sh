@@ -47,6 +47,12 @@ find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -n1 
 mkdir -p ~/.config/jesseduffield/lazygit
 ln -sf "$(pwd)/configs/lazygit.config.yml" ~/.config/jesseduffield/lazygit/config.yml
 
+# dnsmasq.d
+sudo rm -rf /etc/dnsmasq.d
+sudo ln -sf "$(pwd)/configs/dnsmasq.d" /etc/dnsmasq.d
+sudo systemctl restart dnsmasq
+./print.sh "dnsmasq.d configs installed!"
+
 INSTALL_ENCRYPTED=$(jq -r '.installThingsWithEncryptedDeps' config.json)
 
 if [[ $INSTALL_ENCRYPTED = 'true' ]]; then

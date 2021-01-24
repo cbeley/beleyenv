@@ -89,6 +89,7 @@ sudo yarn global add eslint prettier
 
 # Install packages dependent on user configuration being present first.
 ./installScripts/installBorgTools/index.sh
+./installScripts/install-etc-hosts-watcher.sh
 
 ./print.sh "Hints of what to do next:\n\
  * Run ./devScripts/switch-to-ssh-remote.sh to switch from https to ssh if you are Chris\n\

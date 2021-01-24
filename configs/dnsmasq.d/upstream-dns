@@ -1,0 +1,7 @@
+# When using dns via dnsmasq from outside the container, it means we 
+# will no longer have a dns server that can look up hosts on the public
+# internet. So, we have to explicitly declare what we want our upstream
+# DNS to be. I use cloudflare's DNS servers. You can use whatever you want.
+
+server=1.1.1.1
+server=1.0.0.1

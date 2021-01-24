@@ -1,0 +1,9 @@
+[Unit]
+Description=Watches /etc/hosts and restarts dnsmasq upon changes
+
+[Service]
+Type=oneshot
+ExecStart=sudo systemctl restart dnsmasq
+
+[Install]
+WantedBy=multi-user.target
