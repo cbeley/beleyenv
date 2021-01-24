@@ -21,7 +21,11 @@
 		"Dockerized",
 		"Linode",
 		"dockerize",
-		"dockerized"
+		"dockerized",
+		"backend",
+		"backends",
+		"codebases",
+		"Webpack"
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 	"file_exclude_patterns":
