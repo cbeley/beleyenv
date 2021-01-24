@@ -16,5 +16,7 @@ fi
 
 sudo cp installScripts/installBorgTools/borg-home-backup.sh /usr/local/bin
 
+# See notes in install-etc-hosts-watcher.sh for why disable.
+systemctl --user disable borg-home-backup.timer
 systemctl --user enable borg-home-backup.timer
 systemctl --user start borg-home-backup.timer
