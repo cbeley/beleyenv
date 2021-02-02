@@ -6,4 +6,4 @@ Type=oneshot
 ExecStart=sudo systemctl restart dnsmasq
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
