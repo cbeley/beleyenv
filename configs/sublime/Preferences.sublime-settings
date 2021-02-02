@@ -25,7 +25,12 @@
 		"backend",
 		"backends",
 		"codebases",
-		"Webpack"
+		"Webpack",
+		"playa",
+		"backcountry",
+		"Lagunitas",
+		"Garmin",
+		"queryable"
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 	"file_exclude_patterns":
