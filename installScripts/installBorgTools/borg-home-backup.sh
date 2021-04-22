@@ -18,13 +18,14 @@ borg create                                                  \
     --verbose                                                \
     --stats                                                  \
     --exclude-caches                                         \
+    --one-file-system                                        \
     --exclude 'sh:**/.cache'                                 \
     --exclude 'sh:**/node_modules'                           \
     --exclude 'sh:**/.var/app/com.valvesoftware.Steam/.local'\
     --exclude 'sh:**/.tmp'                                   \
                                                              \
     ::'{now}'                                                \
-    "$(pwd)"                          
+    "$HOME"                          
 
 backup_exit=$?
 
