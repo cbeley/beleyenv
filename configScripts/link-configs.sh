@@ -53,6 +53,10 @@ sudo ln -sf "$(pwd)/configs/dnsmasq.d" /etc/dnsmasq.d
 sudo systemctl restart dnsmasq
 ./print.sh "dnsmasq.d configs installed!"
 
+# tldr config
+ln -sf "$(pwd)/configs/.tldrrc" ~/.tldrrc
+./print.sh "tldr config installed!"
+
 INSTALL_ENCRYPTED=$(jq -r '.installThingsWithEncryptedDeps' config.json)
 
 if [[ $INSTALL_ENCRYPTED = 'true' ]]; then
