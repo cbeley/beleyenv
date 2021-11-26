@@ -75,10 +75,9 @@
 	"font_size": 15,
 	"ignored_packages":
 	[
-		"JavaScript",
 		"Markdown",
 		"MDX Syntax Highlighting",
-		"Vintage"
+		"Vintage",
 	],
 	"ignored_words":
 	[
@@ -100,5 +99,5 @@
 	],
 	"spell_check": true,
 	"theme": "Adaptive.sublime-theme",
-	"translate_tabs_to_spaces": true
+	"translate_tabs_to_spaces": true,
 }
