@@ -9,7 +9,6 @@
 	],
 	"installed_packages":
 	[
-		"Babel",
 		"Color Highlight",
 		"DocBlockr",
 		"Dockerfile Syntax Highlighting",
@@ -17,12 +16,14 @@
 		"EditorConfig",
 		"GraphQL",
 		"JsPrettier",
+		"LSP",
+		"LSP-typescript",
 		"MarkdownEditing",
 		"MarkdownPreview",
 		"Package Control",
 		"Pretty JSON",
 		"Sass",
 		"SublimeLinter",
-		"SublimeLinter-eslint"
-	]
+		"SublimeLinter-eslint",
+	],
 }
