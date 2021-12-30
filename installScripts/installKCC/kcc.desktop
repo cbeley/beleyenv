@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kcc
+GenericName=Kindle Comic Converter
+Comment=Kindle Comic Converter
+TryExec=kcc
+Exec=kcc
+Icon=/usr/local/beleyenv/kcc/icons/comic2ebook.png
