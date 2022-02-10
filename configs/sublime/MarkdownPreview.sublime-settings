@@ -1,3 +1,4 @@
 {
-  "image_path_conversion": "base64"
+  "image_path_conversion": "base64",
+  "path_tempfile": "/home/cbeley/.tmp"
 }

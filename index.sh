@@ -26,6 +26,13 @@ theEnd() {
 	fi
 }
 
+# xdg-open does not properly work with paths outside the user's
+# home directory. I have some things (like markdown previewing) that
+# use xdg-open to display a temporarily generated webpage. 
+# 
+# For better or worse, simply using a symlinked path to /tmp does the trick.
+ln -sf /tmp ~/.tmp
+
 sudo apt update
 
 # Install the minimum for the few things that require
