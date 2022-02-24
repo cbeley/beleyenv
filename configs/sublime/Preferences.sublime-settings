@@ -30,7 +30,9 @@
 		"backcountry",
 		"Lagunitas",
 		"Garmin",
-		"queryable"
+		"queryable",
+		"influencer",
+		"frontends",
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 	"file_exclude_patterns":
