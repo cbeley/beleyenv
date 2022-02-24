@@ -80,4 +80,11 @@ alias mountBackups="sudo mkdir -p /mnt/borgBackups && \
 
 alias umountBackups="cd && borg umount /mnt/borgBackups && sudo rm -rf /mnt/borgBackups"
 
+#############################################################
+########################## Misc #############################
+#############################################################
+# TODO: Should probably move to .zshenv.
+path+=$HOME/bin
+export PATH
+
 eval $(thefuck --alias)
