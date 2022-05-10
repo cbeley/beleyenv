@@ -6,5 +6,5 @@ GenericName=Terminal emulator
 Comment=A fast, feature full, GPU based terminal emulator
 TryExec=kitty
 Exec=kitty
-Icon=/usr/local/opt/kitty.app/share/icons/hicolor/256x256/apps/kitty.png
+Icon=/usr/local/beleyenv/kitty.app/share/icons/hicolor/256x256/apps/kitty.png
 Categories=System;TerminalEmulator;

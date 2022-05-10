@@ -10,7 +10,7 @@ fi
 #############################################################
 
 # Explicitly setting so root shells work properly with kitty.
-export TERMINFO="/usr/local/opt/kitty.app/lib/kitty/terminfo"
+export TERMINFO="/usr/local/beleyenv/kitty.app/lib/kitty/terminfo"
 
 # This is very bad in multi-user enviornments.  Do not set this to true there.
 # However, in the crostini container, root is only accessible via the 
