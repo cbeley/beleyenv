@@ -103,6 +103,8 @@ tldr -u
 ./installScripts/install-etc-hosts-watcher.sh
 
 ./print.sh "Hints of what to do next:\n\
- * Run ./devScripts/switch-to-ssh-remote.sh to switch from https to ssh if you are Chris\n\
- * Some changes only will take effect after a reboot of the container. Run sudo poweroff then start kitty via the app launcher.\n\
- * You will have to manually run the "Install Package Control" command in sublime."
+                         \n\
+ * Run ./devScripts/switch-to-ssh-remote.sh to switch from https to ssh if you are Chris.\n\
+ * Some changes only will take effect after a reboot of the container.\n\
+   Right click 'Terminal' and click 'Shut Down Linux', then start kitty via the app launcher.\n\
+ * You will have to manually run the 'Install Package Control' command in sublime."

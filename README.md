@@ -83,8 +83,8 @@ This will give you my opinionated set-up on your Chromebook. You'll likely want 
 2. Run `mkdir .beleyenv && cd .beleyenv && git clone https://github.com/cbeley/beleyenv.git`
 3. Run `mv sample-config.json config.json`. Edit `config.json` in your favorite editor (nano is one option: `sudo apt-get install nano`). You only need to update `email` and `name`. Everything else can be left alone. See [Forking & Using Beleyenv For Your Own Profit](#forking-&-using-beleyenv-for-your-own-profit) to learn how to customize Beleyenv for your own use.
 4. Run `./index.sh`. Note that the script will open Chrome for you and navigate to Github's SSH Keys page. Your SSH key should already be in your clipboard at this point. Simply paste it in and save it if you'd like to associate your newly generated ssh key with your github account. If you don't care about doing this, you can just ignore it.
-5. You'll receive a ChromeOS notification when belyenv is done. Some changes require a reboot (well, it's the easiest way) to take effect. Type `sudo poweroff` to shut down your container.
-6. Kitty is faster and better than the ChromeOS terminal app. So after you poweroff your container, never use the terminal app again and instead use Kitty -- It'll be among your other apps. Clicking it will auto-start the container.
+5. You'll receive a ChromeOS notification when belyenv is done. Some changes require a reboot. Avoid using `poweroff` and instead right click the "Terminal" icon in ChromeOS and select "Shut Down Linux". Using `poweroff` has been causing ChromeOS to become confused about the Linux container state.
+6. Kitty is faster and better than the ChromeOS terminal app. So after you shutdown your container, never use the terminal app again and instead use Kitty -- It'll be among your other apps. Clicking it will auto-start the container.
 
 ### Running individual scripts
 
