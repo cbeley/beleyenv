@@ -7,7 +7,11 @@ set -e
 # these deps elsewhere for now.
 
 sudo apt-get install pyqt5-dev-tools pyqt5-dev
-sudo pip3 install Pillow psutil python-slugify raven
+sudo pip3 install Pillow psutil raven
+
+# TODO: May cause problems down the line, but KCC
+# requires this specific version to run.
+sudo pip3 install 'python-slugify==1.2.1'
 
 sudo mkdir -p /usr/local/beleyenv/bin/
 
