@@ -15,6 +15,7 @@ if [[ $SUBLIME_LICENSE = '' ]] || [[ $SUBLIME_LICENSE = 'null' ]]; then
 else
     mkdir -p ~/.config/sublime-text-3/Local/
     echo -e "$SUBLIME_LICENSE" > ~/.config/sublime-text-3/Local/License.sublime_license
+    echo -e "$SUBLIME_LICENSE" > ~/.config/sublime-merge/Local/License.sublime_license
     ./print.sh "Sublime text license installed!"
 fi
 
