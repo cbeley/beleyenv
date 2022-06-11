@@ -27,9 +27,9 @@ mkdir patchedFantasqueSansMono
 
 
 if [[ $OSTYPE == 'darwin'* ]]; then
-	fontDir="~/Library/Fonts/"
+	fontDir="$HOME/Library/Fonts/"
 else 
-	fontDir="~/.fonts/"
+	fontDir="$HOME/.fonts/"
 fi
 
 mkdir -p "$fontDir"
