@@ -18,8 +18,11 @@ set -e
 if [[ $keygenExitCode != 0 ]]; then
 	./print.sh "Assuming you entered 'No' when asked to ovewrite keys\n\
 Skipping SSH key-gen generation..."
-	notify-send -a 'beleyenv' '[WARN] SSH key-gen canceled' \
-		'If you did not answer no to overwrite keys, something may have gone wrong.'
+
+	if command -v notify-send &> /dev/null; then
+		notify-send -a 'beleyenv' '[WARN] SSH key-gen canceled' \
+			'If you did not answer no to overwrite keys, something may have gone wrong.'
+	fi
 
 	exit 0
 fi

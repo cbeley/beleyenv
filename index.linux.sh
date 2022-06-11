@@ -84,14 +84,7 @@ flatpak override --user --env=GDK_SCALE=3 com.valvesoftware.Steam
 ./installScripts/install-lazygit.sh
 ./installScripts/install-delta.sh
 ./installScripts/installKCC/index.sh
-
-# Install yarn dependencies
-sudo yarn global add eslint prettier tldr
-
-# Update tldr cache now so we're good to go the first time we run it.
-tldr -u
-
-./print.sh "Installed general global yarn packages!"
+./installScripts/install-yarn-pkgs.sh
 
 # User configuration
 ./configScripts/link-configs.sh

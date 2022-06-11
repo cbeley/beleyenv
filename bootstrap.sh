@@ -1,8 +1,18 @@
 #!/bin/bash
 set -e 
 
-sudo apt-get update
-sudo apt-get install git-crypt
+if [[ $OSTYPE == 'darwin'* ]]; then
+	# Not ideal to have to deal with installing brew in bootstrap,
+	# but no package manager otherwise to get git-crypt, which is required
+	# for beleyenv to run.
+	
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+	brew install git-crypt
+else
+	sudo apt-get update
+	sudo apt-get install git-crypt
+fi
 
 ./devScripts/install-commit-hook.sh
 

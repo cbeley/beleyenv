@@ -9,15 +9,29 @@ fi
 ################# Exported Enviornment ######################
 #############################################################
 
-# Explicitly setting so root shells work properly with kitty.
-export TERMINFO="/usr/local/beleyenv/kitty.app/lib/kitty/terminfo"
+# ChromeOS Specific Stuff
+if [[ $OSTYPE != 'darwin'* ]]; then
+  # This is very bad in multi-user enviornments.  Do not set this to true there.
+  # However, in the crostini container, root is only accessible via the 
+  # user and has no password.  If someone compromises your user account, they
+  # have compromised your root account.  Setting this to true lets us do fun things
+  # like share the same checked in zsh configs with both the normal user and root.
+  export ZSH_DISABLE_COMPFIX="true"
 
-# This is very bad in multi-user enviornments.  Do not set this to true there.
-# However, in the crostini container, root is only accessible via the 
-# user and has no password.  If someone compromises your user account, they
-# have compromised your root account.  Setting this to true lets us do fun things
-# like share the same checked in zsh configs with both the normal user and root.
-export ZSH_DISABLE_COMPFIX="true"
+  # Crostini only mounts the home directory, so anything
+  # that uses xdg-open with temp files will not work unless
+  # we change the default temp directory to be within home.
+  # TODO: temp directory rotation.
+  mkdir -p $HOME/.tmp
+  export TMPDIR=$HOME/.tmp
+
+  source ~/.beleyenv/borg-env.export
+
+  # Explicitly setting so root shells work properly with kitty.
+  # Doing this on MacOS may have other pitfalls
+  # Look into https://sw.kovidgoyal.net/kitty/faq/ if it becomes relevant later.
+  export TERMINFO="/usr/local/beleyenv/kitty.app/lib/kitty/terminfo"
+fi
 
 # Path to oh-my-zsh installation.
 export ZSH="/home/cbeley/.oh-my-zsh"
@@ -27,15 +41,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='subl'
 fi
-
-# Crostini only mounts the home directory, so anything
-# that uses xdg-open with temp files will not work unless
-# we change the default temp directory to be within home.
-# TODO: temp directory rotation.
-mkdir -p $HOME/.tmp
-export TMPDIR=$HOME/.tmp
-
-source ~/.beleyenv/borg-env.export
 
 #############################################################
 ############### oh-my-zsh & p10k configuration ##############
@@ -73,12 +78,16 @@ alias fd="fdfind"
 alias sm="smerge ."
 alias ls="lsd"
 alias icat="kitty +kitten icat"
-alias mountBackups="sudo mkdir -p /mnt/borgBackups && \
-    sudo chmod o+rw /mnt/borgBackups && \
-    borg mount :: /mnt/borgBackups && \
-    cd /mnt/borgBackups"
 
-alias umountBackups="cd && borg umount /mnt/borgBackups && sudo rm -rf /mnt/borgBackups"
+# ChromeOS Specific Stuff
+if [[ $OSTYPE != 'darwin'* ]]; then
+  alias mountBackups="sudo mkdir -p /mnt/borgBackups && \
+      sudo chmod o+rw /mnt/borgBackups && \
+      borg mount :: /mnt/borgBackups && \
+      cd /mnt/borgBackups"
+
+  alias umountBackups="cd && borg umount /mnt/borgBackups && sudo rm -rf /mnt/borgBackups"
+fi
 
 #############################################################
 ########################## Misc #############################

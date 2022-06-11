@@ -75,6 +75,9 @@ Also note that Beleyenv runs some scripts by doing `curl x | bash`. This is some
 
 ## Quick Start
 
+WARNING: Currently in a transition period for macOS support. The main
+Install script is currently `index.linux.sh`. I'll likely change this back to `index.sh` later.
+
 This will give you my opinionated set-up on your Chromebook. You'll likely want to read further down, fork this repo, then adjust it to your liking. However, it has been designed to be able to run by default without relying on any of the encrypted configuration in this repo.
 
 **WARNING:** If you do not run this on a clean-setup, this script will **overwrite any existing configuration** that Beleyenv manages **without warning and without a backup**!

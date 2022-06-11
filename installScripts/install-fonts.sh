@@ -24,8 +24,17 @@ mkdir patchedFantasqueSansMono
 	rm ./*Complete.ttf
 )
 
-mkdir -p ~/.fonts 
-cp -R OTF/*.otf ~/.fonts/
-cp -R patchedFantasqueSansMono/*.ttf ~/.fonts/
+
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+	fontDir="~/Library/Fonts/"
+else 
+	fontDir="~/.fonts/"
+fi
+
+mkdir -p "$fontDir"
+
+cp -R OTF/*.otf "$fontDir"
+cp -R patchedFantasqueSansMono/*.ttf "$fontDir"
 
 ../print.sh "Fonts installed!"
