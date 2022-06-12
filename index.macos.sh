@@ -44,6 +44,20 @@ brew install autoconf bash binutils coreutils diffutils ed findutils flex gawk \
     gnu-indent gnu-sed gnu-tar gnu-which gpatch grep gzip less m4 make nano \
     screen watch wdiff wget
 
+# Allow for use of these tools immediately. 
+# From https://gist.github.com/skyzyx/3438280b18e4f7c490db8a2a2ca0b9da
+# TODO: Cleanup.
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX=$(brew --prefix)
+  NEWPATH=${PATH}
+  # gnubin; gnuman
+  for d in "${HOMEBREW_PREFIX}"/opt/*/libexec/gnubin; do NEWPATH=$d:$NEWPATH; done
+  # I actually like that man grep gives the BSD grep man page
+  #for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnuman; do export MANPATH=$d:$MANPATH; done
+  PATH=$(echo "${NEWPATH}" | tr ':' '\n' | cat -n | sort -uk2 | sort -n | cut -f2- | xargs | tr ' ' ':')
+  export PATH
+fi
+
 # TODO: Ensure zsh sets up PATH correctly for this.
 
 # Meant to mirror what is installed in apt-get in index.linux.sh as
