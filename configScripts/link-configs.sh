@@ -47,8 +47,16 @@ find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -
 ./print.sh "Sublime merge configs installed!"
 
 # Lazygit Configs
-mkdir -p ~/.config/jesseduffield/lazygit
-ln -sf "$(pwd)/configs/lazygit.config.yml" "$OSConfigFolder/jesseduffield/lazygit/config.yml"
+# Something fishy is going on with lazygit config location and his docs. 
+# But this is what seems to work.
+if [[ $OSTYPE == 'darwin'* ]]; then
+    lazygitBase="$OSConfigFolder/Library/Application Support"
+else
+    lazygitBase="$OSConfigFolder/jesseduffield"
+fi
+
+mkdir -p "$lazygitBase/lazygit"
+ln -sf "$(pwd)/configs/lazygit.config.yml" "$lazygitBase/lazygit/config.yml"
 
 # tldr config
 ln -sf "$(pwd)/configs/.tldrrc" ~/.tldrrc
