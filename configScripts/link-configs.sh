@@ -23,6 +23,9 @@ else
     sublimeBaseFolder="$HOME/.config"
 fi 
 
+mkdir -p "$sublimeBaseFolder/sublime-text-3/Packages/User"
+mkdir -p "$sublimeBaseFolder/sublime-merge/Packages/User"
+
 # Sublime Configs
 mkdir -p ~/.config/sublime-text-3/Packages/User
 # shellcheck disable=SC2016
