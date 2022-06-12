@@ -57,8 +57,6 @@ if type brew &>/dev/null; then
   export PATH
 fi
 
-# TODO: Ensure zsh sets up PATH correctly for this.
-
 # Meant to mirror what is installed in apt-get in index.linux.sh as
 # much as possible (and as relevant for my macOS use-cases).
 brew install rsync zsh shellcheck imagemagick fd thefuck jq
@@ -95,6 +93,3 @@ brew install --cask rectangle
 
 # User configuration
 ./configScripts/link-configs.sh
-
-# TODO: write install scripts for/update
-# * Replace python with python installed from cask
