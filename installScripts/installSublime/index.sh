@@ -1,10 +1,20 @@
 #!/bin/bash
 set -e 
 
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get update
-sudo apt-get -y install sublime-text sublime-merge
+if [[ $OSTYPE == 'darwin'* ]]; then
+    brew install --cask sublime-text sublime-merge
+
+    sublimeBaseFolder="$HOME/Library/Application Support"
+    sublimeTextFolder="$sublimeBaseFolder/Sublime Text"
+else 
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+    echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+    sudo apt-get update
+    sudo apt-get -y install sublime-text sublime-merge
+
+    sublimeBaseFolder="$HOME/.config"
+    sublimeTextFolder="$sublimeBaseFolder/sublime-text-3"
+fi
 
 ./print.sh "Sublime text installed!"
 
@@ -13,13 +23,15 @@ SUBLIME_LICENSE=$(jq -r '.sublimeLicense' config.json)
 if [[ $SUBLIME_LICENSE = '' ]] || [[ $SUBLIME_LICENSE = 'null' ]]; then
     ./print.sh "No sublime license present in config.json\nSkipping automatic license install..."
 else
-    mkdir -p ~/.config/sublime-text-3/Local/
-    echo -e "$SUBLIME_LICENSE" > ~/.config/sublime-text-3/Local/License.sublime_license
-    echo -e "$SUBLIME_LICENSE" > ~/.config/sublime-merge/Local/License.sublime_license
+    mkdir -p "$sublimeTextFolder/Local/"
+    mkdir -p "$sublimeBaseFolder/sublime-merge/Local/"
+
+    echo -e "$SUBLIME_LICENSE" > "$sublimeTextFolder/Local/License.sublime_license"
+    echo -e "$SUBLIME_LICENSE" > "$sublimeBaseFolder/sublime-merge/Local/License.sublime_license"
     ./print.sh "Sublime text license installed!"
 fi
 
-mkdir -p ~/.config/sublime-text-3/Packages
-cp installScripts/installSublime/Systemd.sublime-syntax ~/.config/sublime-text-3/Packages
+mkdir -p "$sublimeTextFolder/Packages"
+cp installScripts/installSublime/Systemd.sublime-syntax "$sublimeTextFolder/Packages"
 
 ./print.sh "Sublime text plugins not under package control installed"

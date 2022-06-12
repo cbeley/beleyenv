@@ -68,10 +68,6 @@ brew install --cask gimp vlc
 # Replaces ./installScripts/installKitty/index.sh
 brew install --cask kitty
 
-# Replaces ./installScripts/installSublime/index.sh
-# TODO: Install sublime merge and license.
-brew install --cask sublime-text
-
 # Replaces ./installScripts/install-lsd.sh
 brew install lsd
 
@@ -87,6 +83,7 @@ brew install git-delta
 # ./installScripts/install-theme.sh
 # ./installScripts/install-node.sh
 
+./installScripts/installSublime/index.sh
 ./installScripts/install-fonts.sh
 ./installScripts/install-zsh.sh
 ./installScripts/install-yarn-pkgs.sh
