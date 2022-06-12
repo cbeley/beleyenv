@@ -19,8 +19,10 @@ ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
 # Sublime Base Folder
 if [[ $OSTYPE == 'darwin'* ]]; then
     sublimeBaseFolder="$HOME/Library/Application Support"
+    sublimeTextFolder="$sublimeBaseFolder/Sublime Text"
 else
     sublimeBaseFolder="$HOME/.config"
+    sublimeTextFolder="$sublimeBaseFolder/sublime-text-3"
 fi 
 
 mkdir -p "$sublimeBaseFolder/sublime-text-3/Packages/User"
@@ -29,7 +31,7 @@ mkdir -p "$sublimeBaseFolder/sublime-merge/Packages/User"
 # Sublime Configs
 mkdir -p ~/.config/sublime-text-3/Packages/User
 # shellcheck disable=SC2016
-find "$(pwd)/configs/sublime" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeBaseFolder/sublime-text-3/Packages/User/\$(basename \"{}\")\""
+find "$(pwd)/configs/sublime" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeTextFolder/Packages/User/\$(basename \"{}\")\""
 ./print.sh "Sublime configs installed!"
 
 # Sublime Merge Configs
