@@ -37,13 +37,15 @@ mkdir -p "$OSConfigFolder/sublime-text-3/Packages/User"
 mkdir -p "$OSConfigFolder/sublime-merge/Packages/User"
 
 # Sublime Configs
-mkdir -p ~/.config/sublime-text-3/Packages/User
+mkdir -p "$sublimeTextFolder/Packages/User"
+
 # shellcheck disable=SC2016
 find "$(pwd)/configs/sublime" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeTextFolder/Packages/User/\$(basename \"{}\")\""
 ./print.sh "Sublime configs installed!"
 
 # Sublime Merge Configs
-mkdir -p ~/.config/sublime-merge/Packages/User
+mkdir -p "$sublimeMergeFolder/Packages/User"
+
 # shellcheck disable=SC2016
 find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeMergeFolder/Packages/User/\$(basename \"{}\")\""
 ./print.sh "Sublime merge configs installed!"
