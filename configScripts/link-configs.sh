@@ -27,8 +27,10 @@ ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
 # Sublime Base Folder
 if [[ $OSTYPE == 'darwin'* ]]; then
     sublimeTextFolder="$OSConfigFolder/Sublime Text"
+    sublimeMergeFolder="$OSConfigFolder/Sublime Merge"
 else
     sublimeTextFolder="$OSConfigFolder/sublime-text-3"
+    sublimeMergeFolder="$OSConfigFolder/sublime-merge"
 fi 
 
 mkdir -p "$OSConfigFolder/sublime-text-3/Packages/User"
@@ -43,7 +45,7 @@ find "$(pwd)/configs/sublime" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} b
 # Sublime Merge Configs
 mkdir -p ~/.config/sublime-merge/Packages/User
 # shellcheck disable=SC2016
-find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$OSConfigFolder/sublime-merge/Packages/User/\$(basename \"{}\")\""
+find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeMergeFolder/Packages/User/\$(basename \"{}\")\""
 ./print.sh "Sublime merge configs installed!"
 
 # Lazygit Configs
