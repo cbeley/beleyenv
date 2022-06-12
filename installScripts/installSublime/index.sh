@@ -6,6 +6,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 
     sublimeBaseFolder="$HOME/Library/Application Support"
     sublimeTextFolder="$sublimeBaseFolder/Sublime Text"
+    sublimeMergeFolder="$sublimeBaseFolder/Sublime Merge"
 else 
     wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -14,6 +15,7 @@ else
 
     sublimeBaseFolder="$HOME/.config"
     sublimeTextFolder="$sublimeBaseFolder/sublime-text-3"
+    sublimeMergeFolder="$sublimeBaseFolder/sublime-merge"
 fi
 
 ./print.sh "Sublime text installed!"
@@ -24,10 +26,10 @@ if [[ $SUBLIME_LICENSE = '' ]] || [[ $SUBLIME_LICENSE = 'null' ]]; then
     ./print.sh "No sublime license present in config.json\nSkipping automatic license install..."
 else
     mkdir -p "$sublimeTextFolder/Local/"
-    mkdir -p "$sublimeBaseFolder/sublime-merge/Local/"
+    mkdir -p "$sublimeMergeFolder/Local/"
 
     echo -e "$SUBLIME_LICENSE" > "$sublimeTextFolder/Local/License.sublime_license"
-    echo -e "$SUBLIME_LICENSE" > "$sublimeBaseFolder/sublime-merge/Local/License.sublime_license"
+    echo -e "$SUBLIME_LICENSE" > "$sublimeMergeFolder/Local/License.sublime_license"
     ./print.sh "Sublime text license installed!"
 fi
 
