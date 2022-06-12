@@ -18,7 +18,7 @@ ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
 
 # Sublime Base Folder
 if [[ $OSTYPE == 'darwin'* ]]; then
-    sublimeBaseFolder="$HOME/Library/Application\ Support"
+    sublimeBaseFolder="$HOME/Library/Application Support"
 else
     sublimeBaseFolder="$HOME/.config"
 fi 
