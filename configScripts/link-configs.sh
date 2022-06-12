@@ -50,7 +50,7 @@ find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -
 # Something fishy is going on with lazygit config location and his docs. 
 # But this is what seems to work.
 if [[ $OSTYPE == 'darwin'* ]]; then
-    lazygitBase="$OSConfigFolder/Library/Application Support"
+    lazygitBase="$OSConfigFolder"
 else
     lazygitBase="$OSConfigFolder/jesseduffield"
 fi
