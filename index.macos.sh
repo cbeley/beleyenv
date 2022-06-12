@@ -31,6 +31,8 @@ if ! command -v gcc &> /dev/null; then
     xcode-select --install
 fi
 
+./configScripts/setup-ssh-keys.sh 
+
 ### Everything below this line should require zero prompting from the user ###
 
 # Brew should be installed by bootstrap.sh,
