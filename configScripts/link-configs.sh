@@ -1,6 +1,14 @@
 #!/bin/bash
 set -e
 
+# Note that only some people use /Library/Application Support on MacOS.
+# ...wonderful.
+if [[ $OSTYPE == 'darwin'* ]]; then
+    OSConfigFolder="$HOME/Library/Application Support"
+else
+    OSConfigFolder="$HOME/.config"
+fi
+
 # Kitty Config
 mkdir -p ~/.config/kitty
 ln -sf "$(pwd)/configs/kitty.conf" ~/.config/kitty/kitty.conf
@@ -18,15 +26,13 @@ ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
 
 # Sublime Base Folder
 if [[ $OSTYPE == 'darwin'* ]]; then
-    sublimeBaseFolder="$HOME/Library/Application Support"
-    sublimeTextFolder="$sublimeBaseFolder/Sublime Text"
+    sublimeTextFolder="$OSConfigFolder/Sublime Text"
 else
-    sublimeBaseFolder="$HOME/.config"
-    sublimeTextFolder="$sublimeBaseFolder/sublime-text-3"
+    sublimeTextFolder="$OSConfigFolder/sublime-text-3"
 fi 
 
-mkdir -p "$sublimeBaseFolder/sublime-text-3/Packages/User"
-mkdir -p "$sublimeBaseFolder/sublime-merge/Packages/User"
+mkdir -p "$OSConfigFolder/sublime-text-3/Packages/User"
+mkdir -p "$OSConfigFolder/sublime-merge/Packages/User"
 
 # Sublime Configs
 mkdir -p ~/.config/sublime-text-3/Packages/User
@@ -37,12 +43,12 @@ find "$(pwd)/configs/sublime" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} b
 # Sublime Merge Configs
 mkdir -p ~/.config/sublime-merge/Packages/User
 # shellcheck disable=SC2016
-find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeBaseFolder/sublime-merge/Packages/User/\$(basename \"{}\")\""
+find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$OSConfigFolder/sublime-merge/Packages/User/\$(basename \"{}\")\""
 ./print.sh "Sublime merge configs installed!"
 
 # Lazygit Configs
 mkdir -p ~/.config/jesseduffield/lazygit
-ln -sf "$(pwd)/configs/lazygit.config.yml" ~/.config/jesseduffield/lazygit/config.yml
+ln -sf "$(pwd)/configs/lazygit.config.yml" "$OSConfigFolder/jesseduffield/lazygit/config.yml"
 
 # tldr config
 ln -sf "$(pwd)/configs/.tldrrc" ~/.tldrrc
