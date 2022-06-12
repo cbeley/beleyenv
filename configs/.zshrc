@@ -34,7 +34,7 @@ if [[ $OSTYPE != 'darwin'* ]]; then
 fi
 
 # Path to oh-my-zsh installation.
-export ZSH="/home/cbeley/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
