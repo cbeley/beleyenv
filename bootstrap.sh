@@ -8,7 +8,12 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 	
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-	brew install git-crypt
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+
+	brew install git-crypt coreutils findutils
+
+	PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+	PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 else
 	sudo apt-get update
 	sudo apt-get install git-crypt
