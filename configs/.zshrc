@@ -1,3 +1,6 @@
+# Want everything below this to override this.
+source /opt/twitter_mde/etc/zshrc
+
 # Enable Homebrew and use GNU for everything.
 # TODO: Probably belongs in a more appropriate zsh dot file.
 if [[ $OSTYPE == 'darwin'* ]]; then
