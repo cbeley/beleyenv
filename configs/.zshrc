@@ -1,5 +1,7 @@
 # Want everything below this to override this.
-source /opt/twitter_mde/etc/zshrc
+if [[ -f /opt/twitter_mde/etc/zshrc ]]; then
+  source /opt/twitter_mde/etc/zshrc
+fi
 
 # Enable Homebrew and use GNU for everything.
 # TODO: Probably belongs in a more appropriate zsh dot file.
