@@ -89,7 +89,7 @@ brew install git-delta
 ./installScripts/install-yarn-pkgs.sh
 
 # MacOS Specific Software
-brew install --cask rectangle
+brew install --cask rectangle messenger
 
 # User configuration
 ./configScripts/link-configs.sh
