@@ -13,6 +13,12 @@ runYarn () {
     fi
 }
 
+# This will ensure global packages are installed
+# in my home directory and allow me to share global
+# packages when switching node versions (which may be
+# problematic in some situations). 
+runYarn config set prefix ~/.yarn
+
 runYarn global add eslint prettier tldr
 
 # Update tldr cache now so we're good to go the first time we run it.
