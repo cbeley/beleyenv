@@ -1,26 +1,3 @@
-# Want everything below this to override this.
-if [[ -f /opt/twitter_mde/etc/zshrc ]]; then
-  source /opt/twitter_mde/etc/zshrc
-fi
-
-# Enable Homebrew and use GNU for everything.
-# TODO: Probably belongs in a more appropriate zsh dot file.
-if [[ $OSTYPE == 'darwin'* ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-# Inspired by https://gist.github.com/skyzyx/3438280b18e4f7c490db8a2a2ca0b9da
-if type brew &>/dev/null; then
-  HOMEBREW_PREFIX=$(brew --prefix)
-  NEWPATH=${PATH}
- 
-  for d in "${HOMEBREW_PREFIX}"/opt/*/libexec/gnubin; do NEWPATH=$d:$NEWPATH; done
-  for d in "${HOMEBREW_PREFIX}"/opt/*/libexec/gnuman; do export MANPATH=$d:$MANPATH; done
-
-  PATH=$(echo "${NEWPATH}" | tr ':' '\n' | cat -n | sort -uk2 | sort -n | cut -f2- | xargs | tr ' ' ':')
-  export PATH
-fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -59,12 +36,6 @@ fi
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nano'
-else
-  export EDITOR='subl'
-fi
-
 #############################################################
 ############### oh-my-zsh & p10k configuration ##############
 #############################################################
@@ -89,7 +60,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git colored-man-pages colorize extract web-search docker node yarn)
+plugins=(git colored-man-pages colorize extract web-search docker node yarn asdf)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.p10k.zsh
@@ -97,7 +68,12 @@ source ~/.p10k.zsh
 #############################################################
 ######################## Aliases ############################
 #############################################################
-alias fd="fdfind"
+#
+# The brew installed fd used fd. debian uses fdfind.
+if ! (which fd >& /dev/null); then
+  alias fd="fdfind"
+fi
+
 alias sm="smerge ."
 alias ls="lsd"
 alias icat="kitty +kitten icat"
@@ -115,8 +91,7 @@ fi
 #############################################################
 ########################## Misc #############################
 #############################################################
-# TODO: Should probably move to .zshenv.
-path+=$HOME/bin
-export PATH
 
 eval $(thefuck --alias)
+
+source $HOME/.zsh-work
