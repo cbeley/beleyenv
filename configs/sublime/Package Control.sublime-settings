@@ -15,6 +15,7 @@
 		"DustBuster",
 		"EditorConfig",
 		"GraphQL",
+		"JSCustom",
 		"JsPrettier",
 		"LSP",
 		"LSP-typescript",
@@ -25,5 +26,6 @@
 		"Sass",
 		"SublimeLinter",
 		"SublimeLinter-eslint",
+		"SublimeLinter-flow",
 	],
 }
