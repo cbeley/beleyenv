@@ -88,8 +88,15 @@ brew install git-delta
 ./installScripts/install-zsh.sh
 ./installScripts/install-yarn-pkgs.sh
 
-# MacOS Specific Software
+#### MacOS Specific Software (and stuff I have not added to ChromeOS yet)
 brew install --cask rectangle messenger
+
+# Node-Canvas Deps
+brew install pkg-config cairo pango libpng jpeg giflib librsvg
+
+# Note: ChromeOS I just use latest node. May change this later.
+brew install asdf
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
 # User configuration
 ./configScripts/link-configs.sh
