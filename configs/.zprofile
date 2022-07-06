@@ -1,7 +1,9 @@
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
 else
-  export EDITOR='subl'
+  # -n opens a new window
+  # -w tells sublime to wait for the file to be saved before returning.
+  export EDITOR='subl -n -w'
 fi
 
 # Want everything below this to override this.
