@@ -89,7 +89,8 @@ brew install git-delta
 ./installScripts/install-yarn-pkgs.sh
 
 #### MacOS Specific Software (and stuff I have not added to ChromeOS yet)
-brew install --cask rectangle messenger
+brew tap homebrew/cask-drivers
+brew install --cask rectangle messenger alt-tab cameracontroller
 
 # Node-Canvas Deps
 brew install pkg-config cairo pango libpng jpeg giflib librsvg
