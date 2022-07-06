@@ -21,7 +21,15 @@ if type brew &>/dev/null; then
   HOMEBREW_PREFIX=$(brew --prefix)
   NEWPATH=${PATH}
  
-  for d in "${HOMEBREW_PREFIX}"/opt/*/libexec/gnubin; do NEWPATH=$d:$NEWPATH; done
+  for d in "${HOMEBREW_PREFIX}"/opt/*/libexec/gnubin; do 
+    # Only libtool causes issues with asdf installation of new node versions.
+    # Some other things may be problematic for me in the future. I'll re-think 
+    # this later as needed.
+    if [[ $d != *"libtool"* ]]; then
+      NEWPATH=$d:$NEWPATH;
+    fi
+  done
+
   for d in "${HOMEBREW_PREFIX}"/opt/*/libexec/gnuman; do export MANPATH=$d:$MANPATH; done
 
   PATH=$(echo "${NEWPATH}" | tr ':' '\n' | cat -n | sort -uk2 | sort -n | cut -f2- | xargs | tr ' ' ':')
