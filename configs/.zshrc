@@ -94,4 +94,6 @@ fi
 
 eval $(thefuck --alias)
 
-source $HOME/.zsh-work
+if [[ -f /opt/twitter_mde/etc/zshrc ]]; then
+  source $HOME/.zsh-work
+fi
