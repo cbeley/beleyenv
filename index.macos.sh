@@ -59,8 +59,12 @@ fi
 
 # Meant to mirror what is installed in apt-get in index.linux.sh as
 # much as possible (and as relevant for my macOS use-cases).
-brew install rsync zsh shellcheck imagemagick fd thefuck jq
+brew install rsync zsh shellcheck imagemagick fd thefuck jq fzf
 brew install --cask gimp vlc
+
+# TODO: the fzf stuff should likely be split off into its own install file to 
+# keep mac and chromeos stuff together.
+"$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc
 
 # Meant to mirror the install scripts, though most are handled with brew.
 # Debating how to maintain this going forward.
