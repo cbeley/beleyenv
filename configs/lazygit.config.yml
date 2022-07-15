@@ -2,6 +2,7 @@ reporting: "off"
 startuppopupversion: 1
 gui:
   sidePanelWidth: 0.2
+  showIcons: true
 git:
   paging:
     colorArg: always
