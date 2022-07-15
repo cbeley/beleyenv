@@ -9,6 +9,7 @@
 	],
 	"installed_packages":
 	[
+		"Clickable URLs",
 		"Color Highlight",
 		"DocBlockr",
 		"Dockerfile Syntax Highlighting",
