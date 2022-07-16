@@ -33,7 +33,11 @@ if type brew &>/dev/null; then
   for d in "${HOMEBREW_PREFIX}"/opt/*/libexec/gnuman; do export MANPATH=$d:$MANPATH; done
 
   PATH=$(echo "${NEWPATH}" | tr ':' '\n' | cat -n | sort -uk2 | sort -n | cut -f2- | xargs | tr ' ' ':')
+  
   export PATH
+
+  # Annoyingly, some scripts are still expecting 'python' instead of 'python3'.
+  path=($HOMEBREW_PREFIX/opt/python@3.9/libexec/bin $path)
 fi
 
 # Ensure local path considered first for my own installed
