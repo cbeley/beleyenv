@@ -59,7 +59,7 @@ fi
 
 # Meant to mirror what is installed in apt-get in index.linux.sh as
 # much as possible (and as relevant for my macOS use-cases).
-brew install rsync zsh shellcheck imagemagick fd thefuck jq fzf
+brew install rsync zsh shellcheck imagemagick fd thefuck jq fzf bat
 brew install --cask gimp vlc
 
 # TODO: the fzf stuff should likely be split off into its own install file to 
