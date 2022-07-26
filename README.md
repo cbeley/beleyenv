@@ -75,9 +75,6 @@ Also note that Beleyenv runs some scripts by doing `curl x | bash`. This is some
 
 ## Quick Start
 
-WARNING: Currently in a transition period for macOS support. The main
-Install script is currently `index.linux.sh`. I'll likely change this back to `index.sh` later.
-
 This will give you my opinionated set-up on your Chromebook. You'll likely want to read further down, fork this repo, then adjust it to your liking. However, it has been designed to be able to run by default without relying on any of the encrypted configuration in this repo.
 
 **WARNING:** If you do not run this on a clean-setup, this script will **overwrite any existing configuration** that Beleyenv manages **without warning and without a backup**!
@@ -281,3 +278,13 @@ Make sure you paste it exactly as-is
 ##### `installThingsWithEncryptedDeps`
 
 Set to `true` to enable scripts that normally do not run because they require encrypted files. Feel free to use this however you like or search the codebase for what relies on it to adjust to your liking.
+
+## MacOS Support
+
+Beleyenv now contains limited support for my macOS setup. However, I would advise against trying to use any of it, but it may be interesting as a reference to some people.
+
+### Notes on how it works alongside the ChromeOS configs
+
+-   `index.sh` now auto-detects whether you are on MacOS or not and runs either `index.mac.sh` or `index.linux.sh`.
+-   Some installScripts now support both Linux and macOS. No convention exists currently to know whether the script has multi-OS support at a glance.
+-   zsh config is shared between macOS and ChromeOS.
