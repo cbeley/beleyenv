@@ -8,7 +8,7 @@ First and foremost, Beleyenv was created to bootstrap and maintain my personal s
 
 ## What Beleyenv Gets You
 
-This is not a complete list, but includes the interesting things. Start reading from `index.js` to get the full story.
+This is not a complete list, but includes the interesting things. Start reading from `index.sh` to get the full story.
 
 -   Automatic incremental daily home backups via [Borg](https://borgbackup.readthedocs.io/)
     -   Complete with status notifications that will show up along-side all your other chromeOS notifications!
