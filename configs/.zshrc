@@ -96,3 +96,9 @@ eval $(thefuck --alias)
 
 [ -f $HOME/.zsh-work ] && source $HOME/.zsh-work
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Just base auto completion for things like `git add` based on
+# the filesystem. Better experience for large repos.
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}
