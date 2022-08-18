@@ -74,7 +74,7 @@
 		"public"
 	],
 	"font_face": "Fantasque Sans Mono",
-	"font_size": 15,
+	"font_size": 17,
 	"ignored_packages":
 	[
 		"Markdown",
@@ -102,4 +102,5 @@
 	"spell_check": true,
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
+	"show_git_status": false,
 }
