@@ -1,0 +1,4 @@
+{
+	"enabled": true,
+	"selector": "source.jsx, source.ts, source.tsx",
+}
