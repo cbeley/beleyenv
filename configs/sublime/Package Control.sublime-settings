@@ -9,6 +9,7 @@
 	],
 	"installed_packages":
 	[
+		"ApplySyntax",
 		"Clickable URLs",
 		"Color Highlight",
 		"DocBlockr",
