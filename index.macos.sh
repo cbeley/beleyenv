@@ -91,6 +91,7 @@ brew install git-delta
 ./installScripts/install-fonts.sh
 ./installScripts/install-zsh.sh
 ./installScripts/install-yarn-pkgs.sh
+./installScripts/install-signal.sh
 
 #### MacOS Specific Software (and stuff I have not added to ChromeOS yet)
 brew tap homebrew/cask-drivers

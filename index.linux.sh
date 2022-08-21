@@ -86,6 +86,7 @@ flatpak override --user --env=GDK_SCALE=3 com.valvesoftware.Steam
 ./installScripts/install-delta.sh
 ./installScripts/installKCC/index.sh
 ./installScripts/install-yarn-pkgs.sh
+./installScripts/install-signal.sh
 
 # User configuration
 ./configScripts/link-configs.sh
