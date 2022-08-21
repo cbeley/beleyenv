@@ -102,6 +102,13 @@ eval $(thefuck --alias)
 [ -f $HOME/.zsh-work ] && source $HOME/.zsh-work
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if [[ $OSTYPE != 'darwin'* ]]; then
+  # TODO: Combine this with what's going on with the macOS 
+  # install script later. See Line 108.
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
 # Just base auto completion for things like `git add` based on
 # the filesystem. Better experience for large repos.
 __git_files () { 
