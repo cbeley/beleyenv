@@ -74,6 +74,11 @@ if ! (which fd >& /dev/null); then
   alias fd="fdfind"
 fi
 
+# Debian aliases bat to batcat. In this case, add an alis.
+if (which batcat >& /dev/null;) then
+  alias bat="batcat"
+fi
+
 alias sm="smerge ."
 alias ls="lsd"
 alias icat="kitty +kitten icat"
