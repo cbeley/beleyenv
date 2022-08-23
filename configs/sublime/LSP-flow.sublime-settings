@@ -1,0 +1,13 @@
+// Settings in here override those in "LSP-flow/LSP-flow.sublime-settings"
+{
+    "languages": [
+        {
+            "languageId": "javascriptreact",
+            "document_selector": "source.js.flow"
+        },
+        {
+            "languageId": "javascript",
+            "document_selector": "source.js.flow"
+        }
+    ]
+}

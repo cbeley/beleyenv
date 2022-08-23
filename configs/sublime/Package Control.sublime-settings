@@ -20,6 +20,7 @@
 		"JSCustom",
 		"JsPrettier",
 		"LSP",
+		"LSP-flow",
 		"LSP-typescript",
 		"MarkdownEditing",
 		"MarkdownPreview",
