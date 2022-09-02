@@ -21,6 +21,8 @@
 		"JsPrettier",
 		"LSP",
 		"LSP-flow",
+		"LSP-graphql",
+		"LSP-json",
 		"LSP-typescript",
 		"MarkdownEditing",
 		"MarkdownPreview",
