@@ -48,3 +48,7 @@ export PATH
 
 # For one-off cases where I want to have custom shell completions.
 fpath=($HOME/.custom-completions $fpath)
+
+# See .zshenv
+zProfileRan=true
+export zProfileRan
