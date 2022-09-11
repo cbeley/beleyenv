@@ -1,7 +1,16 @@
 #!/bin/bash
 set -e 
 
-if [[ $OSTYPE == 'darwin'* ]]; then
+if [[ -f "/etc/steamos-release" ]]; then
+	# password needs to be set for sudo access needed by homebrew.
+	
+	if passwd -S | awk '{print $2}' | grep 'NP' > /dev/null; then
+    	echo 'Password was not set.'
+    	passwd
+	fi
+fi
+
+if [[ -f "/etc/steamos-release" || $OSTYPE == 'darwin'* ]]; then
 	# Not ideal to have to deal with installing brew in bootstrap,
 	# but no package manager otherwise to get git-crypt, which is required
 	# for beleyenv to run.
