@@ -29,8 +29,12 @@ theEnd() {
 
 ./configScripts/setup-ssh-keys.sh 
 
-# Install Chrome with proper permissions for home directory
-# and controller access (For Stadia).
-flatpak install flathub com.google.Chrome
-flatpak override --user --filesystem=home com.google.Chrome
+flatpak install flathub com.google.Chrome org.videolan.VLC
+
+# Flatpak home directory access
+flatpak override --user --filesystem=home com.google.Chrome org.videolan.VLC
+
+# Flatpak Controller Access
 flatpak --user override --filesystem=/run/udev:ro com.google.Chrome
+
+brew install shellcheck imagemagick fd thefuck jq fzf bat yq

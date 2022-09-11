@@ -8,9 +8,13 @@ if [[ -f "/etc/steamos-release" ]]; then
     	echo 'Password was not set.'
     	passwd
 	fi
-fi
 
-if [[ -f "/etc/steamos-release" || $OSTYPE == 'darwin'* ]]; then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+	brew install git-crypt
+elif [[ $OSTYPE == 'darwin'* ]]; then
 	# Not ideal to have to deal with installing brew in bootstrap,
 	# but no package manager otherwise to get git-crypt, which is required
 	# for beleyenv to run.
