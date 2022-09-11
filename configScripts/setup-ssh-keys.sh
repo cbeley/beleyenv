@@ -46,6 +46,8 @@ printf "\033]52;c;%s\a" "$(cat ~/.ssh/id_rsa.pub | base64)"
 ./print.sh "If it was not auto-copied, copy your key here and paste it into github."
 cat ~/.ssh/id_rsa.pub
 
+# TODO: open and xdg-open seem to not work right on steamOS. Need to figure out
+# what is going on here.
 open https://github.com/settings/ssh/new
 
 ./print.sh "Public key copied to clipboard.  Continue to add it on github."

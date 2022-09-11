@@ -29,10 +29,10 @@ theEnd() {
 
 ./configScripts/setup-ssh-keys.sh 
 
-flatpak install flathub com.google.Chrome org.videolan.VLC
+flatpak install -y flathub com.google.Chrome org.videolan.VLC
 
 # Flatpak home directory access
-flatpak override --user --filesystem=home com.google.Chrome org.videolan.VLC
+flatpak override --user --filesystem=home com.google.Chrome
 
 # Flatpak Controller Access
 flatpak --user override --filesystem=/run/udev:ro com.google.Chrome
