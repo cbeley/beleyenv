@@ -95,7 +95,7 @@ brew install git-delta
 
 #### MacOS Specific Software (and stuff I have not added to ChromeOS yet)
 brew tap homebrew/cask-drivers
-brew install --cask rectangle messenger alt-tab cameracontroller
+brew install --cask rectangle messenger alt-tab cameracontroller visual-studio-code
 
 # Node-Canvas Deps
 brew install pkg-config cairo pango libpng jpeg giflib librsvg
