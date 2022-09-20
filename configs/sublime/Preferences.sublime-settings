@@ -71,7 +71,8 @@
 		".npm",
 		"node_shrinkwrap",
 		".cache",
-		"public"
+		"public",
+		"tmp"
 	],
 	"font_face": "Fantasque Sans Mono",
 	"font_size": 17,
