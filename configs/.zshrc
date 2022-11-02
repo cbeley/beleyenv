@@ -82,6 +82,8 @@ fi
 alias sm="smerge ."
 alias ls="lsd"
 alias icat="kitty +kitten icat"
+alias gitCheckoutBranch='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(git branch --all | fzf)'
+alias gitCheckoutFile='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(fd . | fzf)'
 
 # ChromeOS Specific Stuff
 if [[ $OSTYPE != 'darwin'* ]]; then
