@@ -38,6 +38,9 @@ if type brew &>/dev/null; then
 
   # Annoyingly, some scripts are still expecting 'python' instead of 'python3'.
   path=($HOMEBREW_PREFIX/opt/python@3.9/libexec/bin $path)
+
+  # Ensure util-linux packages are in path (from homebrew)
+  path=(/opt/homebrew/opt/util-linux/bin /opt/homebrew/opt/util-linux/sbin $path)
 fi
 
 # Ensure local path considered first for my own installed
