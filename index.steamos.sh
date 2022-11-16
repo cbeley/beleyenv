@@ -40,3 +40,7 @@ flatpak override --user --filesystem=home com.google.Chrome
 flatpak --user override --filesystem=/run/udev:ro com.google.Chrome
 
 brew install shellcheck imagemagick fd thefuck jq fzf bat yq
+
+# Enable SSHD
+systemctl enable sshd
+sudo systemctl start sshd
