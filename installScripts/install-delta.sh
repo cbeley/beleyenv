@@ -12,5 +12,6 @@ curl -s https://api.github.com/repos/dandavison/delta/releases/latest \
     | xargs wget
 
 sudo dpkg -i ./*.deb
+rm -rf temp
 
 ../print.sh "Delta installed!"
