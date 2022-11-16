@@ -5,7 +5,8 @@
     "dockerContexts": [],
     "sublimeLicense": null,
     "borgRepo": {
-        "chromeOS": null
+        "chromeOS": null,
+        "ubuntu": null
     },
     "installThingsWithEncryptedDeps": false
 }
