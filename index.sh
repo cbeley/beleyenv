@@ -6,5 +6,5 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 elif [[ -f "/etc/steamos-release" ]]; then
     ./index.steamos.sh
 else
-    ./index.linux.sh 
+    ./index.chromeos.sh 
 fi
