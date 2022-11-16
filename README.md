@@ -279,12 +279,28 @@ Make sure you paste it exactly as-is
 
 Set to `true` to enable scripts that normally do not run because they require encrypted files. Feel free to use this however you like or search the codebase for what relies on it to adjust to your liking.
 
-## MacOS Support
+## Other Supported Environments
 
-Beleyenv now contains limited support for my macOS setup. However, I would advise against trying to use any of it, but it may be interesting as a reference to some people.
+Beleyenv also contains support for other enviornments I use. However, they may or may not be as useful to others as the ChromeOS configuration.
 
-### Notes on how it works alongside the ChromeOS configs
+### Ubuntu Support
 
--   `index.sh` now auto-detects whether you are on MacOS or not and runs either `index.mac.sh` or `index.linux.sh`.
--   Some installScripts now support both Linux and macOS. No convention exists currently to know whether the script has multi-OS support at a glance.
--   zsh config is shared between macOS and ChromeOS.
+The Ubuntu config is meant to share as much as possible with the ChromeOS/Debian config. I have now switched to Linux as my primary distro, but still plan to keep my chromebook around and maintain both configurations.
+
+See `sample-config.json`, which I'll try to keep updated with details about configuration Ubuntu and or ChromeOS.
+
+### MacOS Support
+
+Beleyenv contains limited support for MacOS. I use MacOS for differnt reasons, so it does not mimic or share as much with the ChromeOS/Ubuntu setup.
+
+Many scripts under `/installScripts` support MacOS, but it'll remain undocumented.
+
+### Steam Deck Support
+
+A very bare-bones steam deck setup exists. Probably not very useful to anyone but me.
+
+### Notes on multi-platform support
+
+-   `index.sh` will auto-detect the platform and run the right scripts.
+-   Many/most scripts under `installScripts/` support at least two platforms.
+-   zsh config is designed to be shared between ChromeOS/Debian, Ubuntu, and MacOS.
