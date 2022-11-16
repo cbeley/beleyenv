@@ -66,6 +66,7 @@ sudo pip3 install deluge thefuck pygments
 ./installScripts/installKCC/index.sh
 ./installScripts/install-yarn-pkgs.sh
 ./installScripts/install-signal.sh
+./installScripts/install-ncdu.sh
 
 # User configuration
 ./configScripts/link-configs.sh
