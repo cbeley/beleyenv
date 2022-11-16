@@ -4,24 +4,7 @@
 # I use MacOS and ChromeOS for different purposes.
  
 set -e 
-
-trap 'ctrlC' INT
-trap 'theEnd $?' EXIT
-
-ctrlC() {
-    ./print.sh "You canceled beleyenv!  This may leave you in a weird state.\n\
-Since belyenv is idempotent, you can most likely just re-run beleyenv"
-
-    exit 1
-}
-
-theEnd() {
-    if [[ "$1" != "0" ]]; then
-        ./print.sh 'Beleyenv install failed!'
-    else
-        ./print.sh 'SUCCESS!  BELEYENV HAS BEEN FULLY INSTALLED!'
-    fi
-}
+source ./devScripts/trap-handler.sh
 
 # TODO SSH Key Gen - May not automate this for MacOS. Thinking on it.
 #./configScripts/setup-ssh-keys.sh 

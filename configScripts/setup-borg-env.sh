@@ -9,7 +9,7 @@ mkdir -p ~/.beleyenv
 rm -f ~/.beleyenv/borg-env ~/.beleyenv/borg-env.export
 touch ~/.beleyenv/borg-env ~/.beleyenv/borg-env.export
 
-BORG_REPO=$(jq -r '.borgRepo' config.json)
+BORG_REPO=$(jq -r ".borgRepo.$1" config.json)
 
 read -rsp 'Borg Passphrase:' BORG_PASSPHRASE
 

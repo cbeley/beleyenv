@@ -2,8 +2,8 @@
 set -e
 
 if [[ ${TERM:?} = "xterm-kitty" ]]; then
-	./print.sh "[WARN] You are currently running kitty, so instalation of it was skipped.\n\
-[WARN] Run ./installScrips/installKitty/index.sh in a differnt terminal if you would like to upgrade kitty.\n\
+	./print.sh "[WARN] You are currently running kitty, so installation of it was skipped.\n\
+[WARN] Run ./installScrips/installKitty/index.sh in a different terminal if you would like to upgrade kitty.\n\
 Skipping kitty install..."
 
 	notify-send -a "beleyenv" "[WARN] Skipping install/upgrade of kitty"

@@ -3,13 +3,6 @@
 set -e
 source ./devScripts/trap-handler.sh
 
-# xdg-open does not properly work with paths outside the user's
-# home directory. I have some things (like markdown previewing) that
-# use xdg-open to display a temporarily generated webpage. 
-# 
-# For better or worse, simply using a symlinked path to /tmp does the trick.
-ln -sf /tmp ~/.tmp
-
 sudo apt update
 
 # Install the minimum for the few things that require
@@ -17,18 +10,27 @@ sudo apt update
 sudo apt-get -y install jq libnotify-bin
 
 ./configScripts/setup-ssh-keys.sh 
-./configScripts/setup-borg-env.sh chromeOS
+
+# TODO: Need a new environment before first run.
+#./configScripts/setup-borg-env.sh ubuntu
 
 sudo apt-get -y dist-upgrade
 
 ### Everything below this line should require zero prompting from the user ###
 
-sudo apt-get -y install xz-utils nano apt-transport-https flatpak python3-pip \
-	python3-libtorrent python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-appindicator3 \
-	python3-dev python3-setuptools git zsh jq shellcheck imagemagick borgbackup \
-	ca-certificates gnupg-agent software-properties-common vlc traceroute gimp rsync \
-	dnsutils dnsmasq gocryptfs calibre fdupes archivemount fd-find unrar-free sshfs fzf \
-	bat htop feh
+# xdg-open does not properly work with paths outside the user's
+# home directory. I have some things (like markdown previewing) that
+# use xdg-open to display a temporarily generated webpage. 
+# 
+# For better or worse, simply using a symlinked path to /tmp does the trick.
+ln -sf /tmp ~/.tmp
+
+sudo apt-get -y install xz-utils nano apt-transport-https python3-pip \
+    python3-libtorrent python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-appindicator3 \
+    python3-dev python3-setuptools git zsh jq shellcheck imagemagick borgbackup \
+    ca-certificates gnupg-agent software-properties-common vlc traceroute gimp rsync \
+    dnsutils dnsmasq gocryptfs calibre fdupes archivemount fd-find unrar-free sshfs fzf \
+    bat htop feh
 
 ./print.sh "Installed general apt-get packages!"
 
@@ -38,14 +40,15 @@ sudo pip3 install deluge thefuck pygments
 
 ./print.sh "Installed general pip packages!"
 
-# Install Flatpak repositories & packages
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install -y flathub com.valvesoftware.Steam
+# TODO: Differs from ChromeOS. Take into consideration for eventual merge.
+# Flatpak is used on ChromeOS instead for Debian.
+sudo apt install steam
 
-# This may be undesirable on 1080p screens.
-flatpak override --user --env=GDK_SCALE=3 com.valvesoftware.Steam
+# TODO: I do not think this will matter for Ubuntu? Verify if GDK_SCALE needs to 
+# be fiddled with.
+# flatpak override --user --env=GDK_SCALE=3 com.valvesoftware.Steam
 
-./print.sh "Installed flatpak & flatpak packages!"
+# ./print.sh "Installed flatpak & flatpak packages!"
 
 # Package installs that require more effort -- mostly because debian LTS tends to have
 # very old packages.
@@ -64,8 +67,6 @@ flatpak override --user --env=GDK_SCALE=3 com.valvesoftware.Steam
 ./installScripts/install-yarn-pkgs.sh
 ./installScripts/install-signal.sh
 
-./installScripts/install-chromeos-theme.sh
-
 # User configuration
 ./configScripts/link-configs.sh
 ./configScripts/update-hosts.sh
@@ -73,7 +74,6 @@ flatpak override --user --env=GDK_SCALE=3 com.valvesoftware.Steam
 
 # Install packages dependent on user configuration being present first.
 ./installScripts/installBorgTools/index.sh
-./installScripts/install-chromeos-etc-hosts-watcher.sh
 
 ./print.sh "Hints of what to do next:\n\
                          \n\

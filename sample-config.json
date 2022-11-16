@@ -4,6 +4,8 @@
     "hosts": [],
     "dockerContexts": [],
     "sublimeLicense": null,
-    "borgRepo": null,
+    "borgRepo": {
+        "chromeOS": null
+    },
     "installThingsWithEncryptedDeps": false
 }

@@ -1,23 +1,29 @@
 #!/bin/bash 
 set -e 
 
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo mkdir -p /etc/apt/keyrings
 
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
+if grep -q 'ubuntu' /etc/os-release; then 
+   distro='ubuntu'
+else 
+   distro='debian'
+fi 
+
+curl -fsSL "https://download.docker.com/linux/$distro/gpg" \
+   | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/$distro \
+  $(lsb_release -cs) stable" \
+  | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo usermod -aG docker "$USER"
 
 # It seems this is done by default, but adding just for safe-measure.
 sudo systemctl enable docker 
-
-sudo mkdir -p /usr/local/beleyenv/bin
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/beleyenv/bin/docker-compose
-sudo ln -sf /usr/local/beleyenv/bin/docker-compose /usr/local/bin/
-sudo chmod +x /usr/local/beleyenv/bin/docker-compose
 
 ./print.sh "Docker installed!"

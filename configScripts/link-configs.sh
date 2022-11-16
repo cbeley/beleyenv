@@ -72,30 +72,19 @@ if [[ $OSTYPE == 'darwin'* ]]; then
     ##### MacOS Specific Configs
     ./print.sh "Installing MacOS Specific Configs"
 else 
-    ##### ChromeOS Specific Configs
-    ./print.sh "Installing ChromeOS Specific Configs"
-    
-    # gtkrc-2.0 config
-    ln -sf "$(pwd)/configs/.gtkrc-2.0" ~/.gtkrc-2.0
-    ./print.sh "GTK config installed!"
+    ##### ChromeOS & Ubuntu Only Configs
+    ./print.sh "Installing Linux Specific Configs"
 
     # Systemd Local Units & Overrides
     rm -rf ~/.config/systemd
     ln -sf "$(pwd)/configs/systemd" ~/.config/systemd
     ./print.sh "systemd local units & overrides installed!"
 
-    # System-wide systemd Config
-    sudo rm -f /etc/systemd/journald.conf 
-    sudo ln -sf "$(pwd)/configs/etc/systemd/journald.conf" /etc/systemd/journald.conf 
-    sudo systemctl restart systemd-journald
-    ./print.sh "system-wide systemd configs installed!"
-
     # dnsmasq.d
     sudo rm -rf /etc/dnsmasq.d
     sudo ln -sf "$(pwd)/configs/dnsmasq.d" /etc/dnsmasq.d
     sudo systemctl restart dnsmasq
     ./print.sh "dnsmasq.d configs installed!"
-
 
     INSTALL_ENCRYPTED=$(jq -r '.installThingsWithEncryptedDeps' config.json)
 
@@ -111,6 +100,21 @@ else
     else
         ./print.sh "Skipping installing configs relying on encrypted files..."
     fi
+fi
+
+if grep -q 'debian' /etc/os-release; then 
+    ##### ChromeOS Specific Configs
+    ./print.sh "Installing ChromeOS Specific Configs"
+
+    # gtkrc-2.0 config
+    ln -sf "$(pwd)/configs/.gtkrc-2.0" ~/.gtkrc-2.0
+    ./print.sh "GTK config installed!"
+
+    # System-wide systemd Config
+    sudo rm -f /etc/systemd/journald.conf 
+    sudo ln -sf "$(pwd)/configs/etc/systemd/journald.conf" /etc/systemd/journald.conf 
+    sudo systemctl restart systemd-journald
+    ./print.sh "system-wide systemd configs installed!"
 fi
 
 
