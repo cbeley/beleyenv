@@ -6,7 +6,7 @@ source ./devScripts/trap-handler.sh
 if grep -q 'ubuntu' /etc/os-release; then 
    distro='ubuntu'
 else 
-   distro='debian'
+   distro='chromeOS'
 fi 
 
 sudo apt update
