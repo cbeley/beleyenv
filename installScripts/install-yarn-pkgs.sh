@@ -7,6 +7,9 @@ set -e
 # problematic in some situations). 
 yarn config set prefix ~/.yarn
 
+PATH=$(yarn global bin):$PATH
+export PATH
+
 yarn global add eslint prettier tldr
 
 # Update tldr cache now so we're good to go the first time we run it.
