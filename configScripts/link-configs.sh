@@ -96,7 +96,7 @@ else
     fi
 fi
 
-if grep -q 'debian' /etc/os-release; then 
+if grep -q 'ID=debian' /etc/os-release; then 
     ##### ChromeOS Specific Configs
     ./print.sh "Installing ChromeOS Specific Configs"
 
