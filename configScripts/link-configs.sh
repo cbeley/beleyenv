@@ -80,12 +80,6 @@ else
     ln -sf "$(pwd)/configs/systemd" ~/.config/systemd
     ./print.sh "systemd local units & overrides installed!"
 
-    # dnsmasq.d
-    sudo rm -rf /etc/dnsmasq.d
-    sudo ln -sf "$(pwd)/configs/dnsmasq.d" /etc/dnsmasq.d
-    sudo systemctl restart dnsmasq
-    ./print.sh "dnsmasq.d configs installed!"
-
     INSTALL_ENCRYPTED=$(jq -r '.installThingsWithEncryptedDeps' config.json)
 
     if [[ $INSTALL_ENCRYPTED = 'true' ]]; then
@@ -105,6 +99,12 @@ fi
 if grep -q 'debian' /etc/os-release; then 
     ##### ChromeOS Specific Configs
     ./print.sh "Installing ChromeOS Specific Configs"
+
+    # dnsmasq.d
+    sudo rm -rf /etc/dnsmasq.d
+    sudo ln -sf "$(pwd)/configs/dnsmasq.d" /etc/dnsmasq.d
+    sudo systemctl restart dnsmasq
+    ./print.sh "dnsmasq.d configs installed!"
 
     # gtkrc-2.0 config
     ln -sf "$(pwd)/configs/.gtkrc-2.0" ~/.gtkrc-2.0
