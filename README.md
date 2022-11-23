@@ -92,7 +92,7 @@ Feel free to cherry-pick any of the scripts under `installScripts/`. They are al
 
 ## Home Backups via Borg
 
-Beleyenv uses [Borg](https://borgbackup.readthedocs.io/) to automatically back up your home directory to Google drive by taking advantage of ChromeOS's ability to mount google drive folders within Linux. However, if you'd prefer to use [RClone](https://rclone.org) instead, see [Sync Borg Backups via Rclone](#borg-backups-via-rclone).
+Beleyenv uses [Borg](https://borgbackup.readthedocs.io/) to automatically back up your home directory to Google drive by taking advantage of ChromeOS's ability to mount google drive folders within Linux. However, if you'd prefer to use [RClone](https://rclone.org) instead, see [Sync Borg Backups via Rclone](#sync-borg-backups-via-rclone).
 
 You should read about how Borg works yourself, but you can otherwise quickly get backups working with Beleyenv by doing the following:
 
