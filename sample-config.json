@@ -8,5 +8,9 @@
         "chromeOS": null,
         "ubuntu": null
     },
+    "borgRepoRCloneRemote": {
+        "ubuntu": null,
+        "chromeOS": null
+    },
     "installThingsWithEncryptedDeps": false
 }

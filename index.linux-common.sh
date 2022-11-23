@@ -34,7 +34,7 @@ sudo apt-get -y install xz-utils nano apt-transport-https python3-pip \
     python3-dev python3-setuptools git zsh jq shellcheck imagemagick borgbackup \
     ca-certificates gnupg-agent software-properties-common vlc traceroute gimp rsync \
     dnsutils dnsmasq gocryptfs calibre fdupes archivemount fd-find unrar-free sshfs fzf \
-    bat htop feh curl
+    bat htop feh curl rclone
 
 ./print.sh "Installed general apt-get packages!"
 

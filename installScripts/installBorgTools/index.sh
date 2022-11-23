@@ -14,7 +14,8 @@ fi
 #  * In /index.js, this must run *after* borg is installed.
 #  * configScripts/link-configs.sh must run before this to set up the systemd units.
 
-sudo cp installScripts/installBorgTools/borg-home-backup.sh /usr/local/bin
+sudo ln -sf "$(pwd)/installScripts/installBorgTools/borg-home-backup.sh" /usr/local/bin
+sudo ln -sf "$(pwd)/installScripts/installBorgTools/borg-rclone-home-backup-to-gdrive.sh" /usr/local/bin
 
 # See notes in install-etc-hosts-watcher.sh for why disable.
 systemctl --user disable borg-home-backup.timer

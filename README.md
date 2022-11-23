@@ -92,7 +92,9 @@ Feel free to cherry-pick any of the scripts under `installScripts/`. They are al
 
 ## Home Backups via Borg
 
-Beleyenv uses [Borg](https://borgbackup.readthedocs.io/) to automatically back up your home directory to Google drive by taking advantage of ChromeOS's ability to mount google drive folders within Linux. You should read about how Borg works yourself, but you can otherwise quickly get backups working with Beleyenv by doing the following:
+Beleyenv uses [Borg](https://borgbackup.readthedocs.io/) to automatically back up your home directory to Google drive by taking advantage of ChromeOS's ability to mount google drive folders within Linux. However, if you'd prefer to use [RClone](https://rclone.org) instead, see [Sync Borg Backups via Rclone](#Sync #borg-backups-via-rclone).
+
+You should read about how Borg works yourself, but you can otherwise quickly get backups working with Beleyenv by doing the following:
 
 ### 1. Create & Mount a backup folder on Google Drive
 
@@ -115,7 +117,7 @@ borg config -- /mnt/chromeos/GoogleDrive/MyDrive/path/to/parentFolder/borgBackup
 
 ### 3. Configure Beleyenv
 
-Update `borgRepo` in `config.json` to point to your Borg repo's mount point from the previous section. If you ran Beleyenv to bootstrap your system already and did not set `borgRepo`, borg setup will have been skipped automatically. Re-run the following scripts to configure automatic backups.
+Update `borgRepo.chromeOS` in `config.json` to point to your Borg repo's mount point from the previous section. If you ran Beleyenv to bootstrap your system already and did not set `borgRepo`, borg setup will have been skipped automatically. Re-run the following scripts to configure automatic backups.
 
 ```bash
 # This script will prompt you for your borg password.
@@ -161,6 +163,14 @@ umountBackups
 If all goes well, you will see a notification where all your other ChromeOS notifications are in a little bit saying your Linux backup was successful. You'll always receive notifications when backups occur.
 
 Things are set up so that backups occur daily. If your Linux container was shut down when backups should have otherwise occurred, they will occur the next time you log into your Linux container.
+
+## Sync Borg Backups via Rclone
+
+Alternatively, beleyenv also supports syncing backups via [RClone](https://rclone.org/). Simply configure an RClone remote as desired, then set it as the value of `borgRepoRCloneRemote.chromeOS`. For example, the value may look something like `borgBackupRemote:/`. The backup script will automatically perform the RClone sync if a rclone remote is set in your `config.json` file.
+
+If you do this, be sure to set your borg backup folder to be within your Linux container instead so it is not backed up twice. You also no longer have to configure the `additional_free_space` borg property.
+
+Personally, I use this on my Linux laptop while continuing to use ChromeOS's drive mount on my Chromebook. However, you may still find the RClone approach more desirable, as it gives you more control. For example, you can cancel a rclone sync, but you cannot cancel or control ChromeOS's GDrive syncs.
 
 ## Forking & Using Beleyenv For Your Own Profit
 
