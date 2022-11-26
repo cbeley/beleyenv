@@ -21,6 +21,7 @@ borg create                                                  \
     --one-file-system                                        \
     --exclude 'home/cbeley/Pictures'                         \
     --exclude 'home/cbeley/Downloads'                        \
+    --exclude 'home/cbeley/Videos'                           \
     --exclude 'sh:**/.cache'                                 \
     --exclude 'sh:**/node_modules'                           \
     --exclude 'sh:**/.var/app/com.valvesoftware.Steam/.local'\
