@@ -6,7 +6,8 @@ set -e
 
 sudo apt-get -y install steam guvcview \
     gnome-shell-extension-manager gnome-tweaks \
-    ubuntu-restricted-extras openssh-server
+    ubuntu-restricted-extras openssh-server \
+    ffmpegthumbnailer
 
 sudo snap install discord
 sudo snap install slack
