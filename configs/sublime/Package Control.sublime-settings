@@ -32,5 +32,6 @@
 		"SublimeLinter",
 		"SublimeLinter-eslint",
 		"SublimeLinter-flow",
+		"SublimeLinter-shellcheck",
 	],
 }
