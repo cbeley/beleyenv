@@ -7,7 +7,7 @@ set -e
 sudo apt-get -y install steam guvcview \
     gnome-shell-extension-manager gnome-tweaks \
     ubuntu-restricted-extras openssh-server \
-    ffmpegthumbnailer flatpak
+    ffmpegthumbnailer chrome-gnome-shell flatpak
 
 sudo flatpak remote-add --if-not-exists \
     flathub https://flathub.org/repo/flathub.flatpakrepo
