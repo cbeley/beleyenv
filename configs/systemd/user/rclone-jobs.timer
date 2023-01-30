@@ -1,0 +1,11 @@
+[Unit]
+Description="Automatically run rclone jobs."
+
+[Timer]
+OnCalendar=daily
+# Ensures that backups will at least run when you log in if you had not 
+# been logged in the entire previous day.
+Persistent=true
+
+[Install]
+WantedBy=timers.target

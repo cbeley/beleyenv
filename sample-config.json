@@ -12,5 +12,6 @@
         "ubuntu": null,
         "chromeOS": null
     },
-    "installThingsWithEncryptedDeps": false
+    "installThingsWithEncryptedDeps": false,
+    "rcloneJobs": []
 }

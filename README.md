@@ -172,6 +172,20 @@ If you do this, be sure to set your borg backup folder to be within your Linux c
 
 Personally, I use this on my Linux laptop while continuing to use ChromeOS's drive mount on my Chromebook. However, you may still find the RClone approach more desirable, as it gives you more control. For example, you can cancel a rclone sync, but you cannot cancel or control ChromeOS's GDrive syncs.
 
+## Generic Rclone Jobs
+
+Beleyenv allows for the configuration of rclone jobs that are executed daily via `config.json`. Rclone remotes are not checked into beleyenv, so you must set those up via `rclone`.
+
+The rclone jobs script will evaluate each item in the `rcloneJobs` array exactly. The script will execute rclone relative to your home directory.
+
+```json
+{
+    "rcloneJobs": ["copy cat-pictures secretCatPictureBackups:best-cats"]
+}
+```
+
+Note that this is separate from the borg rclone backup feature because the generic rclone jobs will run in parallel with the borg home backup. The rclone backup for the borg repo is guaranteed to be executed only after borg successfully finishes, unlike the generic rclone jobs.
+
 ## Forking & Using Beleyenv For Your Own Profit
 
 While I've designed Beleyenv to work as-is for anyone, you likely don't want the same set-up as me. Instead, you should fork Beleyenv, read the [Core Concepts](#core-concepts), then read the [Bootstrapping a Forked Repo](#bootstrapping-a-forked-repo) section.
