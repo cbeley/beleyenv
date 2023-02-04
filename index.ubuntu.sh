@@ -9,6 +9,12 @@ sudo apt-get -y install steam guvcview \
     ubuntu-restricted-extras openssh-server \
     ffmpegthumbnailer chrome-gnome-shell flatpak
 
+# Sollar - Logitech Device Support
+sudo add-apt-repository -y ppa:solaar-unifying/stable
+sudo apt-get update
+sudo apt-get -y install solaar
+
+
 sudo flatpak remote-add --if-not-exists \
     flathub https://flathub.org/repo/flathub.flatpakrepo
 

@@ -117,5 +117,12 @@ if grep -q 'ID=debian' /etc/os-release; then
     ./print.sh "system-wide systemd configs installed!"
 fi
 
+if grep -q 'ID=ubuntu' /etc/os-release; then 
+    ./print.sh "Installing Ubuntu specific configs"
+
+    rm -rf ~/.config/solaar
+    ln -sf "$(pwd)/configs/solaar" ~/.config/solaar
+    ./print.sh "Solaar config installed!"
+fi
 
 ./print.sh "All configs installed!"
