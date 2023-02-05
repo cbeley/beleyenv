@@ -70,6 +70,7 @@ sudo pip3 install deluge thefuck pygments
 ./installScripts/install-ncdu.sh
 ./installScripts/install-caprine.sh
 ./installScripts/install-yq.sh
+./installScripts/install-sd.sh
 
 # User configuration
 ./configScripts/link-configs.sh
