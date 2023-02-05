@@ -1,0 +1,9 @@
+[/]
+clock-format='12h'
+color-scheme='prefer-dark'
+enable-animations=false
+font-hinting='slight'
+font-name='Roboto 11'
+gtk-theme='Yaru-dark'
+icon-theme='Yaru-dark'
+monospace-font-name='Fantasque Sans Mono 13'

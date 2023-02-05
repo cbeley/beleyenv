@@ -186,6 +186,39 @@ The rclone jobs script will evaluate each item in the `rcloneJobs` array exactly
 
 Note that this is separate from the borg rclone backup feature because the generic rclone jobs will run in parallel with the borg home backup. The rclone backup for the borg repo is guaranteed to be executed only after borg successfully finishes, unlike the generic rclone jobs.
 
+## Dconf Config Backup
+
+This feature is not enabled by default for the ChromeOS config, but may be added by adding `./installScripts/install-dconf-backup.sh` to `index.chromeos.sh` or `index.linux-common.sh`.
+
+Beleyenv allows automatic backup into the beleyenv repo for any dconf paths you define in `config.json` with the `dconfPaths` array:
+
+```json
+{
+    "dconfPaths": [
+        "org/gnome/desktop/wm/keybindings",
+        "org/gnome/desktop/wm/preferences",
+        "org/gnome/shell/extensions/awesome-tiles"
+    ]
+}
+```
+
+A systemd job will watch your `~/.config/dconf` file for changes and then automatically serialize updated settings to `beleyenv/configs/dconf`.
+
+### Restoring dconf settings
+
+The idea of the backups is to back up things of interest and keep them in source control. If you wish to make changes, you should do so via a gui or via `dconf-editor`.
+
+You can manually restore the settings by running `./configScripts/restore-dconf.sh`.
+
+Personally, if I were doing something like a distro upgrade, I would reset the dconf database entirely, then load only the changes I care about. Restoring a backup of the full binary dconf file may re-introduce settings no longer relevant, or worse, ones that cause issues. The dconf db also contains a lot of ephemeral state that could cause issues on a fresh distro install.
+
+```bash
+cp ~/.config/dconf ~/.config/.dconf-backup
+cd .beleyenv/beleyenv
+dconf reset -f /
+./configScripts/restore-dconf.sh
+```
+
 ## Forking & Using Beleyenv For Your Own Profit
 
 While I've designed Beleyenv to work as-is for anyone, you likely don't want the same set-up as me. Instead, you should fork Beleyenv, read the [Core Concepts](#core-concepts), then read the [Bootstrapping a Forked Repo](#bootstrapping-a-forked-repo) section.

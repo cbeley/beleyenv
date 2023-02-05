@@ -13,5 +13,6 @@
         "chromeOS": null
     },
     "installThingsWithEncryptedDeps": false,
-    "rcloneJobs": []
+    "rcloneJobs": [],
+    "dconfPaths": []
 }

@@ -7,13 +7,13 @@ set -e
 sudo apt-get -y install steam guvcview \
     gnome-shell-extension-manager gnome-tweaks \
     ubuntu-restricted-extras openssh-server \
-    ffmpegthumbnailer chrome-gnome-shell flatpak
+    ffmpegthumbnailer chrome-gnome-shell flatpak \
+    dconf-editor
 
 # Solaar - Logitech Device Support
 sudo add-apt-repository -y ppa:solaar-unifying/stable
 sudo apt-get update
 sudo apt-get -y install solaar
-
 
 sudo flatpak remote-add --if-not-exists \
     flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -23,6 +23,8 @@ sudo snap install slack
 
 # snapcraft suggests it: https://snapcraft.io/discord
 snap connect discord:system-observe
+
+./installScripts/install-dconf-backup.sh
 
 # Remove shit.
 # Maybe I'll use arch again and be happy...

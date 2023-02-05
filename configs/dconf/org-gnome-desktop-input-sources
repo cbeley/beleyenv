@@ -1,0 +1,3 @@
+[/]
+sources=[('xkb', 'us')]
+xkb-options=['caps:super']

@@ -1,0 +1,5 @@
+[/]
+maximize=['<Super>equal']
+move-to-workspace-left=['<Shift><Super>bracketleft']
+move-to-workspace-right=['<Shift><Super>bracketright']
+unmaximize=@as []

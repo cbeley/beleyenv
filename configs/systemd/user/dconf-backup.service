@@ -1,0 +1,9 @@
+[Unit]
+Description="Sync various dconf paths upon any dconf DB update"
+
+[Service]
+Type=oneshot
+ExecStart="%h/.beleyenv/beleyenv/configScripts/backup-dconf.sh" 
+
+[Install]
+WantedBy=default.target
