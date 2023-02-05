@@ -62,6 +62,7 @@ sudo pip3 install deluge thefuck pygments
 ./installScripts/install-docker.sh
 ./installScripts/install-node.sh
 ./installScripts/install-lazygit.sh
+./installScripts/install-lazydocker.sh
 ./installScripts/install-delta.sh
 ./installScripts/installKCC/index.sh
 ./installScripts/install-yarn-pkgs.sh

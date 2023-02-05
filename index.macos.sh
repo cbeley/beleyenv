@@ -62,6 +62,9 @@ brew install lsd
 # Replaces ./installScripts/install-lazygit.sh
 brew install lazygit
 
+# Replaces ./installScripts/install-lazydocker.sh
+brew install lazydocker
+
 # Replaces ./installScripts/install-delta.sh
 brew install git-delta
 
