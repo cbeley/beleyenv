@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e 
 
-BORG_REPO=$(jq -r '.borgRepo' config.json)
+BORG_REPO=$(jq -r '.borg.repo' config.json)
 
 if [[ $BORG_REPO = '' ]] || [[ $BORG_REPO = 'null' ]]; then
     ./print.sh "No borg repo set in config.json\nSkipping install of borg tools and systemd borg services"

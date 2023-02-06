@@ -4,15 +4,15 @@
     "hosts": [],
     "dockerContexts": [],
     "sublimeLicense": null,
-    "borgRepo": {
-        "chromeOS": null,
-        "ubuntu": null
-    },
-    "borgRepoRCloneRemote": {
-        "ubuntu": null,
-        "chromeOS": null
-    },
     "borg": {
+        "repo": {
+            "chromeOS": null,
+            "ubuntu": null
+        },
+        "rcloneRemote": {
+            "ubuntu": null,
+            "chromeOS": null
+        },
         "excludes": []
     },
     "installThingsWithEncryptedDeps": false,

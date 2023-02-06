@@ -117,7 +117,7 @@ borg config -- /mnt/chromeos/GoogleDrive/MyDrive/path/to/parentFolder/borgBackup
 
 ### 3. Configure Beleyenv
 
-Update `borgRepo.chromeOS` in `config.json` to point to your Borg repo's mount point from the previous section. If you ran Beleyenv to bootstrap your system already and did not set `borgRepo`, borg setup will have been skipped automatically. Re-run the following scripts to configure automatic backups.
+Update `borg.repo.chromeOS` in `config.json` to point to your Borg repo's mount point from the previous section. If you ran Beleyenv to bootstrap your system already and did not set `borg.repo.chromeOS`, borg setup will have been skipped automatically. Re-run the following scripts to configure automatic backups.
 
 ```bash
 # This script will prompt you for your borg password.
@@ -166,7 +166,7 @@ Things are set up so that backups occur daily. If your Linux container was shut 
 
 ## Sync Borg Backups via Rclone
 
-Alternatively, beleyenv also supports syncing backups via [RClone](https://rclone.org/). Simply configure an RClone remote as desired, then set it as the value of `borgRepoRCloneRemote.chromeOS`. For example, the value may look something like `borgBackupRemote:/`. The backup script will automatically perform the RClone sync if a rclone remote is set in your `config.json` file.
+Alternatively, beleyenv also supports syncing backups via [RClone](https://rclone.org/). Simply configure an RClone remote as desired, then set it as the value of `borg.rcloneRemote.chromeOS`. For example, the value may look something like `borgBackupRemote:/`. The backup script will automatically perform the RClone sync if a rclone remote is set in your `config.json` file.
 
 If you do this, be sure to set your borg backup folder to be within your Linux container instead so it is not backed up twice. You also no longer have to configure the `additional_free_space` borg property.
 
@@ -315,9 +315,51 @@ Used to configure git among possible other things.
 
 Allows you to automatically configure your `/etc/hosts` file. It is just an array of of arrays of ip,hostname pairs. For example: `[["1.1.1.1", "someHostName"], ["2.2.2.2", "someOtherHostName"]]`.
 
-##### `borgRepo`
+##### `borg`
 
-See [Home Backups via Borg](#home-backups-via-borg)
+See [Home Backups via Borg](#home-backups-via-borg) for further details.
+
+###### `rcloneRemote`
+
+Optionally specify an rclone remote to sync your borg repo to.
+
+```json
+{
+    "borg": {
+        "rcloneRemote": {
+            "ubuntu": "someUbuntuRemote:/",
+            "chromeOS": "someChromeOSRemote:/"
+        }
+    }
+}
+```
+
+###### `repo`
+
+The path to your borg repo.
+
+```json
+{
+    "borg": {
+        "repo": {
+            "chromeOS": "/mnt/chromeos/GoogleDrive/MyDrive/Backups",
+            "ubuntu": "/home/backup"
+        }
+    }
+}
+```
+
+###### `excludes`
+
+An array of [Borg patterns](https://borgbackup.readthedocs.io/en/stable/usage/help.html?#borg-help-patterns) to exclude. Applies to both `chromeOS` and `ubuntu` configurations.
+
+```json
+{
+    "borg": {
+        "excludes": ["some/absolute/path", "sh:**/.cache"]
+    }
+}
+```
 
 ##### `sublimeLicense`
 

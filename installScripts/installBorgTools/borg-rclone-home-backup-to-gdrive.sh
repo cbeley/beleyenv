@@ -8,8 +8,8 @@ trap 'theEnd $?' EXIT
 notifyName="Beleyenv Borg Rclone Sync"
 beleyenvRoot="$HOME/.beleyenv/beleyenv"
 distro="$("$beleyenvRoot/devScripts/get-distro.sh")"
-borgRepo=$(jq -r ".borgRepo.$distro" "$beleyenvRoot/config.json")
-borgRepoRCloneRemote=$(jq -r ".borgRepoRCloneRemote.$distro" "$beleyenvRoot/config.json")
+borgRepo=$(jq -r ".borg.repo.$distro" "$beleyenvRoot/config.json")
+borgRepoRCloneRemote=$(jq -r ".borg.rcloneRemote.$distro" "$beleyenvRoot/config.json")
 
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 
