@@ -12,6 +12,9 @@
         "ubuntu": null,
         "chromeOS": null
     },
+    "borg": {
+        "excludes": []
+    },
     "installThingsWithEncryptedDeps": false,
     "rcloneJobs": [],
     "dconfPaths": []

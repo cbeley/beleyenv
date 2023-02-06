@@ -9,27 +9,29 @@ notify-send -a "Borg Backup" "Linux currently backing up..."
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
+# Generate excludes flags
+cd "$HOME/.beleyenv/beleyenv" || exit 1
+
+mapfile -t excludePaths < <(jq -r '.borg.excludes[]' config.json)
+
+excludeFlags=()
+
+for excludePath in "${excludePaths[@]}"; do
+    excludeFlags+=(--exclude "$excludePath")
+done
+
 info "Starting backup"
 
 # Backup the most important directories into an archive named after
 # the machine this script is currently running on:
-
-borg create                                                  \
-    --verbose                                                \
-    --stats                                                  \
-    --exclude-caches                                         \
-    --one-file-system                                        \
-    --exclude 'home/cbeley/Pictures'                         \
-    --exclude 'home/cbeley/Downloads'                        \
-    --exclude 'home/cbeley/Videos'                           \
-    --exclude 'home/cbeley/.steam/debian-installation'       \
-    --exclude 'home/cbeley/.local/share/Trash'               \
-    --exclude 'sh:**/.cache'                                 \
-    --exclude 'sh:**/node_modules'                           \
-    --exclude 'sh:**/.var/app/com.valvesoftware.Steam/.local'\
-    --exclude 'sh:**/.tmp'                                   \
-                                                             \
-    ::'{now}'                                                \
+borg create                 \
+    --verbose               \
+    --stats                 \
+    --exclude-caches        \
+    --one-file-system       \
+    "${excludeFlags[@]}"    \
+                            \
+    ::'{now}'               \
     "$HOME"                          
 
 backup_exit=$?
