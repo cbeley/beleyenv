@@ -8,7 +8,7 @@ sudo apt-get -y install steam guvcview \
     gnome-shell-extension-manager gnome-tweaks \
     ubuntu-restricted-extras openssh-server \
     ffmpegthumbnailer chrome-gnome-shell flatpak \
-    dconf-editor
+    dconf-editor pavucontrol
 
 # Solaar - Logitech Device Support
 sudo add-apt-repository -y ppa:solaar-unifying/stable
