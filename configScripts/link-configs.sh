@@ -123,6 +123,12 @@ if grep -q 'ID=ubuntu' /etc/os-release; then
     rm -rf ~/.config/solaar
     ln -sf "$(pwd)/configs/solaar" ~/.config/solaar
     ./print.sh "Solaar config installed!"
+
+    # wireplumber/pipewire config
+    rm -rf ~/.config/wireplumber
+    ln -sf "$(pwd)/configs/wireplumber" ~/.config/wireplumber
+    systemctl --user restart wireplumber
+    ./print.sh "wireplumber configs installed!"
 fi
 
 ./print.sh "All configs installed!"
