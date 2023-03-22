@@ -71,6 +71,7 @@ sudo pip3 install deluge thefuck pygments
 ./installScripts/install-caprine.sh
 ./installScripts/install-yq.sh
 ./installScripts/install-sd.sh
+./installScripts/install-caddy.sh
 
 # User configuration
 ./configScripts/link-configs.sh
