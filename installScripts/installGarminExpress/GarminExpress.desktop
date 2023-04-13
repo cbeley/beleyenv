@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Garmin Express
+GenericName=Garmin Express
+Comment=Garmin Express running via Wine
+TryExec=wine
+Exec=sh -c "WINEPREFIX=$HOME/.wine/GarminExpress wine $HOME/.wine/GarminExpress/drive_c/Program\ Files/Garmin/Express/express.exe"
+Icon=garmin-express.png
+Categories=Utility

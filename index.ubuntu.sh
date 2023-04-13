@@ -25,6 +25,7 @@ sudo snap install slack
 snap connect discord:system-observe
 
 ./installScripts/install-dconf-backup.sh
+./installScripts/installGarminExpress/index.sh
 
 # Remove shit.
 # Maybe I'll use arch again and be happy...
