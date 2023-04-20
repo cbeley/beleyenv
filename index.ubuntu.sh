@@ -20,6 +20,7 @@ sudo flatpak remote-add --if-not-exists \
 
 sudo snap install discord
 sudo snap install slack
+sudo snap install zoom-client
 
 # snapcraft suggests it: https://snapcraft.io/discord
 snap connect discord:system-observe
