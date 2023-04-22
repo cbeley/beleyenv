@@ -22,6 +22,7 @@ sudo mkdir -p /usr/local/beleyenv
 
 sudo cp -R temp/kitty.app /usr/local/beleyenv/
 sudo ln -fs /usr/local/beleyenv/kitty.app/bin/kitty /usr/local/bin/
+sudo ln -fs /usr/local/beleyenv/kitty.app/bin/kitten /usr/local/bin/
 sudo ln -fs /usr/local/beleyenv/kitty.app/share/applications/kitty.desktop /usr/local/share/applications/
 
 # Clean up after so shellcheck doesn't fail/no unexpected files in beleyenv folder.
