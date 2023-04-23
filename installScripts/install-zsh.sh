@@ -3,10 +3,14 @@ set -e
 
 rm -rf ~/.oh-my-zsh
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" \
+    --unattended --keep-zshrc
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
 if grep -q 'ID=debian' /etc/os-release; then
     # Share user home with root.

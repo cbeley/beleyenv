@@ -60,10 +60,15 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git colored-man-pages colorize extract web-search docker node yarn asdf)
+# Note that zsh-syntax-highlighting must remain last.
+plugins=(git colored-man-pages colorize extract web-search docker node yarn asdf zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.p10k.zsh
+
+# ZSH Highlight Styles Configuration
+ZSH_HIGHLIGHT_STYLES[path]="none"
+ZSH_HIGHLIGHT_STYLES[path_prefix]="none"
 
 #############################################################
 ######################## Aliases ############################
