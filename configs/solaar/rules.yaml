@@ -1,127 +1,128 @@
 %YAML 1.3
 ---
+- Device: EE6553E9
+- And:
+    - Key: [Open Emoji Panel, pressed]
+- KeyPress:
+    - Super_L
+    - click
+---
 - Key: [Snipping Tool, pressed]
 - KeyPress:
-  - Print
-  - click
-...
+    - Print
+    - click
 ---
 - Key: [Emoji Smiley Heart Eyes, pressed]
 - KeyPress:
-  - [Control_L, Shift_L, u]
-  - click
+    - [Control_L, Shift_L, u]
+    - click
 - KeyPress:
-  - '1'
-  - click
+    - "1"
+    - click
 - KeyPress:
-  - f
-  - click
+    - f
+    - click
 - KeyPress:
-  - '6'
-  - click
+    - "6"
+    - click
 - KeyPress:
-  - '0'
-  - click
+    - "0"
+    - click
 - KeyPress:
-  - d
-  - click
+    - d
+    - click
 - KeyPress:
-  - KP_Enter
-  - click
-...
+    - KP_Enter
+    - click
 ---
 - Key: [Emoji Crying Face, pressed]
 - KeyPress:
-  - [Control_L, Shift_L, u]
-  - click
+    - [Control_L, Shift_L, u]
+    - click
 - KeyPress:
-  - '1'
-  - click
+    - "1"
+    - click
 - KeyPress:
-  - f
-  - click
+    - f
+    - click
 - KeyPress:
-  - '6'
-  - click
+    - "6"
+    - click
 - KeyPress:
-  - '2'
-  - click
+    - "2"
+    - click
 - KeyPress:
-  - d
-  - click
+    - d
+    - click
 - KeyPress:
-  - KP_Enter
-  - click
-...
+    - KP_Enter
+    - click
 ---
 - Key: [Emoji Smiley, pressed]
 - KeyPress:
-  - [Control_L, Shift_L, u]
-  - click
+    - [Control_L, Shift_L, u]
+    - click
 - KeyPress:
-  - '1'
-  - click
+    - "1"
+    - click
 - KeyPress:
-  - f
-  - click
+    - f
+    - click
 - KeyPress:
-  - '6'
-  - click
+    - "6"
+    - click
 - KeyPress:
-  - '0'
-  - click
+    - "0"
+    - click
 - KeyPress:
-  - '0'
-  - click
+    - "0"
+    - click
 - KeyPress:
-  - KP_Enter
-  - click
-...
+    - KP_Enter
+    - click
 ---
 - Key: [Emoji Smilie With Tears, pressed]
 - KeyPress:
-  - [Control_L, Shift_L, u]
-  - click
+    - [Control_L, Shift_L, u]
+    - click
 - KeyPress:
-  - '1'
-  - click
+    - "1"
+    - click
 - KeyPress:
-  - f
-  - click
+    - f
+    - click
 - KeyPress:
-  - '6'
-  - click
+    - "6"
+    - click
 - KeyPress:
-  - '0'
-  - click
+    - "0"
+    - click
 - KeyPress:
-  - '2'
-  - click
+    - "2"
+    - click
 - KeyPress:
-  - KP_Enter
-  - click
-...
+    - KP_Enter
+    - click
 ---
 - Key: [Open Emoji Panel, pressed]
 - KeyPress:
-  - [Control_L, Shift_L, u]
-  - click
+    - [Control_L, Shift_L, u]
+    - click
 - KeyPress:
-  - '1'
-  - click
+    - "1"
+    - click
 - KeyPress:
-  - f
-  - click
+    - f
+    - click
 - KeyPress:
-  - '4'
-  - click
+    - "4"
+    - click
 - KeyPress:
-  - '4'
-  - click
+    - "4"
+    - click
 - KeyPress:
-  - d
-  - click
+    - d
+    - click
 - KeyPress:
-  - KP_Enter
-  - click
-...
+    - KP_Enter
+    - click

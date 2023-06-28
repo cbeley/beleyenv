@@ -11,7 +11,7 @@ sudo apt-get -y install steam guvcview \
     dconf-editor pavucontrol kitty-terminfo
 
 # Solaar - Logitech Device Support
-sudo add-apt-repository -y ppa:solaar-unifying/stable
+sudo add-apt-repository -y ppa:solaar-unifying/ppa
 sudo apt-get update
 sudo apt-get -y install solaar
 
