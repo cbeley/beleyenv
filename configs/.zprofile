@@ -45,7 +45,7 @@ fi
 
 # Ensure local path considered first for my own installed
 # global packages.
-path=($HOME/bin $(yarn global bin) $path)
+path=($HOME/bin $HOME/.local/bin $(yarn global bin) $path)
 
 export PATH
 
