@@ -36,7 +36,10 @@ jobs:
         run: |
           pwd
           echo $HOME
-          exit 1
+          mv ./* $HOME
+          cd $HOME
+          ls -la
+          
           mkdir -p ".beleyenv/brew"
 
           (
@@ -88,7 +91,6 @@ jobs:
           cd test
 
           tar -zxvf beleyenv-lite-macos.tar.gz
-          $HOME=$(pwd)
 
           cd .beleyenv
           ./configScripts/link-configs.sh
