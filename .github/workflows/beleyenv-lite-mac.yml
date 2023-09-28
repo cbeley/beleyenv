@@ -44,7 +44,7 @@ jobs:
           eval "$(.beleyenv/brew/bin/brew shellenv)"
           brew update --force --quiet
           #brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
-          brew install shellcheck fd jq fzf yq lsd lazygit git-delta
+          brew install shellcheck fd jq fzf yq lsd
           echo 'Relocating beleyenv brew...'
           mv .beleyenv/brew ./relocated-brew
           echo "$(relocated-brew/bin/brew shellenv)"
@@ -65,10 +65,36 @@ jobs:
           # htop --help
           # pstree cannot be relocated.
           # pstree --help
-          lazygit --help
-          git-delta --help
+          #lazygit --help
+          #git-delta --help
           #echo 'running zsh install script now...'
-          #./installScripts/install-zsh.sh
+          ./installScripts/install-zsh.sh
+          ./installScripts/install-fonts.sh
+
+          cp -R configs .beleyenv/configs
+          mkdir .beleyenv/configScripts
+          cp configScripts/link-configs.sh .beleyenv/configScripts/
+          touch .beleyenv/lite
+
+          tar -czvf beleyenv-lite-macos.tar.gz .beleyenv .oh-my-zsh Library/Fonts
+
+          mkdir -p test/Library/Fonts
+          touch test/Library/foobar
+          touch test/Library/Fonts/fooo
+          mv beleyenv-lite-macos.tar.gz test/
+          cd test
+
+          tar -zxvf beleyenv-lite-macos.tar.gz
+          $HOME=$(pwd)
+
+          cd .beleyenv
+          ./configScripts/link-configs.sh
+          cd ..
+
+          ls -la
+          ls -la .beleyenv
+          ls -la Library
+          ls -la Library/Fonts
 
       - name: Save beleyenv brew cache
         uses: actions/cache/save@v3
