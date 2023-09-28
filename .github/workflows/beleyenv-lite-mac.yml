@@ -32,11 +32,12 @@ jobs:
             curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C brew
           )
 
-          eval "$($HOME/.beleyenv-lite/brew/bin/brew shellenv)"
+          eval "$(.beleyenv-lite/brew/bin/brew shellenv)"
           brew update --force --quiet
           brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
+          echo 'The paths are: '
           which brew
           which fd
           ls -r .beleyenv-lite/brew
-
+          echo 'running zsh install script now...'
           ./installScripts/install-zsh.sh
