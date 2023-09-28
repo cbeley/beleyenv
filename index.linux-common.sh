@@ -75,6 +75,7 @@ sudo pip3 install --break-system-packages deluge thefuck pygments
 ./installScripts/install-sd.sh
 ./installScripts/install-caddy.sh
 ./installScripts/install-wine.sh
+./installScripts/install-vscode.sh
 
 # User configuration
 ./configScripts/link-configs.sh
