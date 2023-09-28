@@ -61,7 +61,8 @@ jobs:
           # bat --help
           yq --help
           lsd --help
-          htop --help
+          # htop cannot be relocated.
+          # htop --help
           pstree --help
           lazygit --help
           git-delta --help
