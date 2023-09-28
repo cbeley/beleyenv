@@ -22,22 +22,40 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Restore beleyenv brew cache
+        uses: actions/cache/restore@v3
+        with:
+            path: |
+                .beleyenv/brew
+            key: beleyenv-brew-cache-${{ github.run_id }}
+            restore-keys: |
+                beleyenv-brew-cache
+
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          mkdir -p ".beleyenv-lite/brew"
+          mkdir -p ".beleyenv/brew"
 
           (
-            cd .beleyenv-lite
+            cd .beleyenv
             curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C brew
           )
 
-          eval "$(.beleyenv-lite/brew/bin/brew shellenv)"
+          eval "$(.beleyenv/brew/bin/brew shellenv)"
           brew update --force --quiet
-          brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
+          #brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
+          brew install shellcheck fd jq fzf bat yq lsd
           echo 'The paths are: '
           which brew
           which fd
-          ls -r .beleyenv-lite/brew
+          lsd --help
+          ls -r .beleyenv/brew
           echo 'running zsh install script now...'
           ./installScripts/install-zsh.sh
+
+      - name: Save beleyenv brew cache
+        uses: actions/cache/save@v3
+        with:
+            path: |
+                .beleyenv/brew
+            key: beleyenv-brew-cache-${{ github.run_id }}
