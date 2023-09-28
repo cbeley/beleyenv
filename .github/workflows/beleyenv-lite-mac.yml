@@ -92,8 +92,9 @@ jobs:
 
           tar -zxvf beleyenv-lite-macos.tar.gz
 
+          export HOME=$(pwd)
           cd .beleyenv
-          HOME=$(pwd) ./configScripts/link-configs.sh
+          ./configScripts/link-configs.sh
           cd ..
 
           ls -la
