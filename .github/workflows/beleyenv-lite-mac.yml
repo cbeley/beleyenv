@@ -77,7 +77,7 @@ jobs:
           ./installScripts/install-zsh.sh
           ./installScripts/install-fonts.sh
 
-          cp -R configs .beleyenv/configs
+          cp -R configs print.sh .beleyenv
           mkdir .beleyenv/configScripts
           cp configScripts/link-configs.sh .beleyenv/configScripts/
           touch .beleyenv/lite
@@ -93,7 +93,7 @@ jobs:
           tar -zxvf beleyenv-lite-macos.tar.gz
 
           cd .beleyenv
-          ./configScripts/link-configs.sh
+          HOME=$(pwd) ./configScripts/link-configs.sh
           cd ..
 
           ls -la
