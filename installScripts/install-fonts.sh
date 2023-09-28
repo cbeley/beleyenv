@@ -18,10 +18,10 @@ mkdir patchedFantasqueSansMono
 	
 	wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FantasqueSansMono.zip
 	unzip FantasqueSansMono.zip
-	rm ./*Windows*
+	rm -f ./*Windows*
 	
 	# Want the monospace fonts only
-	rm ./*Complete.ttf
+	rm -f ./*Complete.ttf
 )
 
 
