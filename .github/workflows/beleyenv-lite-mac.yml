@@ -44,7 +44,7 @@ jobs:
           eval "$(.beleyenv/brew/bin/brew shellenv)"
           brew update --force --quiet
           #brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
-          brew install shellcheck fd jq fzf yq lsd htop pstree lazygit git-delta
+          brew install shellcheck fd jq fzf yq lsd lazygit git-delta
           echo 'Relocating beleyenv brew...'
           mv .beleyenv/brew ./relocated-brew
           echo "$(relocated-brew/bin/brew shellenv)"
@@ -63,7 +63,8 @@ jobs:
           lsd --help
           # htop cannot be relocated.
           # htop --help
-          pstree --help
+          # pstree cannot be relocated.
+          # pstree --help
           lazygit --help
           git-delta --help
           #echo 'running zsh install script now...'
