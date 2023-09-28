@@ -44,7 +44,7 @@ jobs:
           eval "$(.beleyenv/brew/bin/brew shellenv)"
           brew update --force --quiet
           #brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
-          brew install shellcheck fd jq fzf bat yq lsd
+          brew install shellcheck fd jq fzf yq lsd htop pstree lazygit git-delta
           echo 'Relocating beleyenv brew...'
           mv .beleyenv/brew ./relocated-brew
           echo "$(relocated-brew/bin/brew shellenv)"
@@ -57,9 +57,14 @@ jobs:
           fd --help
           jq --help
           fzf --help
-          bat --help
+          # Bat cannot be relocated.
+          # bat --help
           yq --help
           lsd --help
+          htop --help
+          pstree --help
+          lazygit --help
+          git-delta --help
           #echo 'running zsh install script now...'
           #./installScripts/install-zsh.sh
 
