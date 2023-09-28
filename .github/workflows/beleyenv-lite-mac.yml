@@ -45,13 +45,23 @@ jobs:
           brew update --force --quiet
           #brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
           brew install shellcheck fd jq fzf bat yq lsd
+          echo 'Relocating beleyenv brew...'
+          mv .beleyenv/brew ./relocated-brew
+          echo "$(relocated-brew/bin/brew shellenv)"
+          eval "$(relocated-brew/bin/brew shellenv)"
           echo 'The paths are: '
           which brew
           which fd
+          which shellcheck
+          shellcheck --help
+          fd --help
+          jq --help
+          fzf --help
+          bat --help
+          yq --help
           lsd --help
-          ls -r .beleyenv/brew
-          echo 'running zsh install script now...'
-          ./installScripts/install-zsh.sh
+          #echo 'running zsh install script now...'
+          #./installScripts/install-zsh.sh
 
       - name: Save beleyenv brew cache
         uses: actions/cache/save@v3
