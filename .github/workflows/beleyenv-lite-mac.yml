@@ -34,5 +34,9 @@ jobs:
 
           eval "$($HOME/.beleyenv-lite/brew/bin/brew shellenv)"
           brew update --force --quiet
-          brew install fd
-          fd --help
+          brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
+          which brew
+          which fd
+          ls -r .beleyenv-lite/brew
+
+          ./installScripts/install-zsh.sh
