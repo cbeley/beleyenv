@@ -5,7 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,87 +25,20 @@ jobs:
       - name: Restore beleyenv brew cache
         uses: actions/cache/restore@v3
         with:
-            path: |
-                .beleyenv/brew
-            key: beleyenv-brew-cache-${{ github.run_id }}
-            restore-keys: |
-                beleyenv-brew-cache
+          path: |
+            build/.beleyenv/brew
+          key: beleyenv-brew-cache-${{ github.run_id }}
+          restore-keys: |
+            beleyenv-brew-cache
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          pwd
-          echo $HOME
-          mv ./* $HOME
-          cd $HOME
-          ls -la
-          
-          mkdir -p ".beleyenv/brew"
-
-          (
-            cd .beleyenv
-            curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C brew
-          )
-
-          eval "$(.beleyenv/brew/bin/brew shellenv)"
-          brew update --force --quiet
-          #brew install shellcheck fd thefuck jq fzf bat htop yq pstree lsd lazygit git-delta
-          brew install shellcheck fd jq fzf yq lsd
-          echo 'Relocating beleyenv brew...'
-          mv .beleyenv/brew ./relocated-brew
-          echo "$(relocated-brew/bin/brew shellenv)"
-          eval "$(relocated-brew/bin/brew shellenv)"
-          echo 'The paths are: '
-          which brew
-          which fd
-          which shellcheck
-          shellcheck --help
-          fd --help
-          jq --help
-          fzf --help
-          # Bat cannot be relocated.
-          # bat --help
-          yq --help
-          lsd --help
-          # htop cannot be relocated.
-          # htop --help
-          # pstree cannot be relocated.
-          # pstree --help
-          #lazygit --help
-          #git-delta --help
-          #echo 'running zsh install script now...'
-          ./installScripts/install-zsh.sh
-          ./installScripts/install-fonts.sh
-
-          cp -R configs print.sh .beleyenv
-          mkdir .beleyenv/configScripts
-          cp configScripts/link-configs.sh .beleyenv/configScripts/
-          touch .beleyenv/lite
-
-          tar -czvf beleyenv-lite-macos.tar.gz .beleyenv .oh-my-zsh Library/Fonts
-
-          mkdir -p test/Library/Fonts
-          touch test/Library/foobar
-          touch test/Library/Fonts/fooo
-          mv beleyenv-lite-macos.tar.gz test/
-          cd test
-
-          tar -zxvf beleyenv-lite-macos.tar.gz
-
-          export HOME=$(pwd)
-          cd .beleyenv
-          ./configScripts/link-configs.sh
-          cd ..
-
-          ls -la
-          ls -la .beleyenv
-          ls -la Library
-          ls -la Library/Application\ Support
-          ls -la Library/Fonts
+          ./lite/build.macos.sh
 
       - name: Save beleyenv brew cache
         uses: actions/cache/save@v3
         with:
-            path: |
-                .beleyenv/brew
-            key: beleyenv-brew-cache-${{ github.run_id }}
+          path: |
+            build/.beleyenv/brew
+          key: beleyenv-brew-cache-${{ github.run_id }}
