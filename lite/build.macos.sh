@@ -84,3 +84,5 @@ cp beleyenv-lite-macos.tar.gz test/
     ls -la .beleyenv/brew
 )
 
+### Create a release ###
+gh release create "beta-$(GITHUB_SHA)-$(GITHUB_RUN_ID)" beleyenv-lite-macos.tar.gz
