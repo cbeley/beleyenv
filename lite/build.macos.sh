@@ -24,7 +24,7 @@ brew install "${BREW_PKGS[@]}"
 
 ### Re-locate brew to test for pkgs that have a reliance on dynamic libs ###
 #
-cp -R .beleyenv/brewInitial .beleyenv/brew 
+mv .beleyenv/brewInitial .beleyenv/brew 
 .beleyenv/brew/bin/brew shellenv
 eval "$(.beleyenv/brew/bin/brew shellenv)"
 
@@ -59,9 +59,7 @@ for pkg in "${BREW_PKGS[@]}"; do
     ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed." && exit 1  
 done 
 
-mv .beleyenv/brewInitial .
 tar -czvf beleyenv-lite-macos.tar.gz .beleyenv .oh-my-zsh Library/Fonts
-mv brewInitial .beleyenv/
 
 ### Test Result ###
 mkdir test
