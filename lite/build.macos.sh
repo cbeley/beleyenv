@@ -32,13 +32,16 @@ for pkg in "${BREW_PKGS[@]}"; do
 done 
 
 ### Set up static home directory dependencies ###
-../installScripts/install-zsh.sh
-../installScripts/install-fonts.sh
+(
+    cd ..
+    ./installScripts/install-zsh.sh
+    ./installScripts/install-fonts.sh    
+)
 
 ### Copy needed runtime beleyenv dependencies ###
 cp -R ../configs ../print.sh .beleyenv
 mkdir .beleyenv/configScripts
-cp configScripts/link-configs.sh .beleyenv/configScripts/
+cp ../configScripts/link-configs.sh .beleyenv/configScripts/
 touch .beleyenv/lite
 
 tar -czvf beleyenv-lite-macos.tar.gz .beleyenv .oh-my-zsh Library/Fonts
