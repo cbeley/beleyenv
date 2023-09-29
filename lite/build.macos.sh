@@ -2,11 +2,6 @@
 
 set -e
 
-env
-echo "$GITHUB_SHA"
-echo "$GITHUB_RUN_ID"
-echo "beta-$(GITHUB_SHA)-$(GITHUB_RUN_ID)"
-
 BREW_PKGS=( "shellcheck" "fd" "jq" "fzf" "yq" "lsd" )
 
 # Create a mock "home directory" and set $HOME to
@@ -90,4 +85,4 @@ cp beleyenv-lite-macos.tar.gz test/
 )
 
 ### Create a release ###
-gh release create "beta-$(GITHUB_SHA)-$(GITHUB_RUN_ID)" beleyenv-lite-macos.tar.gz
+gh release create "beta-$GITHUB_SHA-$GITHUB_RUN_ID" beleyenv-lite-macos.tar.gz
