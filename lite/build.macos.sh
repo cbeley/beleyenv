@@ -25,11 +25,8 @@ brew install "${BREW_PKGS[@]}"
 ### Re-locate brew to test for pkgs that have a reliance on dynamic libs ###
 #
 mv .beleyenv/brewInitial .beleyenv/brew 
+.beleyenv/brew/bin/brew shellenv
 eval "$(.beleyenv/brew/bin/brew shellenv)"
-
-for pkg in "${BREW_PKGS[@]}"; do
-    ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed." && exit 1  
-done 
 
 ### Set up static home directory dependencies ###
 (
@@ -43,6 +40,25 @@ cp -R ../configs ../print.sh .beleyenv
 mkdir .beleyenv/configScripts
 cp ../configScripts/link-configs.sh .beleyenv/configScripts/
 touch .beleyenv/lite
+
+### Remove things we explicitly don't want in beleyenv lite ###
+# Far from a perfect way. Maybe one day I'll re-think this. 
+
+(
+    cd .beleyenv/configs 
+    rm -rf systemd dconf deluge dnsmasq.d .gtkrc-2.0 wireplumber solaar etc
+)
+
+(
+    cd .beleyenv/brew 
+    ls -la bin
+    rm -rf .github docs Library bin/brew
+)
+
+### Verify packages do not have dynamic libs ###
+for pkg in "${BREW_PKGS[@]}"; do
+    ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed." && exit 1  
+done 
 
 tar -czvf beleyenv-lite-macos.tar.gz .beleyenv .oh-my-zsh Library/Fonts
 
