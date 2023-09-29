@@ -6,7 +6,7 @@ BREW_PKGS=( "shellcheck" "fd" "jq" "fzf" "yq" "lsd" )
 
 # Create a mock "home directory" and set $HOME to
 # that so all scripts install to there for the static build.
-mkdir -p "build/.beleyenv"
+mkdir -p "build/.beleyenv/brewInitial"
 cd build || exit 1
 HOME=$(pwd)
 export HOME
