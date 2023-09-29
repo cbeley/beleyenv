@@ -12,7 +12,7 @@ if [[ -f /opt/twitter_mde/etc/zshrc ]]; then
 fi
 
 # Enable Homebrew and use GNU for everything.
-if [[ $OSTYPE == 'darwin'* ]]; then
+if type "/opt/homebrew/bin/brew" &>/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -45,12 +45,12 @@ fi
 
 # Ensure local path considered first for my own installed
 # global packages.
-path=($HOME/bin $HOME/.local/bin $(yarn global bin) $path)
+path=($HOME/bin $HOME/.local/bin $HOME/.beleyenv/brew/bin $(yarn global bin) $path)
 
 export PATH
 
 # For one-off cases where I want to have custom shell completions.
-fpath=($HOME/.custom-completions $fpath)
+fpath=($HOME/.custom-completions $HOME/.beleyenv/brew/share/zsh/site-functions $fpath)
 
 # See .zshenv
 zProfileRan=true

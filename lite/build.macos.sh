@@ -28,6 +28,13 @@ mv .beleyenv/brewInitial .beleyenv/brew
 .beleyenv/brew/bin/brew shellenv
 eval "$(.beleyenv/brew/bin/brew shellenv)"
 
+### Setup fzf
+"$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc
+
+echo 'verifying fzf.zsh'
+cat .fzf.zsh
+
+
 ### Set up static home directory dependencies ###
 (
     cd ..

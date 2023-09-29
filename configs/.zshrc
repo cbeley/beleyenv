@@ -40,6 +40,10 @@ export ZSH="$HOME/.oh-my-zsh"
 ############### oh-my-zsh & p10k configuration ##############
 #############################################################
 
+if [ -f $HOME/.beleyenv/lite ]; then
+  export DISABLE_AUTO_UPDATE=true
+fi
+
 ######
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -104,7 +108,7 @@ fi
 ########################## Misc #############################
 #############################################################
 
-eval $(thefuck --alias)
+type thefuck > /dev/null && eval $(thefuck --alias)
 
 [ -f $HOME/.zsh-work ] && source $HOME/.zsh-work
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -118,6 +122,17 @@ fi
 
 # Just base auto completion for things like `git add` based on
 # the filesystem. Better experience for large repos.
-__git_files () { 
-    _wanted files expl 'local files' _files     
-}
+#__git_files () { 
+#    _wanted files expl 'local files' _files     
+#}
+
+### Still experimenting...
+#
+# Use fd to generate the list for directory completion
+#_fzf_compgen_dir() {
+#  fd --type d --follow --exclude ".git" . "$1"
+#}
+
+#export FZF_CTRL_T_OPTS="
+#  --preview 'batcat -n --color=always {}'
+#  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
