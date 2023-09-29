@@ -40,7 +40,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ############### oh-my-zsh & p10k configuration ##############
 #############################################################
 
-if [ -f $HOME/.beleyenv/lite ]; then
+if [ -f "$HOME/.beleyenv/lite" ]; then
   export DISABLE_AUTO_UPDATE=true
 fi
 
@@ -104,9 +104,16 @@ if [[ $OSTYPE != 'darwin'* ]]; then
   alias umountBackups="cd && borg umount /mnt/borgBackups && sudo rm -rf /mnt/borgBackups"
 fi
 
+
+
 #############################################################
 ########################## Misc #############################
 #############################################################
+
+if [ -f "$HOME/.beleyenv/lite" ]; then
+  [[ $- == *i* ]] && source ".beleyenv/brew/opt/fzf/shell/completion.zsh" 2> /dev/null
+  source ".beleyenv/brew/opt/fzf/shell/key-bindings.zsh"
+fi
 
 type thefuck > /dev/null && eval $(thefuck --alias)
 
