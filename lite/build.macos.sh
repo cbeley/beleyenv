@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-set -ex
+set -e
 
 BREW_PKGS=( "shellcheck" "fd" "jq" "fzf" "yq" "lsd" )
 
@@ -28,7 +28,7 @@ mv .beleyenv/brewInitial .beleyenv/brew
 eval "$(.beleyenv/brew/bin/brew shellenv)"
 
 for pkg in "${BREW_PKGS[@]}"; do
-    ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed."; exit 1  
+    ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed." && exit 1  
 done 
 
 ### Set up static home directory dependencies ###
