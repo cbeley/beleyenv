@@ -83,6 +83,7 @@ cp beleyenv-lite-macos.tar.gz test/
     ls -la Library/Fonts
     ls -la .beleyenv/brew
 
+    # shellcheck disable=SC1091
     source .zshrc
 )
 
