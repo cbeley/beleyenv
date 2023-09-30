@@ -43,9 +43,13 @@ if type brew &>/dev/null; then
   path=(/opt/homebrew/opt/util-linux/bin /opt/homebrew/opt/util-linux/sbin $path)
 fi
 
+if type yarn &> /dev/null; then
+  path=($(yarn global bin) $path)
+fi
+
 # Ensure local path considered first for my own installed
 # global packages.
-path=($HOME/bin $HOME/.local/bin $HOME/.beleyenv/brew/bin $(yarn global bin) $path)
+path=($HOME/bin $HOME/.local/bin $HOME/.beleyenv/brew/bin $path)
 
 export PATH
 
