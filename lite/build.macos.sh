@@ -88,4 +88,4 @@ cp beleyenv-lite-macos.tar.gz test/
 )
 
 ### Create a release ###
-# gh release create "beta-$GITHUB_SHA-$GITHUB_RUN_ID" beleyenv-lite-macos.tar.gz
+gh release create "beta-$GITHUB_SHA-$GITHUB_RUN_ID" beleyenv-lite-macos.tar.gz
