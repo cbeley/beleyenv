@@ -61,7 +61,7 @@ for pkg in "${BREW_PKGS[@]}"; do
     ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed." && exit 1  
 done 
 
-tar -czvf beleyenv-lite-macos.tar.gz .beleyenv .oh-my-zsh Library/Fonts
+tar -czvf beleyenv-lite-macos.tar.gz .beleyenv .oh-my-zsh Library/Fonts .cache/gitstatus
 
 ### Test Result ###
 mkdir test
@@ -79,14 +79,12 @@ cp beleyenv-lite-macos.tar.gz test/
     )
 
     ls -la
+    ls -la .cache
     ls -la .beleyenv
     ls -la Library
     ls -la Library/Application\ Support
     ls -la Library/Fonts
     ls -la .beleyenv/brew
-
-    # shellcheck disable=SC1091
-    source .zshrc
 )
 
 ### Create a release ###
