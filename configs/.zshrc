@@ -65,7 +65,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 # Note that zsh-syntax-highlighting must remain last.
-plugins=(git colored-man-pages colorize extract web-search docker node yarn asdf zsh-syntax-highlighting)
+plugins=(git colored-man-pages colorize extract web-search docker node yarn npm asdf zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.p10k.zsh
@@ -91,8 +91,8 @@ fi
 alias sm="smerge ."
 alias ls="lsd"
 alias icat="kitty +kitten icat"
-alias gitCheckoutBranch='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(git branch --all | fzf)'
-alias gitCheckoutFile='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(fd . | fzf)'
+alias gcb='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(git branch --all | fzf)'
+alias gcf='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(fd . | fzf)'
 
 # ChromeOS Specific Stuff
 if [[ $OSTYPE != 'darwin'* ]]; then
