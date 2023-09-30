@@ -2,7 +2,7 @@
 
 set -e
 
-BREW_PKGS=( "shellcheck" "fd" "jq" "fzf" "yq" "lsd" "romkatv/gitstatus/gitstatus" )
+BREW_PKGS=( "shellcheck" "fd" "jq" "fzf" "yq" "lsd" )
 
 # Create a mock "home directory" and set $HOME to
 # that so all scripts install to there for the static build.
@@ -35,6 +35,8 @@ eval "$(.beleyenv/brew/bin/brew shellenv)"
     ./installScripts/install-fonts.sh    
 )
 
+.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/install -f
+
 ### Copy needed runtime beleyenv dependencies ###
 cp -R ../configs ../print.sh .beleyenv
 mkdir .beleyenv/configScripts
@@ -56,10 +58,6 @@ touch .beleyenv/lite
 
 ### Verify packages do not have dynamic libs ###
 for pkg in "${BREW_PKGS[@]}"; do
-    if [ "$pkg" == "romkatv/gitstatus/gitstatus" ]; then
-        pkg='gitstatusd'
-    fi
-
     ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed." && exit 1  
 done 
 
