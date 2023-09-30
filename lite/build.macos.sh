@@ -56,6 +56,10 @@ touch .beleyenv/lite
 
 ### Verify packages do not have dynamic libs ###
 for pkg in "${BREW_PKGS[@]}"; do
+    if [ "$pkg" == "romkatv/gitstatus/gitstatus" ]; then
+        pkg='gitstatusd'
+    fi
+
     ! type "$pkg" &> /dev/null && echo "$pkg cannot be relocated! Build failed." && exit 1  
 done 
 
