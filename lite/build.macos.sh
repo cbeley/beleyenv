@@ -2,7 +2,7 @@
 
 set -e
 
-BREW_PKGS=( "shellcheck" "fd" "jq" "fzf" "yq" "lsd" )
+BREW_PKGS=( "shellcheck" "fd" "jq" "fzf" "yq" "lsd" "romkatv/gitstatus/gitstatus" )
 
 # Create a mock "home directory" and set $HOME to
 # that so all scripts install to there for the static build.
@@ -82,7 +82,9 @@ cp beleyenv-lite-macos.tar.gz test/
     ls -la Library/Application\ Support
     ls -la Library/Fonts
     ls -la .beleyenv/brew
+
+    source .zshrc
 )
 
 ### Create a release ###
-gh release create "beta-$GITHUB_SHA-$GITHUB_RUN_ID" beleyenv-lite-macos.tar.gz
+# gh release create "beta-$GITHUB_SHA-$GITHUB_RUN_ID" beleyenv-lite-macos.tar.gz

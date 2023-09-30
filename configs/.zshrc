@@ -111,8 +111,8 @@ fi
 #############################################################
 
 if [ -f "$HOME/.beleyenv/lite" ]; then
-  [[ $- == *i* ]] && source ".beleyenv/brew/opt/fzf/shell/completion.zsh" 2> /dev/null
-  source ".beleyenv/brew/opt/fzf/shell/key-bindings.zsh"
+  [[ $- == *i* ]] && source "$HOME/.beleyenv/brew/opt/fzf/shell/completion.zsh" 2> /dev/null
+  source "$HOME/.beleyenv/brew/opt/fzf/shell/key-bindings.zsh"
 fi
 
 type thefuck > /dev/null && eval $(thefuck --alias)
