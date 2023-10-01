@@ -36,6 +36,7 @@ eval "$(.beleyenv/brew/bin/brew shellenv)"
 )
 
 .oh-my-zsh/custom/themes/powerlevel10k/gitstatus/install -f
+.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/install -f -m arm64
 
 ### Copy needed runtime beleyenv dependencies ###
 cp -R ../configs ../print.sh .beleyenv
