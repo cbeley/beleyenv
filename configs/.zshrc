@@ -136,9 +136,9 @@ fi
 ### Still experimenting...
 #
 # Use fd to generate the list for directory completion
-#_fzf_compgen_dir() {
-#  fd --type d --follow --exclude ".git" . "$1"
-#}
+_fzf_compgen_dir() {
+  fd --type d --follow --exclude ".git" . "$1"
+}
 
 #export FZF_CTRL_T_OPTS="
 #  --preview 'batcat -n --color=always {}'
