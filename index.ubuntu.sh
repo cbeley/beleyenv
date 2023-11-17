@@ -22,6 +22,12 @@ sudo snap install discord
 sudo snap install slack
 sudo snap install zoom-client
 
+# Discord dmesg log spam suppression
+# https://github.com/snapcrafters/discord/issues/23
+sudo apt-get -y install auditd
+sudo auditctl -a exit,never \
+    -F exe=/snap/discord/current/usr/share/discord/Discord
+
 # snapcraft suggests it: https://snapcraft.io/discord
 snap connect discord:system-observe
 
