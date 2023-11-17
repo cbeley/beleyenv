@@ -6,10 +6,11 @@ show-size-column=true
 show-type-column=true
 sidebar-width=173
 sort-column='modified'
-sort-directories-first=false
-sort-order='ascending'
+sort-directories-first=true
+sort-order='descending'
 type-format='category'
-window-size=(856, 374)
+view-type='grid'
+window-size=(1080, 665)
 
 [settings/file-chooser]
 clock-format='12h'
@@ -18,7 +19,7 @@ location-mode='path-bar'
 show-hidden=false
 show-size-column=true
 show-type-column=true
-sidebar-width=161
+sidebar-width=226
 sort-column='modified'
 sort-directories-first=true
 sort-order='ascending'

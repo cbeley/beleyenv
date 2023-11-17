@@ -1,4 +1,4 @@
-- 1.1.9+git2021-444fd4a
+- 1.1.9+git2025-4160b0e
 - _NAME: Logi POP Keys
   _absent: [hi-res-scroll, lowres-scroll-mode, hires-smooth-invert, hires-smooth-resolution, hires-scroll-mode, scroll-ratchet, smart-shift, thumb-scroll-invert,
     thumb-scroll-mode, onboard_profiles, report_rate, pointer_speed, dpi, speed-change, backlight, backlight-timed, reprogrammable-keys, persistent-remappable-keys,

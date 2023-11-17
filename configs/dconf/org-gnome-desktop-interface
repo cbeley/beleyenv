@@ -5,5 +5,5 @@ enable-animations=false
 font-hinting='slight'
 font-name='Roboto 11'
 gtk-theme='Yaru-dark'
-icon-theme='Yaru-dark'
+icon-theme='Yaru'
 monospace-font-name='Fantasque Sans Mono 13'
