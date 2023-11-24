@@ -10,7 +10,7 @@ fi
 #############################################################
 
 # ChromeOS Specific Stuff
-if [[ $OSTYPE != 'darwin'* ]]; then
+if [[ $OSTYPE != 'darwin'* && ! -f "/etc/steamos-release" ]]; then
   # This is very bad in multi-user enviornments.  Do not set this to true there.
   # However, in the crostini container, root is only accessible via the 
   # user and has no password.  If someone compromises your user account, they
@@ -111,8 +111,15 @@ fi
 #############################################################
 
 if [ -f "$HOME/.beleyenv/lite" ]; then
-  [[ $- == *i* ]] && source "$HOME/.beleyenv/brew/opt/fzf/shell/completion.zsh" 2> /dev/null
+  source "$HOME/.beleyenv/brew/opt/fzf/shell/completion.zsh" 2> /dev/null
   source "$HOME/.beleyenv/brew/opt/fzf/shell/key-bindings.zsh"
+fi
+
+# TODO: The above can likely be combined with this.
+# Don't have a mac right this moment to verify though.
+if [ -f "/etc/steamos-release" ]; then 
+  source "$(brew --prefix)/opt/fzf/shell/completion.zsh" 2> /dev/null
+  source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 fi
 
 type thefuck > /dev/null && eval $(thefuck --alias)
@@ -120,7 +127,7 @@ type thefuck > /dev/null && eval $(thefuck --alias)
 [ -f $HOME/.zsh-work ] && source $HOME/.zsh-work
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [[ $OSTYPE != 'darwin'* ]]; then
+if [[ $OSTYPE != 'darwin'* && ! -f "/etc/steamos-release" ]]; then
   # TODO: Combine this with what's going on with the macOS 
   # install script later. See Line 108.
   source /usr/share/doc/fzf/examples/key-bindings.zsh

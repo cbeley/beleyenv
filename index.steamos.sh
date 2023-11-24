@@ -63,7 +63,7 @@ curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/dow
 ./installScripts/install-yarn-pkgs.sh
 
 # Enable SSHD
-systemctl enable sshd
+sudo systemctl enable sshd
 sudo systemctl start sshd
 
 # User configuration
