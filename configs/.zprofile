@@ -16,6 +16,10 @@ if type "/opt/homebrew/bin/brew" &>/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+if type "/home/linuxbrew/.linuxbrew/bin/brew" &>/dev/null; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Inspired by https://gist.github.com/skyzyx/3438280b18e4f7c490db8a2a2ca0b9da
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX=$(brew --prefix)

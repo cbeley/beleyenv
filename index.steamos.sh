@@ -32,15 +32,39 @@ theEnd() {
 flatpak install -y flathub com.google.Chrome org.videolan.VLC
 flatpak install -y https://github.com/streetpea/chiaki4deck/releases/download/v1.1.0/re.chiaki.Chiaki4deck.flatpakref
 
-
-# Flatpak home directory access
+# Flatpak Chrome home directory access
 flatpak override --user --filesystem=home com.google.Chrome
 
-# Flatpak Controller Access
+# Flatpak Chrome Controller Access
 flatpak --user override --filesystem=/run/udev:ro com.google.Chrome
 
-brew install shellcheck imagemagick fd thefuck jq fzf bat yq
+# Brew should be installed by bootstrap.sh,
+# so we just update the local repo and upgrade packages.
+# Noticed issues on steamdeck. Not sure what's up though. Defaults seemed sane.
+# To investigate on a later day.
+ulimit -n 6000 
+brew update
+brew upgrade
+brew install asdf shellcheck fd thefuck jq fzf bat yq lsd lazygit git-delta
+
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs latest
+asdf global nodejs latest 
+
+# shellcheck disable=SC1091
+. "$(brew --prefix asdf)/libexec/asdf.sh"
+npm install --global yarn
+
+# Decky Plugin loader
+curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_release.sh | sh
+
+./installScripts/install-zsh.sh
+./installScripts/install-fonts.sh
+./installScripts/install-yarn-pkgs.sh
 
 # Enable SSHD
 systemctl enable sshd
 sudo systemctl start sshd
+
+# User configuration
+./configScripts/link-configs.sh
