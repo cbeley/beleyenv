@@ -30,7 +30,7 @@ theEnd() {
 ./configScripts/setup-ssh-keys.sh 
 
 flatpak install -y flathub com.google.Chrome org.videolan.VLC
-flatpak install -y https://github.com/streetpea/chiaki4deck/releases/download/v1.1.0/re.chiaki.Chiaki4deck.flatpakref
+flatpak install -y flathub io.github.streetpea.Chiaki4deck
 
 # Flatpak Chrome home directory access
 flatpak override --user --filesystem=home com.google.Chrome
