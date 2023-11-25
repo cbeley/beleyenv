@@ -1,3 +1,5 @@
+pathBackup=$PATH 
+
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
 else
@@ -49,6 +51,15 @@ fi
 
 if type yarn &> /dev/null; then
   path=($(yarn global bin) $path)
+fi
+
+if [ -f "/etc/steamos-release" ]; then 
+  # For steamOS, we'll get libc errors if
+  # we use the newer libs brew pulls in. 
+  # For my purposes, just ensuring the original
+  # path takes precedence is good enough. May
+  # investigate further later.
+  path=($pathBackup $path)
 fi
 
 # Ensure local path considered first for my own installed
