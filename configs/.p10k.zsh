@@ -32,6 +32,10 @@
   # Zsh >= 5.1 is required.
   autoload -Uz is-at-least && is-at-least 5.1 || return
 
+  if [ -f "/etc/steamos-release" ]; then
+    typeset -g POWERLEVEL9K_LINUX_ICON='󰓓'
+  fi
+
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
