@@ -43,9 +43,10 @@ flatpak --user override --filesystem=/run/udev:ro com.google.Chrome
 # Noticed issues on steamdeck. Not sure what's up though. Defaults seemed sane.
 # To investigate on a later day.
 ulimit -n 6000 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew update
 brew upgrade
-brew install asdf shellcheck fd thefuck jq fzf bat yq lsd lazygit git-delta
+brew install asdf shellcheck fd thefuck jq fzf bat yq lsd lazygit git-delta gocryptfs
 
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
