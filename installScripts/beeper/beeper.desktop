@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Beeper
+GenericName=Beeper
+Comment=All your chats in one app.
+TryExec=beeper
+Exec=beeper
+Icon=/usr/local/beleyenv/beeper/icon.png
+Categories=Chat
