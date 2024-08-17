@@ -31,6 +31,7 @@ theEnd() {
 
 flatpak install -y flathub com.google.Chrome org.videolan.VLC
 flatpak install -y flathub io.github.streetpea.Chiaki4deck
+flatpak install -y flathub tv.kodi.Kodi
 
 # Flatpak Chrome home directory access
 flatpak override --user --filesystem=home com.google.Chrome
