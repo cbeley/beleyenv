@@ -70,7 +70,11 @@ sudo pip3 install --break-system-packages deluge thefuck pygments
 ./installScripts/install-yarn-pkgs.sh
 ./installScripts/install-signal.sh
 ./installScripts/install-ncdu.sh
-./installScripts/install-caprine.sh
+
+# Causes CPU issues. Doubt it'll ever be resolved,
+# but if it is, may use again.
+# https://github.com/sindresorhus/caprine/issues/2107
+#./installScripts/install-caprine.sh
 ./installScripts/install-yq.sh
 ./installScripts/install-sd.sh
 ./installScripts/install-caddy.sh
