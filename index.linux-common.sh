@@ -70,6 +70,7 @@ sudo pip3 install --break-system-packages deluge thefuck pygments
 ./installScripts/install-yarn-pkgs.sh
 ./installScripts/install-signal.sh
 ./installScripts/install-ncdu.sh
+./installScripts/install-firefoxpwa.sh
 
 # Causes CPU issues. Doubt it'll ever be resolved,
 # but if it is, may use again.
