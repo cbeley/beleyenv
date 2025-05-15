@@ -8,11 +8,6 @@ else
   export EDITOR='subl -n -w'
 fi
 
-# Want everything below this to override this.
-if [[ -f /opt/twitter_mde/etc/zshrc ]]; then
-  source /opt/twitter_mde/etc/zshrc
-fi
-
 # Enable Homebrew and use GNU for everything.
 if type "/opt/homebrew/bin/brew" &>/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"

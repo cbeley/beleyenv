@@ -1,20 +1,14 @@
 #!/bin/bash
-
-# Note that this is not really meant to be identical to index.linux.sh, since
-# I use MacOS and ChromeOS for different purposes.
  
 set -e 
 source ./devScripts/trap-handler.sh
 
-# TODO SSH Key Gen - May not automate this for MacOS. Thinking on it.
-#./configScripts/setup-ssh-keys.sh 
+./configScripts/setup-ssh-keys.sh 
 
 # Note: Will prompt if not installed.
 if ! command -v gcc &> /dev/null; then
     xcode-select --install
 fi
-
-./configScripts/setup-ssh-keys.sh 
 
 ### Everything below this line should require zero prompting from the user ###
 
@@ -72,24 +66,23 @@ brew install git-delta
 # ./installScripts/install-hostess.sh
 # ./installScripts/install-docker.sh
 # ./installScripts/install-theme.sh
-# ./installScripts/install-node.sh
-
 ./installScripts/installSublime/index.sh
+
 ./installScripts/install-fonts.sh
 ./installScripts/install-zsh.sh
-./installScripts/install-yarn-pkgs.sh
+
+# TODO: Explore an alternative here or maybe just go back to npm.
+#./installScripts/install-yarn-pkgs.sh
 ./installScripts/install-signal.sh
 
-#### MacOS Specific Software (and stuff I have not added to ChromeOS yet)
-brew tap homebrew/cask-drivers
-brew install --cask rectangle messenger alt-tab cameracontroller visual-studio-code
+#### MacOS Specific Software and gui apps
+brew install --cask rectangle messenger alt-tab cameracontroller visual-studio-code \
+    firefox google-chrome platypus raycast transmission steam
 
-# Node-Canvas Deps
-brew install pkg-config cairo pango libpng jpeg giflib librsvg
-
-# Note: ChromeOS I just use latest node. May change this later.
+# Node via asdf
 brew install asdf
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs latest
 
 # User configuration
 ./configScripts/link-configs.sh

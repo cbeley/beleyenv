@@ -22,9 +22,10 @@ ln -sf "$(pwd)/configs/.p10k.zsh" ~/.p10k.zsh
 ./print.sh "ZSH configs installed!"
 
 # Todo Config
-mkdir -p ~/.todo/
-ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
-./print.sh "Todo.sh config installed!"
+# I have rarely used this. May delete. TODO ...lol.
+# mkdir -p ~/.todo/
+# ln -sf "$(pwd)/configs/todo.conf" ~/.todo/config
+# ./print.sh "Todo.sh config installed!"
 
 # Sublime Base Folder
 if [[ $OSTYPE == 'darwin'* ]]; then

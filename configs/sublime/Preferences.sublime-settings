@@ -75,10 +75,13 @@
 		"tmp"
 	],
 	"font_face": "Fantasque Sans Mono",
-	"font_size": 15,
+	"font_size": 18,
 	"ignored_packages":
 	[
-		"MDX Syntax Highlighting",
+		"LSP-graphql",
+		"LSP-typescript",
+		"MarkdownPreview",
+		"Package Control",
 		"Vintage",
 	],
 	"ignored_words":
@@ -103,4 +106,5 @@
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"show_git_status": false,
+	"index_files": true,
 }

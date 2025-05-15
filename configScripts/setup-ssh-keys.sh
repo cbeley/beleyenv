@@ -1,11 +1,7 @@
 #!/bin/bash
 set -e 
 
-if [[ $OSTYPE == 'darwin'* ]]; then
-	EMAIL=$(jq -r '.macEmail' config.json)
-else 
-	EMAIL=$(jq -r '.email' config.json)
-fi
+EMAIL=$(jq -r '.email' config.json)
 
 # Keygen returns exit one if the user says not to overwrite their
 # existing keys.  Since all scripts in this repo should be idempotent
