@@ -78,6 +78,7 @@ brew install git-delta
 # TODO: Explore an alternative here or maybe just go back to npm.
 #./installScripts/install-yarn-pkgs.sh
 ./installScripts/install-signal.sh
+./installScripts/install-mozeidon.macos.sh
 
 #### MacOS Specific Software and gui apps
 brew install terminal-notifier
@@ -90,12 +91,6 @@ brew install --cask firefoxpwa
 sudo mkdir -p "/Library/Application Support/Mozilla/NativeMessagingHosts"
 sudo ln -sf "/opt/homebrew/opt/firefoxpwa/share/firefoxpwa.json" "/Library/Application Support/Mozilla/NativeMessagingHosts/firefoxpwa.json"
 
-# Firefox Mozeidon for programatic control by other apps like Raycast and terminal
-brew tap egovelox/homebrew-mozeidon
-brew install egovelox/mozeidon/mozeidon-native-app egovelox/mozeidon/mozeidon
-mkdir -p ~/Library/Application\ Support/Mozilla/NativeMessagingHosts
-# todo: create mozeidon.json
-# https://github.com/egovelox/mozeidon-native-app/
 
 # Node via asdf
 brew install asdf
