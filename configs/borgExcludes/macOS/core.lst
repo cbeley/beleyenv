@@ -173,3 +173,8 @@
 # ! /Volumes/			 #
 # ! ~/Library/Containers	 #
 ##################################
+
+# Added by Chris Beley
+
+# Exclude the borg repo itself
+! /Users/cbeley/.borgBackupRepo

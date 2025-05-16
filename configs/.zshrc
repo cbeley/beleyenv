@@ -31,10 +31,6 @@ if [[ $OSTYPE != 'darwin'* && ! -f "/etc/steamos-release" ]]; then
   export TERMINFO="/usr/local/beleyenv/kitty.app/lib/kitty/terminfo"
 fi
 
-if [[ -f ~/.beleyenv/borg-env.export ]]; then
-  source ~/.beleyenv/borg-env.export
-fi
-
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -96,17 +92,11 @@ alias icat="kitty +kitten icat"
 alias gcb='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(git branch --all | fzf)'
 alias gcf='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(fd . | fzf)'
 
-# ChromeOS Specific Stuff
-if [[ $OSTYPE != 'darwin'* ]]; then
-  alias mountBackups="sudo mkdir -p /mnt/borgBackups && \
-      sudo chmod o+rw /mnt/borgBackups && \
-      borg mount :: /mnt/borgBackups && \
-      cd /mnt/borgBackups"
+alias mountBackups="mkdir -p ~/borgMount && \
+    borg mount :: ~/borgMount && \
+    cd ~/borgMount"
 
-  alias umountBackups="cd && borg umount /mnt/borgBackups && sudo rm -rf /mnt/borgBackups"
-fi
-
-
+alias umountBackups="cd && borg umount ~/borgMount && rm -rf ~/borgMount"
 
 #############################################################
 ########################## Misc #############################

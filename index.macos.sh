@@ -83,7 +83,7 @@ brew install git-delta
 #### MacOS Specific Software and gui apps
 brew install terminal-notifier
 brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-studio-code \
-    firefox google-chrome platypus raycast transmission steam discord stats \
+    firefox google-chrome raycast transmission steam discord stats \
     jordanbaird-ice bettertouchtool
 
 # Firefox PWA

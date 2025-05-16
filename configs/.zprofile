@@ -66,6 +66,10 @@ export PATH
 # For one-off cases where I want to have custom shell completions.
 fpath=($HOME/.custom-completions $HOME/.beleyenv/brew/share/zsh/site-functions $fpath)
 
+if [[ -f ~/.beleyenv/borg-env.export ]]; then
+  source ~/.beleyenv/borg-env.export
+fi
+
 # See .zshenv
 zProfileRan=true
 export zProfileRan

@@ -2,6 +2,8 @@
 
 ![Beleyenv Desktop](beleyenv-desktop.png)
 
+WARNING: I no longer actively use ChromeOS. I'm now using a mix of MacOS and Ubuntu. Your mileage may vary trying to use these scripts for ChromeOS. Ultimately, much of this is very personalized to my own use-cases, but there still may be things of interest in here for others.
+
 Beleyenv is a series of scripts to quickly bootstrap a very opinionated developer-centric environment for ChromeOS's officially supported Debian-based Linux container ([Crostini](https://chromium.googlesource.com/chromiumos/docs/+/master/containers_and_vms.md)). However, while it is primarily to bootstrap a newly created container, it is 100% idempotent. You can re-run the script (or any of the individual ones) as many times as you want, with the only side-effect being that packages will be updated if a newer one is available. Beleyenv was also designed to make minimal changes to the container to ensure that ChromeOS is still able to manage the container automatically. It is possible to run alternate distributions or switch to Debian's testing or unstable channels, but it is not supported by ChromeOS and you'll likely run into problems down the road.
 
 First and foremost, Beleyenv was created to bootstrap and maintain my personal set-up in a reproducible way. However, the project has been designed to be easily used by others either as-is or with small modifications. Any files containing sensitive information are encrypted in this repo (for example `config.json`). However, sample replacements or ways to disable features relying on encrypted files are provided and enabled by default.
@@ -393,6 +395,17 @@ See `sample-config.json`, which I'll try to keep updated with details about conf
 Beleyenv contains limited support for MacOS. I use MacOS for differnt reasons, so it does not mimic or share as much with the ChromeOS/Ubuntu setup.
 
 Many scripts under `/installScripts` support MacOS, but it'll remain undocumented.
+
+#### New Laptop Setup: Fuse
+
+Install mac fuse manually before running beleyenv. The instructions at https://github.com/macfuse/macfuse/wiki/Getting-Started are mostly accurate; however, on the M4, I had to do the trick documented at https://developer.apple.com/forums/thread/672184 .
+
+1. Restart, hit power once, then hit it again and hold.
+2. Click Utilities
+3. Click apple symbol, then hit "startup disk"
+4. Select your main startup disk.
+5. Reboot. Right after hitting reboot, hold the power button
+6. Instructions on fuse page to enable third party kernel extensions will now work.
 
 ### Steam Deck Support
 

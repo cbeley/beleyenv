@@ -1,0 +1,48 @@
+<!--
+In order for this to work, you need to add homebrew's zsh to the list
+of applications with full disk access.
+
+As of this comment, it is /opt/homebrew/Cellar/bash/5.2.37/bin/bash
+Get it quickly with: realpath $(which bash)
+
+This is not ideal and may not be the safest way to do this.
+I also did not have luck getting https://github.com/sveinbjornt/Platypus
+to work.
+
+https://launched.zerowidth.com/ was helpful
+for generating this file.
+
+Quickly confirm it works via:
+launchctl unload -w ~/Library/LaunchAgents/launched.borg-backups.plist && launchctl load -w ~/Library/LaunchAgents/launched.borg-backups.plist
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>launched.borg-backups</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>zsh</string>
+      <string>-c</string>
+      <string>borg-home-backup.sh > >(ts) 2>&1</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/Users/cbeley/.borgBackupRepo/launched-stderr.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/cbeley/.borgBackupRepo/launched-stdout.log</string>
+    <key>StartCalendarInterval</key>
+    <array>
+      <dict>
+        <key>Hour</key>
+        <integer>22</integer>
+      </dict>
+    </array>
+    <key>UserName</key>
+    <string>cbeley</string>
+    <key>WorkingDirectory</key>
+    <string>/Users/cbeley</string>
+  </dict>
+</plist>
