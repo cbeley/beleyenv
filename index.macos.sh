@@ -10,6 +10,10 @@ if ! command -v gcc &> /dev/null; then
     xcode-select --install
 fi
 
+# Borg setup. Prompts for passphrase.
+./configScripts/setup-borg-env.sh macOS
+./installScripts/installBorgTools/index.macos.sh
+
 ### Everything below this line should require zero prompting from the user ###
 
 # Brew should be installed by bootstrap.sh,
@@ -37,7 +41,7 @@ fi
 # Meant to mirror what is installed in apt-get in index.linux.sh as
 # much as possible (and as relevant for my macOS use-cases).
 brew install rsync zsh shellcheck imagemagick fd thefuck jq fzf bat htop yq pstree \
-    util-linux
+    util-linux rclone feh borgbackup
 brew install --cask gimp vlc
 
 # TODO: the fzf stuff should likely be split off into its own install file to 
@@ -76,8 +80,22 @@ brew install git-delta
 ./installScripts/install-signal.sh
 
 #### MacOS Specific Software and gui apps
-brew install --cask rectangle messenger alt-tab cameracontroller visual-studio-code \
-    firefox google-chrome platypus raycast transmission steam
+brew install terminal-notifier
+brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-studio-code \
+    firefox google-chrome platypus raycast transmission steam discord stats \
+    jordanbaird-ice bettertouchtool
+
+# Firefox PWA
+brew install --cask firefoxpwa
+sudo mkdir -p "/Library/Application Support/Mozilla/NativeMessagingHosts"
+sudo ln -sf "/opt/homebrew/opt/firefoxpwa/share/firefoxpwa.json" "/Library/Application Support/Mozilla/NativeMessagingHosts/firefoxpwa.json"
+
+# Firefox Mozeidon for programatic control by other apps like Raycast and terminal
+brew tap egovelox/homebrew-mozeidon
+brew install egovelox/mozeidon/mozeidon-native-app egovelox/mozeidon/mozeidon
+mkdir -p ~/Library/Application\ Support/Mozilla/NativeMessagingHosts
+# todo: create mozeidon.json
+# https://github.com/egovelox/mozeidon-native-app/
 
 # Node via asdf
 brew install asdf
@@ -86,3 +104,7 @@ asdf install nodejs latest
 
 # User configuration
 ./configScripts/link-configs.sh
+./configScripts/macos-tweaks.sh
+
+# Will require user prompting and a reboot. Install last
+brew install --cask logi-options+

@@ -1,0 +1,1 @@
+Derived from https://github.com/SterlingHooten/borg-backup-exclusions-macos

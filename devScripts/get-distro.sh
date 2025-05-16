@@ -1,9 +1,11 @@
-#!/bin/bash 
+#!/bin/bash
 
-set -e 
+set -e
 
-if grep -q 'ubuntu' /etc/os-release; then 
+if grep -q 'ubuntu' /etc/os-release 2>/dev/null; then
    echo 'ubuntu'
-else 
+elif [[ "$(uname)" == "Darwin" ]]; then
+   echo 'macOS'
+else
    echo 'chromeOS'
-fi 
+fi

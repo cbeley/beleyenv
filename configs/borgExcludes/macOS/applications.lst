@@ -1,0 +1,59 @@
+# These are exclusions for borg backup which are particular to certain macOS applications
+# Use: borg create --patterns-from=/path/to/borg-exclude-macos-applications.lst
+
+# N.B. --patterns-from uses the shell style of patterns by default NOT the fn
+# Shell style counts ** as any character (including path separators)
+
+# A directory exclusion pattern can end either with or without a slash (‘/’).
+# If it ends with a slash, such as some/path/, the directory will be included but not its content.
+# If it does not end with a slash, such as some/path, both the directory and content will be excluded.
+# A minus sign will exclude, but still recurse into the directory to find inclusions (slow)
+# A bang/exclamation point will _not_ recurse into a directory, and thus no inclusion rules will kick in (dangerous)
+
+# Adguard
+! **/com.adguard.mac.adguard/adguard.db
+
+# Anki
+! **/Anki2/*/media.trash
+
+# Arq Backup
+! **/Library/Application Support/ArqAgent/cache.noindex
+
+# Discord
+! **/discord/Code Cache
+
+# Dropbox
+
+# Flume
+! **/Flume/ImageCache
+
+# Google Chrome
+! **/Google/Chrome/Default/Service Worker/CacheStorage
+! **/Google/Chrome/Default/Service Worker/ScriptCache
+! **/Google/Chrome/ShaderCache
+
+# Google drive
+! **/.tmp.drivedownload
+! **/.tmp.driveupload
+
+# Microsoft App Center Telemetry
+! **/Application Support/**/com.microsoft.appcenter/
+
+# Microsoft office
+! **/Microsoft/FontPreviewCache
+
+# Spotify
+! **/Spotify/PersistentCache
+
+# Up for discussion
+# ! **/.dropbox*
+
+#### Added by Chris Beley
+
+# Temporary cloud sync data and metadata managed by FileProvider.
+! **/Library/Application Support/FileProvider
+
+# Data storage for "Sandboxed apps". I think it's unlikely
+# anything critical is stored here I want to keep and there
+# are system files here that are not accessible without root.
+! **/Library/Group Containers

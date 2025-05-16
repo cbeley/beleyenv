@@ -1,9 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script is based off of
 # https://borgbackup.readthedocs.io/en/stable/quickstart.html#automating-backups
  
-notify-send -a "Borg Backup" "Linux currently backing up..."
+notify() {
+    local message="$1"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        terminal-notifier -title "Borg Backup" -message "$message"
+    else
+        notify-send -a "Borg Backup" "$message"
+    fi
+}
+
+notify "Starting Borg Backup..."
 
 # some helpers and error handling:
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
@@ -29,6 +38,10 @@ borg create                 \
     --stats                 \
     --exclude-caches        \
     --one-file-system       \
+    --exclude-if-present .nobackup \
+    --patterns-from="$HOME/.beleyenv/beleyenv/configs/borgExcludes/macOS/core.lst" \
+    --patterns-from="$HOME/.beleyenv/beleyenv/configs/borgExcludes/macOS/programming.lst" \
+    --patterns-from="$HOME/.beleyenv/beleyenv/configs/borgExcludes/macOS/applications.lst" \
     "${excludeFlags[@]}"    \
                             \
     ::'{now}'               \
@@ -51,17 +64,17 @@ prune_exit=$?
 global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 
 if [ ${global_exit} -eq 0 ]; then
-    notify-send -a "Borg Backup" "Successfully Backed Up Linux"
+    notify "Borg Backup Successful!"
     info "Backup and Prune finished successfully"
 
     borg-rclone-home-backup-to-gdrive.sh
 elif [ ${global_exit} -eq 1 ]; then
-    notify-send -a "Borg Backup" "Linux Backed up with WARNINGS!"
+    notify "Borg Backup exited with WARNINGS!"
     info "Backup and/or Prune finished with warnings"
 
     borg-rclone-home-backup-to-gdrive.sh
 else
-    notify-send -a "Borg Backup" "FAILED TO BACK UP LINUX!"
+    notify "BORG BACKUP FAILED!"
     info "Backup and/or Prune finished with errors"
 fi
 

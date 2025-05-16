@@ -25,12 +25,14 @@ if [[ $OSTYPE != 'darwin'* && ! -f "/etc/steamos-release" ]]; then
   mkdir -p $HOME/.tmp
   export TMPDIR=$HOME/.tmp
 
-  source ~/.beleyenv/borg-env.export
-
   # Explicitly setting so root shells work properly with kitty.
   # Doing this on MacOS may have other pitfalls
   # Look into https://sw.kovidgoyal.net/kitty/faq/ if it becomes relevant later.
   export TERMINFO="/usr/local/beleyenv/kitty.app/lib/kitty/terminfo"
+fi
+
+if [[ -f ~/.beleyenv/borg-env.export ]]; then
+  source ~/.beleyenv/borg-env.export
 fi
 
 # Path to oh-my-zsh installation.
