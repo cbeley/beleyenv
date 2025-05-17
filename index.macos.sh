@@ -14,6 +14,14 @@ fi
 ./configScripts/setup-borg-env.sh macOS
 ./installScripts/installBorgTools/index.macos.sh
 
+# rclone in brew is not feature complete.
+# rclone team doesn't care.
+# Homebrew team doesn't want to cave.
+# https://github.com/rclone/rclone/issues/5373
+# https://github.com/Homebrew/homebrew-cask/issues/106519
+# Use rclone install script instead. :/
+sudo -v ; curl https://rclone.org/install.sh | sudo bash
+
 ### Everything below this line should require zero prompting from the user ###
 
 # Brew should be installed by bootstrap.sh,
@@ -41,7 +49,7 @@ fi
 # Meant to mirror what is installed in apt-get in index.linux.sh as
 # much as possible (and as relevant for my macOS use-cases).
 brew install rsync zsh shellcheck imagemagick fd thefuck jq fzf bat htop yq pstree \
-    util-linux rclone feh borgbackup
+    util-linux feh borgbackup
 brew install --cask gimp vlc
 
 # TODO: the fzf stuff should likely be split off into its own install file to 
