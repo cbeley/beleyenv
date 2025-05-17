@@ -13,7 +13,7 @@ https://launched.zerowidth.com/ was helpful
 for generating this file.
 
 Quickly confirm it works via:
-launchctl unload -w ~/Library/LaunchAgents/launched.borg-backups.plist && launchctl load -w ~/Library/LaunchAgents/launched.borg-backups.plist
+launchctl unload -w ~/Library/LaunchAgents/launched.borg-check.plist && launchctl load -w ~/Library/LaunchAgents/launched.borg-check.plist
 
 Add 
 <key>RunAtLoad</key>
@@ -24,22 +24,24 @@ Add
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>launched.borg-backups</string>
+    <string>launched.borg-check</string>
     <key>ProgramArguments</key>
     <array>
       <string>zsh</string>
       <string>-c</string>
-      <string>borg-home-backup.sh > >(ts) 2>&1</string>
+      <string>borg-check.sh > >(ts) 2>&1</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>/Users/cbeley/.borgBackupRepo/logs/backup-stderr.log</string>
+    <string>/Users/cbeley/.borgBackupRepo/logs/check-stderr.log</string>
     <key>StandardOutPath</key>
-    <string>/Users/cbeley/.borgBackupRepo/logs/backup-stdout.log</string>
+    <string>/Users/cbeley/.borgBackupRepo/logs/check-stdout.log</string>
     <key>StartCalendarInterval</key>
     <array>
       <dict>
         <key>Hour</key>
-        <integer>22</integer>
+        <integer>3</integer>
+        <key>Weekday</key>
+        <integer>0</integer>
       </dict>
     </array>
     <key>UserName</key>
