@@ -5,6 +5,7 @@
  
 notify() {
     local message="$1"
+    
     if [[ "$OSTYPE" == "darwin"* ]]; then
         terminal-notifier -title "Borg Backup" -message "$message"
     else
@@ -49,7 +50,15 @@ borg create                 \
 
 backup_exit=$?
 
-info "Pruning repository"
+# Exiting with 1 just means warnings, which is usually fine.
+# Exiting > 1 means something went wrong.
+if [ ${backup_exit} -gt 1 ]; then
+    notify "BORG BACKUP FAILED!"
+    info "Borg backup exited with error code ${backup_exit}"
+    exit ${backup_exit}
+fi
+
+info "Borg backup finished successfully or with warnings"
 
 borg prune                          \
     --list                          \
@@ -60,22 +69,37 @@ borg prune                          \
 
 prune_exit=$?
 
-# use highest exit code as global exit code
-global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
-
-if [ ${global_exit} -eq 0 ]; then
-    notify "Borg Backup Successful!"
-    info "Backup and Prune finished successfully"
-
-    borg-rclone-home-backup-to-gdrive.sh
-elif [ ${global_exit} -eq 1 ]; then
-    notify "Borg Backup exited with WARNINGS!"
-    info "Backup and/or Prune finished with warnings"
-
-    borg-rclone-home-backup-to-gdrive.sh
-else
-    notify "BORG BACKUP FAILED!"
-    info "Backup and/or Prune finished with errors"
+if [ ${prune_exit} -gt 0 ]; then
+    notify "BORG PRUNE FAILED!"
+    info "Borg prune exited with error code ${prune_exit}"
+    exit ${prune_exit}
 fi
 
-exit ${global_exit}
+info "Borg prune finished successfully"
+
+borg compact
+
+compact_exit=$?
+
+if [ ${compact_exit} -gt 0 ]; then
+    notify "BORG COMPACT FAILED!"
+    info "Borg compact exited with error code ${compact_exit}"
+    exit ${compact_exit}
+fi
+
+info "Borg compact finished successfully"
+
+if [ ${backup_exit} -eq 0 ]; then
+    notify "Borg Backup Successful!"
+else
+    notify "Borg Backup exited with WARNINGS!"
+fi
+
+borg-rclone-home-backup-to-gdrive.sh
+rclone_exit=$?
+
+if [ "$rclone_exit" -ne 0 ]; then
+    exit "$rclone_exit"
+else
+    exit "$backup_exit"
+fi
