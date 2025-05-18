@@ -92,7 +92,7 @@ brew install git-delta
 brew install terminal-notifier
 brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-studio-code \
     firefox google-chrome raycast transmission steam discord stats \
-    jordanbaird-ice bettertouchtool
+    jordanbaird-ice bettertouchtool iina
 
 # Firefox PWA
 brew install --cask firefoxpwa
