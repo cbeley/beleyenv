@@ -66,7 +66,6 @@ sudo pip3 install --break-system-packages deluge thefuck pygments
 ./installScripts/install-lazygit.sh
 ./installScripts/install-lazydocker.sh
 ./installScripts/install-delta.sh
-./installScripts/installKCC/index.sh
 ./installScripts/install-yarn-pkgs.sh
 ./installScripts/install-signal.sh
 ./installScripts/install-ncdu.sh
