@@ -92,6 +92,17 @@ alias icat="kitty +kitten icat"
 alias gcb='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(git branch --all | fzf)'
 alias gcf='git rev-parse --is-inside-work-tree > /dev/null && git checkout $(fd . | fzf)'
 
+if [[ $OSTYPE == 'darwin'* ]]; then
+  slides() {
+    if [ $# -eq 0 ]; then
+      open -a Phoenix\ Slides .
+    else
+      open -a Phoenix\ Slides "$@"
+    fi
+  }
+  alias slides=slides
+fi
+
 alias mountBackups="mkdir -p ~/borgMount && \
     borg mount :: ~/borgMount && \
     cd ~/borgMount"
