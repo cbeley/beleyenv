@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+message="$1"
+
+# Note that on MacOS, the app name may not contain
+# spaces. If it does, anything after the first space
+# is ignored.
+if [[ -n "$2" ]]; then
+    title="$2"
+elif [[ -n "$NOTIFY_APP_NAME" ]]; then
+    title="$NOTIFY_APP_NAME"
+else
+    title="Beleyenv"
+fi
+    
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    terminal-notifier -title $title -message "$message" -appIcon "$appIcon"
+else
+    notify-send -a $title "$message"
+fi
+
+echo "[$title] Sent notification: $message"

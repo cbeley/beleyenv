@@ -2,18 +2,10 @@
 
 # This script is based off of
 # https://borgbackup.readthedocs.io/en/stable/quickstart.html#automating-backups
- 
-notify() {
-    local message="$1"
-    
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        terminal-notifier -title "Borg Backup" -message "$message"
-    else
-        notify-send -a "Borg Backup" "$message"
-    fi
-}
 
-notify "Starting Borg Backup..."
+export NOTIFY_APP_NAME="BorgBackup"
+
+cliNotify "Starting Borg Backup..."
 
 # some helpers and error handling:
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
@@ -53,7 +45,7 @@ backup_exit=$?
 # Exiting with 1 just means warnings, which is usually fine.
 # Exiting > 1 means something went wrong.
 if [ ${backup_exit} -gt 1 ]; then
-    notify "BORG BACKUP FAILED!"
+    cliNotify "BORG BACKUP FAILED!"
     info "Borg backup exited with error code ${backup_exit}"
     exit ${backup_exit}
 fi
@@ -70,7 +62,7 @@ borg prune                          \
 prune_exit=$?
 
 if [ ${prune_exit} -gt 0 ]; then
-    notify "BORG PRUNE FAILED!"
+    cliNotify "BORG PRUNE FAILED!"
     info "Borg prune exited with error code ${prune_exit}"
     exit ${prune_exit}
 fi
@@ -82,7 +74,7 @@ borg compact
 compact_exit=$?
 
 if [ ${compact_exit} -gt 0 ]; then
-    notify "BORG COMPACT FAILED!"
+    cliNotify "BORG COMPACT FAILED!"
     info "Borg compact exited with error code ${compact_exit}"
     exit ${compact_exit}
 fi
@@ -90,9 +82,9 @@ fi
 info "Borg compact finished successfully"
 
 if [ ${backup_exit} -eq 0 ]; then
-    notify "Borg Backup Successful!"
+    cliNotify "Borg Backup Successful!"
 else
-    notify "Borg Backup exited with WARNINGS!"
+    cliNotify "Borg Backup exited with WARNINGS!"
 fi
 
 borg-rclone-home-backup-to-gdrive.sh

@@ -59,7 +59,7 @@ fi
 
 # Ensure local path considered first for my own installed
 # global packages.
-path=($HOME/bin $HOME/.local/bin $HOME/.beleyenv/brew/bin $path)
+path=($HOME/bin $HOME/.beleyenv/beleyenv/bin $HOME/.local/bin $HOME/.beleyenv/brew/bin $path)
 
 export PATH
 

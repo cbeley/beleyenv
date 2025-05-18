@@ -5,7 +5,8 @@ set -e
 trap 'ctrlC' INT
 trap 'theEnd $?' EXIT
 
-notifyName="Beleyenv Borg Rclone Sync"
+export NOTIFY_APP_NAME="BorgRCloneSync"
+
 beleyenvRoot="$HOME/.beleyenv/beleyenv"
 distro="$("$beleyenvRoot/devScripts/get-distro.sh")"
 borgRepo=$(jq -r ".borg.repo.$distro" "$beleyenvRoot/config.json")
@@ -15,7 +16,7 @@ info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 
 ctrlC() {
     info 'Borg rclone sync interrupted!'
-    notify-send -a "$notifyName" "RClone sync got interrupt signal!"
+    cliNotify "RClone sync got interrupt signal!"
 
     exit 1
 }
@@ -23,10 +24,10 @@ ctrlC() {
 theEnd() {
     if [[ "$1" != "0" ]]; then
         info 'Sync failed!'
-        notify-send -a "$notifyName" "Borg repo rclone sync failed!"
+        cliNotify "Borg repo rclone sync failed!"
     else
         info "Successfully synced borg repo to $borgRepoRCloneRemote"
-        notify-send -a "$notifyName" "Successfully rclone synced borg repo to $borgRepoRCloneRemote"
+        cliNotify "Successfully rclone synced borg repo to $borgRepoRCloneRemote"
     fi
 }
 
