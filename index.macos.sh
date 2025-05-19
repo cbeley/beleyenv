@@ -89,10 +89,14 @@ brew install git-delta
 ./installScripts/install-mozeidon.macos.sh
 
 #### MacOS Specific Software and gui apps
-brew install terminal-notifier
+brew install terminal-notifier yt-dlp tlrc pnpm
 brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-studio-code \
     firefox google-chrome raycast transmission steam discord stats \
-    jordanbaird-ice bettertouchtool iina phoenix-slides
+    jordanbaird-ice bettertouchtool iina phoenix-slides calibre \
+    crystalfetch obsidian
+
+brew tap Bionus/imgbrd-grabber
+brew install imgbrd-grabber
 
 # Firefox PWA
 brew install --cask firefoxpwa
@@ -104,10 +108,11 @@ sudo ln -sf "/opt/homebrew/opt/firefoxpwa/share/firefoxpwa.json" "/Library/Appli
 brew install asdf
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
+asdf set -u nodejs latest
 
 # User configuration
 ./configScripts/link-configs.sh
 ./configScripts/macos-tweaks.sh
 
 # Will require user prompting and a reboot. Install last
-brew install --cask logi-options+
+brew install --cask logi-options+ vmware-fusion
