@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+export NOTIFY_APP_NAME="NotesSync"
+
+echo "Syncing notes..."
+
+# Fixing issues or changing --compare?
+# Probally will need to temporarily add --resync
+# See https://rclone.org/bisync/
+rclone bisync \
+    "$HOME/notes" gdrive-notes: \
+    --create-empty-src-dirs \
+    --compare size,modtime,checksum \
+    --slow-hash-sync-only \
+    --resilient \
+    -MvP \
+    --drive-skip-gdocs \
+    --fix-case 
+
+exit_code=$?
+
+# Network errors and other transient issues are fine.
+# rclone will use exit code 7 for unrecoverable errors.
+# See https://rclone.org/bisync/#exit-codes
+if [ $exit_code -eq 7 ]; then
+    cliNotify "NOTES SYNC FAILED! MANUAL INTERVENTION REQUIRED!"
+fi
+
+echo "Rclone exit code: $exit_code"
+exit $exit_code

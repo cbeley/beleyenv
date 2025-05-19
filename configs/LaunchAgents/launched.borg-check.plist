@@ -32,9 +32,9 @@ Add
       <string>borg-check.sh > >(ts) 2>&1</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>/Users/cbeley/.borgBackupRepo/logs/check-stderr.log</string>
+    <string>/Users/cbeley/.beleyenv/logs/borg-check.log</string>
     <key>StandardOutPath</key>
-    <string>/Users/cbeley/.borgBackupRepo/logs/check-stdout.log</string>
+    <string>/Users/cbeley/.beleyenv/logs/borg-check.log</string>
     <key>StartCalendarInterval</key>
     <array>
       <dict>

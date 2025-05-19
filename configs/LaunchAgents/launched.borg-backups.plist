@@ -32,9 +32,9 @@ Add
       <string>borg-home-backup.sh > >(ts) 2>&1</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>/Users/cbeley/.borgBackupRepo/logs/backup-stderr.log</string>
+    <string>/Users/cbeley/.beleyenv/logs/borg-backup.log</string>
     <key>StandardOutPath</key>
-    <string>/Users/cbeley/.borgBackupRepo/logs/backup-stdout.log</string>
+    <string>/Users/cbeley/.beleyenv/logs/borg-backup.log</string>
     <key>StartCalendarInterval</key>
     <array>
       <dict>

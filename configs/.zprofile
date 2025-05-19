@@ -61,6 +61,12 @@ fi
 # global packages.
 path=($HOME/bin $HOME/.beleyenv/beleyenv/bin $HOME/.local/bin $HOME/.beleyenv/brew/bin $path)
 
+# For MacOS launch agents, for some reason, /usr/local/bin is not
+# part of the path by default. I'm a bit confused what adds it to the
+# path in the first place now. Adding it to the very end to catch
+# edge cases until I better understand the issue.
+path=($path /usr/local/bin)
+
 export PATH
 
 # For one-off cases where I want to have custom shell completions.
