@@ -72,16 +72,19 @@ fi
 mkdir -p "$lazygitBase/lazygit"
 ln -sf "$(pwd)/configs/lazygit.config.yml" "$lazygitBase/lazygit/config.yml"
 
-# tldr config
-ln -sf "$(pwd)/configs/.tldrrc" ~/.tldrrc
-./print.sh "tldr config installed!"
-
 if [[ $OSTYPE == 'darwin'* ]]; then
     ##### MacOS Specific Configs
     ./print.sh "Installing MacOS Specific Configs"
+    ln -sf "$(pwd)/configs/tlrc" "$HOME/Library/Application Support/tlrc"
+    ./print.sh "tlrc config installed!"
 else 
     ##### ChromeOS & Ubuntu Only Configs
     ./print.sh "Installing Linux Specific Configs"
+
+    # tldr config
+    # Todo: just use tlrc on linux too.
+    ln -sf "$(pwd)/configs/.tldrrc" ~/.tldrrc
+    ./print.sh "tldr config installed!"
 
     # Systemd Local Units & Overrides
     rm -rf ~/.config/systemd
