@@ -396,7 +396,9 @@ Beleyenv contains limited support for MacOS. I use MacOS for differnt reasons, s
 
 Many scripts under `/installScripts` support MacOS, but it'll remain undocumented.
 
-#### New Laptop Setup: Fuse
+#### New Laptop Setup: Fuse and sshfs
+
+Fuse via brew has been in a weird state for a while now. It also involves some manual setup. Install it all manually first before beleyenv.
 
 Install mac fuse manually before running beleyenv. The instructions at https://github.com/macfuse/macfuse/wiki/Getting-Started are mostly accurate; however, on the M4, I had to do the trick documented at https://developer.apple.com/forums/thread/672184 .
 
@@ -406,6 +408,8 @@ Install mac fuse manually before running beleyenv. The instructions at https://g
 4. Select your main startup disk.
 5. Reboot. Right after hitting reboot, hold the power button
 6. Instructions on fuse page to enable third party kernel extensions will now work.
+
+Install macFUSE and sshfs by obtaining it from https://macfuse.github.io/.
 
 ### Steam Deck Support
 
