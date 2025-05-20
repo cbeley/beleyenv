@@ -2,6 +2,40 @@
 
 export NOTIFY_APP_NAME="NotesSync"
 
+notesSnapshotsPath="$HOME/.beleyenv/notes-snapshots"
+mkdir -p "$notesSnapshotsPath"
+
+lastSnapshotTimeFile="$notesSnapshotsPath/last_snapshot_time"
+
+should_snapshot=true
+if [ -f "$lastSnapshotTimeFile" ]; then
+    last_snapshot_time=$(cat "$lastSnapshotTimeFile")
+    now=$(date +%s)
+    elapsed=$((now - last_snapshot_time))
+    if [ $elapsed -lt 1800 ]; then
+        should_snapshot=false
+        echo "Last snapshot was $elapsed seconds ago. Skipping snapshot."
+    fi
+fi
+
+if [ "$should_snapshot" = true ]; then
+    echo "Creating snapshot of notes directory..."
+    snapshotBasePath="$notesSnapshotsPath/$(date +"%Y-%m")"
+    mkdir -p "$snapshotBasePath"
+    snapshotFile="$snapshotBasePath/notes-$(date +"%Y-%m-%d-%H_%M_%S").tar.gz"
+    tar -czf "$snapshotFile" -C "$HOME" notes
+    echo "Snapshot created at $snapshotFile"
+    date +%s > "$lastSnapshotTimeFile"
+fi
+
+# Delete snapshot folder from two months ago if it exists
+twoMonthsAgo=$(date --date='-2 months' +"%Y-%m")
+oldSnapshotFolder="$notesSnapshotsPath/$twoMonthsAgo"
+if [ -d "$oldSnapshotFolder" ]; then
+    echo "Deleting old snapshot folder: $oldSnapshotFolder"
+    rm -rf "$oldSnapshotFolder"
+fi
+
 echo "Syncing notes..."
 
 # Fixing issues or changing --compare?
@@ -15,7 +49,7 @@ rclone bisync \
     --resilient \
     -MvP \
     --drive-skip-gdocs \
-    --fix-case 
+    --fix-case
 
 exit_code=$?
 
