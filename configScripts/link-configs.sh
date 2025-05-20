@@ -75,7 +75,7 @@ ln -sf "$(pwd)/configs/lazygit.config.yml" "$lazygitBase/lazygit/config.yml"
 if [[ $OSTYPE == 'darwin'* ]]; then
     ##### MacOS Specific Configs
     ./print.sh "Installing MacOS Specific Configs"
-    ln -sf "$(pwd)/configs/tlrc" "$HOME/Library/Application Support/tlrc"
+    ln -sf "$(pwd)/configs/tlrc" "$HOME/Library/Application Support"
     ./print.sh "tlrc config installed!"
 else 
     ##### ChromeOS & Ubuntu Only Configs
