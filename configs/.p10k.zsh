@@ -57,7 +57,11 @@
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
     direnv                  # direnv status (https://direnv.net/)
-    asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
+    # There seems to be a bug for this prompt that breaks when used on
+    # filesystems lacking certain attributes (I think mtime?). Disabling,
+    # but maybe I'll fix it and put out a PR to p10k one day...
+    # Notably, it breaks when browsing mounted borg backups.
+    #asdf                   # asdf version manager (https://github.com/asdf-vm/asdf)
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     anaconda                # conda environment (https://conda.io/)
     pyenv                   # python environment (https://github.com/pyenv/pyenv)
