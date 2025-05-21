@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # My needs for my steamdeck are quite different from MacOS
 # and ChromeOS, so this may be quite radically different.

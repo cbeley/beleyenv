@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e 
 
 sudo ln -sf "$(pwd)/installScripts/installRCloneJobs/run-rclone-jobs.sh" /usr/local/bin

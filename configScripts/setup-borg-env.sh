@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e 
 
 # This is required by installScripts/installBorgTools.  Separated as a matter of

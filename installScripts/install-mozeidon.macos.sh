@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 
 set -e
 # Firefox Mozeidon for programatic control by other apps like Raycast and terminal

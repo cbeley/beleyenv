@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e 
 
 mapfile -t HOSTS < <(jq -r '.hosts[][1]' config.json)

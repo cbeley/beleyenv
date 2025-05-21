@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 set -e 
 
 sudo mkdir -p /etc/apt/keyrings

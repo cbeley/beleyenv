@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export NOTIFY_APP_NAME="BorgCheck"
 

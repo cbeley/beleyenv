@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 
 rm -rf "$HOME/.beleyenv/beleyenv/temp"
 mkdir -p "$HOME/.beleyenv/beleyenv/temp"

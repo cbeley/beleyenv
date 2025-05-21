@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e 
 
 curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -

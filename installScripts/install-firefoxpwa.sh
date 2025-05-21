@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 set -e 
 
 curl -fsSL https://packagecloud.io/filips/FirefoxPWA/gpgkey \

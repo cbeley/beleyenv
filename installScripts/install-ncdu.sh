@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e 
 
 sudo mkdir -p /usr/local/beleyenv/bin

@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 set -e 
 
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | \

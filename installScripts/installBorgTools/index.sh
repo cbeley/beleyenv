@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e 
 
 BORG_REPO=$(jq -r '.borg.repo' config.json)
