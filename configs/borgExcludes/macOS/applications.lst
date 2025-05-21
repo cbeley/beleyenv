@@ -57,3 +57,11 @@
 # anything critical is stored here I want to keep and there
 # are system files here that are not accessible without root.
 ! **/Library/Group Containers
+
+# Unknown, but created automatically with no user-level access
+! **/Library/Daemon Containers/
+! **/Library/Biome/streams
+! **/Library/DuetExpertCenter
+
+# asdf
+! **/.asdf

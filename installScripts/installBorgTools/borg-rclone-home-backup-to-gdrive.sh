@@ -23,10 +23,8 @@ ctrlC() {
 
 theEnd() {
     if [[ "$1" != "0" ]]; then
-        info 'Sync failed!'
         cliNotify "Borg repo rclone sync failed!"
     else
-        info "Successfully synced borg repo to $borgRepoRCloneRemote"
         cliNotify "Successfully rclone synced borg repo to $borgRepoRCloneRemote"
     fi
 }
