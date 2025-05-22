@@ -23,12 +23,6 @@ theEnd() {
     fi
 }
 
-if ! onAllowedNetworkForBackups; then
-    cliNotify "Borg Rclone Upload Disabled - Not on Network Allowed For Backups"
-    trap - INT EXIT
-    exit 0
-fi
-
 beleyenvRoot="$HOME/.beleyenv/beleyenv"
 distro="$("$beleyenvRoot/devScripts/get-distro.sh")"
 borgRepo=$(jq -r ".borg.repo.$distro" "$beleyenvRoot/config.json")
@@ -44,6 +38,12 @@ fi
 if [[ $borgRepoRCloneRemote = '' ]] || [[ $borgRepoRCloneRemote = 'null' ]]; then
     info '[WARN] No rclone remote configured for borg on this distro. Skipping rclone sync.'
     
+    trap - INT EXIT
+    exit 0
+fi
+
+if ! onAllowedNetworkForBackups; then
+    cliNotify "Borg Rclone Upload Disabled - Not on Network Allowed For Backups"
     trap - INT EXIT
     exit 0
 fi
