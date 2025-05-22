@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# This is a global bin so I can use it in random scripts not within
+# beleyenv.
+
+set -e
+
+# May update this later, but don't have a lot
+# of need for this currently.
+if [[ "$(uname)" != "Darwin" ]]; then
+  echo "Warning: SSID detection does not work currently on Linux. Exiting 0."
+  exit 0
+fi
+
+beleyenvConfig="$HOME/.beleyenv/beleyenv/config.json"
+localBeleyenvConfig="$HOME/.beleyenv/local.config.json"
+
+mapfile -t allowUploadsSSIDs < <(
+    jq -r '
+        def get_jobs: if .allowBackupsSSIDs then .allowBackupsSSIDs else [] end;
+        (input | get_jobs) + (get_jobs) | .[]?
+    ' "$localBeleyenvConfig" "$beleyenvConfig"
+)
+
+# This may stop working later. If it does, the solution may be to instead use
+# networksetup -getairportnetwork en0 and give location access to bash :/
+CURRENT_SSID=$(ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}')
+
+# Check if CURRENT_SSID is in allowUploadsSSIDs
+for ssid in "${allowUploadsSSIDs[@]}"; do
+  if [[ "$CURRENT_SSID" == "$ssid" ]]; then
+    exit 0
+  fi
+done
+
+exit 1

@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
 
 set -e 
+export NOTIFY_APP_NAME="BorgRCloneSync"
 
 trap 'ctrlC' INT
 trap 'theEnd $?' EXIT
-
-export NOTIFY_APP_NAME="BorgRCloneSync"
-
-beleyenvRoot="$HOME/.beleyenv/beleyenv"
-distro="$("$beleyenvRoot/devScripts/get-distro.sh")"
-borgRepo=$(jq -r ".borg.repo.$distro" "$beleyenvRoot/config.json")
-borgRepoRCloneRemote=$(jq -r ".borg.rcloneRemote.$distro" "$beleyenvRoot/config.json")
 
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 
@@ -28,6 +22,17 @@ theEnd() {
         cliNotify "Successfully rclone synced borg repo to $borgRepoRCloneRemote"
     fi
 }
+
+if ! onAllowedNetworkForBackups; then
+    cliNotify "Borg Rclone Upload Disabled - Not on Network Allowed For Backups"
+    trap - INT EXIT
+    exit 0
+fi
+
+beleyenvRoot="$HOME/.beleyenv/beleyenv"
+distro="$("$beleyenvRoot/devScripts/get-distro.sh")"
+borgRepo=$(jq -r ".borg.repo.$distro" "$beleyenvRoot/config.json")
+borgRepoRCloneRemote=$(jq -r ".borg.rcloneRemote.$distro" "$beleyenvRoot/config.json")
 
 if [[ $borgRepo = '' ]] || [[ $borgRepo = 'null' ]]; then
     info '[WARN] No borg repo configured. Skipping rclone sync.'

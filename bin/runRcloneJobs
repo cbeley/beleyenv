@@ -24,6 +24,12 @@ theEnd() {
     fi
 }
 
+if ! onAllowedNetworkForBackups; then
+    cliNotify "Rclone Jobs Disabled - Not on Network Allowed For Backups"
+    trap - INT EXIT
+    exit 0
+fi
+
 beleyenvConfig="$HOME/.beleyenv/beleyenv/config.json"
 localBeleyenvConfig="$HOME/.beleyenv/local.config.json"
 
