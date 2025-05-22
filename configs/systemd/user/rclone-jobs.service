@@ -3,4 +3,4 @@ Description="Run rclone jobs listed in beleyenv's config.json."
 
 [Service]
 Type=oneshot
-ExecStart="/usr/local/bin/run-rclone-jobs.sh"
+ExecStart="%h/.beleyenv/beleyenv/bin/runRcloneJobs"

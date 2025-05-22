@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>launched.rclone-jobs</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>zsh</string>
+      <string>-c</string>
+      <string>runRcloneJobs > >(ts) 2>&1</string>
+    </array>
+    <key>StandardErrorPath</key>
+    <string>/Users/cbeley/.beleyenv/logs/rclone-jobs.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/cbeley/.beleyenv/logs/rclone-jobs.log</string>
+    <key>StartCalendarInterval</key>
+    <array>
+      <dict>
+        <key>Hour</key>
+        <integer>23</integer>
+      </dict>
+    </array>
+    <key>UserName</key>
+    <string>cbeley</string>
+    <key>WorkingDirectory</key>
+    <string>/Users/cbeley</string>
+  </dict>
+</plist>
