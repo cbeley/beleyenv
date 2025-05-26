@@ -65,3 +65,6 @@
 
 # asdf
 ! **/.asdf
+
+# LMStudio
+! **/.lmstudio/models

@@ -50,7 +50,7 @@ fi
 # much as possible (and as relevant for my macOS use-cases).
 brew install rsync zsh shellcheck imagemagick fd thefuck jq fzf bat htop yq pstree \
     util-linux borgbackup ncdu hostess
-brew install --cask gimp vlc
+brew install --cask gimp vlc docker
 
 # TODO: the fzf stuff should likely be split off into its own install file to 
 # keep mac and chromeos stuff together.
@@ -93,7 +93,7 @@ brew install terminal-notifier yt-dlp tlrc pnpm
 brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-studio-code \
     firefox google-chrome raycast transmission steam discord stats \
     jordanbaird-ice bettertouchtool iina phoenix-slides calibre \
-    crystalfetch obsidian
+    crystalfetch obsidian lm-studio
 
 brew tap Bionus/imgbrd-grabber
 brew install imgbrd-grabber
