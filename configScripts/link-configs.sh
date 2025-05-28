@@ -77,6 +77,9 @@ if [[ $OSTYPE == 'darwin'* ]]; then
     ./print.sh "Installing MacOS Specific Configs"
     ln -sf "$(pwd)/configs/tlrc" "$HOME/Library/Application Support"
     ./print.sh "tlrc config installed!"
+
+    ln -sf "$(pwd)/configs/io.datasette.llm/extra-openai-models.yaml" "$HOME/Library/Application Support/io.datasette.llm/"
+    ./print.sh "llm cli configs installed!"
 else 
     ##### ChromeOS & Ubuntu Only Configs
     ./print.sh "Installing Linux Specific Configs"

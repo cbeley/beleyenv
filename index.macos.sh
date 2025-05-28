@@ -89,7 +89,7 @@ brew install git-delta
 ./installScripts/install-mozeidon.macos.sh
 
 #### MacOS Specific Software and gui apps
-brew install terminal-notifier yt-dlp tlrc pnpm
+brew install terminal-notifier yt-dlp tlrc pnpm llm pipx
 brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-studio-code \
     firefox google-chrome raycast transmission steam discord stats \
     jordanbaird-ice bettertouchtool iina phoenix-slides calibre \
@@ -97,6 +97,10 @@ brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-stud
 
 brew tap Bionus/imgbrd-grabber
 brew install imgbrd-grabber
+
+## llm helper utilities
+pipx install files-to-prompt
+llm install llm-cmd
 
 # Firefox PWA
 brew install --cask firefoxpwa

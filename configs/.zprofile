@@ -57,6 +57,11 @@ if [ -f "/etc/steamos-release" ]; then
   path=($pathBackup $path)
 fi
 
+# LM Studio CLI (lms) path.
+if [[ -d "$HOME/.lmstudio/bin" ]]; then
+  path=($HOME/.lmstudio/bin $path)
+fi
+
 # Ensure local path considered first for my own installed
 # global packages.
 path=($HOME/bin $HOME/.beleyenv/beleyenv/bin $HOME/.local/bin $HOME/.beleyenv/brew/bin $path)
