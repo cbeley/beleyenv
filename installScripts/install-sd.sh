@@ -7,7 +7,7 @@ mkdir temp
 (
     cd temp
 
-    curl -s https://api.github.com/repos/chmln/sd/releases/latest \
+    curl -Ls https://api.github.com/repos/chmln/sd/releases/latest \
         | jq -r '[.assets[].browser_download_url] 
             | map(select(endswith("linux-gnu")))
             | .[0]' \

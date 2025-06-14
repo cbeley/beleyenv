@@ -5,7 +5,7 @@ rm -rf temp
 mkdir temp
 cd temp
 
-curl -s https://api.github.com/repos/mikefarah/yq/releases/latest \
+curl -Ls https://api.github.com/repos/mikefarah/yq/releases/latest \
     | jq -r '[.assets[].browser_download_url] 
         | map(select(endswith("linux_amd64")))
         | .[0]' \

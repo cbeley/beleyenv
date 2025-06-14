@@ -3,7 +3,7 @@ set -e
 
 sudo mkdir -p /usr/local/beleyenv/bin
 
-curl -s https://api.github.com/repos/jesseduffield/lazydocker/releases/latest \
+curl -Ls https://api.github.com/repos/jesseduffield/lazydocker/releases/latest \
     | jq -r '[.assets[].browser_download_url] 
         | map(select(endswith("Linux_x86_64.tar.gz")))
         | .[0]' \
