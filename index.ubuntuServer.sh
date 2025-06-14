@@ -5,7 +5,7 @@ set -e
 
 sudo apt-get -y install jq shellcheck rsync \
     gocryptfs fd-find sshfs fzf bat htop rclone \
-    fuse3 python3-pyfuse3
+    fuse3 python3-pyfuse3 zsh
 
 ./installScripts/install-lazygit.sh
 ./installScripts/install-lazydocker.sh
