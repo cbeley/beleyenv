@@ -1,25 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
-# Note that only some people use /Library/Application Support on MacOS.
-# ...wonderful.
-if [[ $OSTYPE == 'darwin'* ]]; then
-    OSConfigFolder="$HOME/Library/Application Support"
-else
-    OSConfigFolder="$HOME/.config"
-fi
+OSConfigFolder="$(./configScripts/get-os-config-folder.sh)"
 
 # Kitty Config
 mkdir -p ~/.config/kitty
 ln -sf "$(pwd)/configs/kitty.conf" ~/.config/kitty/kitty.conf
 ./print.sh "Kitty config installed!"
 
-# Zsh Configs
-ln -sf "$(pwd)/configs/.zshrc" ~/.zshrc
-ln -sf "$(pwd)/configs/.zprofile" ~/.zprofile
-ln -sf "$(pwd)/configs/.zshenv" ~/.zshenv
-ln -sf "$(pwd)/configs/.p10k.zsh" ~/.p10k.zsh
-./print.sh "ZSH configs installed!"
+./link-shell-config.sh
 
 # Todo Config
 # I have rarely used this. May delete. TODO ...lol.
@@ -60,17 +49,7 @@ mkdir -p "$sublimeMergeFolder/Packages/User"
 find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeMergeFolder/Packages/User/\$(basename \"{}\")\""
 ./print.sh "Sublime merge configs installed!"
 
-# Lazygit Configs
-# Something fishy is going on with lazygit config location and his docs. 
-# But this is what seems to work.
-if [[ $OSTYPE == 'darwin'* ]]; then
-    lazygitBase="$OSConfigFolder"
-else
-    lazygitBase="$OSConfigFolder/jesseduffield"
-fi
-
-mkdir -p "$lazygitBase/lazygit"
-ln -sf "$(pwd)/configs/lazygit.config.yml" "$lazygitBase/lazygit/config.yml"
+./link-lazygit-config.sh
 
 if [[ $OSTYPE == 'darwin'* ]]; then
     ##### MacOS Specific Configs
