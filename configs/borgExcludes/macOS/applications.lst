@@ -68,3 +68,9 @@
 
 # LMStudio
 ! **/.lmstudio/models
+! **/.lmstudio/extensions
+! **/.lmstudio/.internal
+! **/.lmstudio/bin
+
+# Docker
+! **/Library/Containers/com.docker.docker
