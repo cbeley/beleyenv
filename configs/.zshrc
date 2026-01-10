@@ -113,6 +113,8 @@ alias umountBackups="cd && borg umount ~/borgMount && rm -rf ~/borgMount"
 ########################## Misc #############################
 #############################################################
 
+autoload -U zmv
+
 if [ -f "$HOME/.beleyenv/lite" ]; then
   source "$HOME/.beleyenv/brew/opt/fzf/shell/completion.zsh" 2> /dev/null
   source "$HOME/.beleyenv/brew/opt/fzf/shell/key-bindings.zsh"
