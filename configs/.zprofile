@@ -42,6 +42,9 @@ if type brew &>/dev/null; then
 
   # Ensure util-linux packages are in path (from homebrew)
   path=(/opt/homebrew/opt/util-linux/bin /opt/homebrew/opt/util-linux/sbin $path)
+  
+  # Ensure openjdk is in path (from homebrew)
+  path=(/opt/homebrew/opt/openjdk/bin $path)
 fi
 
 if type yarn &> /dev/null; then
