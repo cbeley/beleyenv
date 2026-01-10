@@ -107,4 +107,5 @@
 	"translate_tabs_to_spaces": true,
 	"show_git_status": false,
 	"index_files": true,
+	"update_check": false,
 }
