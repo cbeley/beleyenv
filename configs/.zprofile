@@ -75,6 +75,8 @@ path=($HOME/bin $HOME/.beleyenv/beleyenv/bin $HOME/.local/bin $HOME/.beleyenv/br
 # edge cases until I better understand the issue.
 path=($path /usr/local/bin)
 
+path=($path $HOME/.lmstudio/bin)
+
 export PATH
 
 # For one-off cases where I want to have custom shell completions.
