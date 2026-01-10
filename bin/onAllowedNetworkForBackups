@@ -22,9 +22,10 @@ mapfile -t allowUploadsSSIDs < <(
     ' "$localBeleyenvConfig" "$beleyenvConfig"
 )
 
-# This may stop working later. If it does, the solution may be to instead use
-# networksetup -getairportnetwork en0 and give location access to bash :/
-CURRENT_SSID=$(ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}')
+# The `ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}'`
+# trick stopped working in MacOS 15.6. Thanks Apple :/
+# This still works, but is much much slower.
+CURRENT_SSID=$(system_profiler SPAirPortDataType | awk '/Current Network/ {getline;$1=$1;print $0 | "tr -d ':'";exit}' | tr -d '[:space:]')
 
 # Check if CURRENT_SSID is in allowUploadsSSIDs
 for ssid in "${allowUploadsSSIDs[@]}"; do
