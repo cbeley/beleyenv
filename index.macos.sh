@@ -49,7 +49,7 @@ fi
 # Meant to mirror what is installed in apt-get in index.linux.sh as
 # much as possible (and as relevant for my macOS use-cases).
 brew install rsync zsh shellcheck imagemagick fd thefuck jq fzf bat htop yq pstree \
-    util-linux borgbackup ncdu hostess
+    util-linux borgbackup ncdu hostess rar
 brew install --cask gimp vlc docker
 
 # TODO: the fzf stuff should likely be split off into its own install file to 
@@ -90,7 +90,7 @@ brew install git-delta
 
 #### MacOS Specific Software and gui apps
 brew install terminal-notifier yt-dlp tlrc pnpm llm pipx
-brew install --cask rectangle-pro messenger alt-tab cameracontroller visual-studio-code \
+brew install --cask rectangle-pro alt-tab cameracontroller visual-studio-code \
     firefox google-chrome raycast transmission steam discord stats \
     jordanbaird-ice bettertouchtool iina phoenix-slides calibre \
     crystalfetch obsidian lm-studio
@@ -99,8 +99,9 @@ brew tap Bionus/imgbrd-grabber
 brew install imgbrd-grabber
 
 ## llm helper utilities
-pipx install files-to-prompt
+pipx install files-to-prompt streamdown
 llm install llm-cmd
+llm install llm-gemini
 
 # Firefox PWA
 brew install --cask firefoxpwa
