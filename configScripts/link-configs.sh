@@ -36,9 +36,9 @@ find "$(pwd)/configs/sublime" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} b
 ./print.sh "Sublime configs installed!"
 
 if [[ $OSTYPE == 'darwin'* ]]; then
-    find "$(pwd)/configs/LaunchAgents" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$HOME/Library/LaunchAgents/\$(basename \"{}\")\""
-    find "$(pwd)/configs/LaunchAgents" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "launchctl unload -w \"{}\" \"$HOME/Library/LaunchAgents/\$(basename \"{}\")\""
-    find "$(pwd)/configs/LaunchAgents" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "launchctl load -w \"{}\" \"$HOME/Library/LaunchAgents/\$(basename \"{}\")\""
+    find "$(pwd)/configs/LaunchAgents" -maxdepth 1 -mindepth 1 -name '*.plist' -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$HOME/Library/LaunchAgents/\$(basename \"{}\")\""
+    find "$(pwd)/configs/LaunchAgents" -maxdepth 1 -mindepth 1 -name '*.plist' -print0 | xargs -0 -I {} bash -c "launchctl unload -w \"{}\" \"$HOME/Library/LaunchAgents/\$(basename \"{}\")\""
+    find "$(pwd)/configs/LaunchAgents" -maxdepth 1 -mindepth 1 -name '*.plist' -print0 | xargs -0 -I {} bash -c "launchctl load -w \"{}\" \"$HOME/Library/LaunchAgents/\$(basename \"{}\")\""
     ./print.sh "LaunchAgents installed!"
 fi
 
