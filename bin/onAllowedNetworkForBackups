@@ -22,10 +22,13 @@ mapfile -t allowUploadsSSIDs < <(
     ' "$localBeleyenvConfig" "$beleyenvConfig"
 )
 
-# The `ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}'`
-# trick stopped working in MacOS 15.6. Thanks Apple :/
-# This still works, but is much much slower.
-CURRENT_SSID=$(system_profiler SPAirPortDataType | awk '/Current Network/ {getline;$1=$1;print $0 | "tr -d ':'";exit}' | tr -d '[:space:]')
+# PREREQUISITE: Create a macOS Shortcut to bypass Privacy/Location restrictions:
+# 1. Open 'Shortcuts.app' and create a new Shortcut named "GetSSID".
+# 2. Add Action: "Get Network Details" (set 'Details' to 'Wi-Fi Network Name').
+# 3. Add Action: "Stop and Output" (pass the 'Network Details' result to it).
+# 4. In System Settings > Privacy & Security > Location Services, ensure 'Shortcuts' is enabled.
+# 5. Usage: SSID=$(shortcuts run "GetSSID")
+CURRENT_SSID="$(shortcuts run GetMySSID)"
 
 # Check if CURRENT_SSID is in allowUploadsSSIDs
 for ssid in "${allowUploadsSSIDs[@]}"; do
