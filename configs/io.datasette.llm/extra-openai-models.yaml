@@ -1,7 +1,5 @@
-- model_id: lms-qwen2.5
-  model_name: qwen2.5-coder-32b-instruct-mlx
+- model_id: lms-qwen
+  model_name: qwen3-30b-a3b-instruct-2507-mlx
   api_base: "http://localhost:1234/v1/"
-- model_id: lms-mistral
-  model_name: mistral-small-3.1-24b-instruct-2503
-  vision: true
-  api_base: "http://localhost:1234/v1/"
+  can_stream: true
+  supports_schema: true

@@ -155,3 +155,7 @@ _fzf_compgen_dir() {
 #export FZF_CTRL_T_OPTS="
 #  --preview 'batcat -n --color=always {}'
 #  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/cbeley/.lmstudio/bin"
+# End of LM Studio CLI section
+
