@@ -41,7 +41,7 @@ eval "$(.beleyenv/brew/bin/brew shellenv)"
 ### Copy needed runtime beleyenv dependencies ###
 cp -R ../configs ../print.sh .beleyenv
 mkdir .beleyenv/configScripts
-cp ../configScripts/link-configs.sh .beleyenv/configScripts/
+cp ../configScripts/{link-configs,link-shell-config,link-lazygit-config,get-os-config-folder}.sh .beleyenv/configScripts/
 touch .beleyenv/lite
 
 ### Remove things we explicitly don't want in beleyenv lite ###

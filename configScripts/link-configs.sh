@@ -8,7 +8,7 @@ mkdir -p ~/.config/kitty
 ln -sf "$(pwd)/configs/kitty.conf" ~/.config/kitty/kitty.conf
 ./print.sh "Kitty config installed!"
 
-./link-shell-config.sh
+./configScripts/link-shell-config.sh
 
 # Todo Config
 # I have rarely used this. May delete. TODO ...lol.
@@ -49,7 +49,14 @@ mkdir -p "$sublimeMergeFolder/Packages/User"
 find "$(pwd)/configs/sublime-merge" -maxdepth 1 -mindepth 1 -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$sublimeMergeFolder/Packages/User/\$(basename \"{}\")\""
 ./print.sh "Sublime merge configs installed!"
 
-./link-lazygit-config.sh
+./configScripts/link-lazygit-config.sh
+
+# Claude Code global rules
+mkdir -p ~/.claude/rules
+
+# shellcheck disable=SC2016
+find "$(pwd)/configs/claude/rules" -maxdepth 1 -mindepth 1 -name '*.md' -print0 | xargs -0 -I {} bash -c "ln -sf \"{}\" \"$HOME/.claude/rules/\$(basename \"{}\")\""
+./print.sh "Claude Code rules installed!"
 
 if [[ $OSTYPE == 'darwin'* ]]; then
     ##### MacOS Specific Configs
